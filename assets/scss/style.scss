@@ -1,5 +1,8 @@
 @use "./base/variables";
 @use "./base/common";
+@use "./components/header";
+@use "./components/nav-menu";
+@use "./components/logo";
 
 @import "tailwindcss/index.css";
 
