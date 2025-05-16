@@ -1,0 +1,44 @@
+html,
+body {
+  color: #fff;
+  font-family: var(--albert-font), sans-serif;
+}
+
+* {
+  line-height: inherit;
+
+  a {
+    text-decoration: none;
+  }
+}
+
+strong {
+  font-weight: 600;
+}
+
+figure {
+  margin: 0;
+}
+
+.pm-wrap {
+  padding-left: 16px;
+  padding-right: 16px;
+
+  @media(min-width: 768px) {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+.pm-container {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: var(--container-w);
+}
+
+.pm-visually-hidden {
+  position: absolute;
+  z-index: -100;
+  clip: rect(0 0 0 0);
+  opacity: 0;
+}
