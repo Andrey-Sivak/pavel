@@ -1,0 +1,55 @@
+.is-root-container {
+	max-width: 100%;
+	overflow: hidden;
+	position: relative;
+	container-type: inline-size;
+	container-name: pm-main;
+}
+
+.is-root-container,
+.is-root-container * {
+	box-sizing: border-box;
+
+	.components-button {
+		height: auto !important;
+	}
+
+	.pm-admin-button {
+		background-color: var();
+		color: #fff;
+		border-radius: 8px;
+		font-size: 16px;
+		padding: 10px 16px;
+		display: block;
+		width: fit-content;
+		border: none;
+		height: auto;
+		justify-self: center;
+		align-self: center;
+
+		&:hover {
+			color: #fff !important;
+			background-color: rgba(#1B873B, .75) !important;
+		}
+	}
+}
+
+.image-button {
+	padding: 0;
+}
+
+.pm-remove-button-cross {
+	position: absolute;
+	z-index: 100;
+	left: auto;
+	right: 5px;
+	top: 5px;
+	width: 15px;
+	height: 15px;
+	cursor: pointer;
+
+	svg {
+		display: block;
+		max-width: 100%;
+	}
+}
