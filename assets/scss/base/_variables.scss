@@ -1,0 +1,9 @@
+:root {
+  --albert-font: 'Albert Sans';
+  --container-w: 1434px;
+}
+
+@theme {
+  --font-albert: var(--albert-font), sans-serif;
+  --container-w: var(--container-w);
+}
