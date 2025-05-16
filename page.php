@@ -7,7 +7,10 @@
  * @package Pavel
  */
 
-declare(strict_types=1);?>
+declare(strict_types=1);
+
+get_header();
+?>
 
 	<main class="site-main">
 		<?php
