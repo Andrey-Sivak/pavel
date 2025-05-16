@@ -1,9 +1,34 @@
 :root {
   --albert-font: 'Albert Sans';
   --container-w: 1434px;
+
+	/* Colors */
+	--color-dark-blue: #00171F;
+	--color-bright-blue: #00A8E8;
+	--color-gray: #68757A;
+	--color-nearly-black: #141416;
+	--color-medium-blue: #007EA7;
+	--color-deep-blue: #00477A;
+	--color-white: #FFFFFF;
+	--color-light-blue: #CBF1FF;
+
+	/* Gradients */
+	--gradient-blue: linear-gradient(to right, var(--color-medium-blue) 0%, var(--color-deep-blue) 100%);
+	--gradient-light: linear-gradient(to right, var(--color-white) 0%, var(--color-light-blue) 100%);
 }
 
 @theme {
   --font-albert: var(--albert-font), sans-serif;
   --container-w: var(--container-w);
+
+	/* Colors */
+	--color-primary: var(--color-bright-blue);
+	--color-secondary: var(--color-dark-blue);
+	--color-text: var(--color-nearly-black);
+	--color-text-light: var(--color-gray);
+
+	/* Gradients */
+	--gradient-primary: var(--gradient-blue);
+	--gradient-secondary: var(--gradient-light);
+
 }
