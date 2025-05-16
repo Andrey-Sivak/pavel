@@ -1,0 +1,67 @@
+{
+    "name": "pavel",
+    "version": "1.0.0",
+    "description": "Custom theme for personal Pavel Mikulenka website",
+    "main": "gulpfile.js",
+    "type": "module",
+    "author": "Andrey-Sivak && Contributors",
+    "license": "GPL-2.0-or-later",
+    "keywords": [
+        "WordPress",
+        "Theme"
+    ],
+    "homepage": "https://github.com/Andrey-Sivak/pavel#readme",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Andrey-Sivak/pavel.git"
+    },
+    "bugs": {
+        "url": "https://github.com/Andrey-Sivak/pavel/issues"
+    },
+    "scripts": {
+        "dev": "gulp",
+        "build": "gulp build --build",
+      "guten-build": "wp-scripts build --webpack-src-dir=guten/src/blocks --output-path=guten/build",
+      "guten-start": "wp-scripts start --webpack-src-dir=guten/src/blocks --output-path=guten/build"
+    },
+    "devDependencies": {
+        "@babel/core": "^7.27.1",
+        "@babel/eslint-parser": "^7.27.1",
+        "@babel/preset-env": "^7.27.2",
+        "@tailwindcss/postcss": "^4.1.7",
+        "@wordpress/scripts": "^30.16.0",
+        "autoprefixer": "^10.4.21",
+        "babel-loader": "^10.0.0",
+        "css-loader": "^7.1.2",
+        "cssnano": "^7.0.7",
+        "del": "^8.0.0",
+        "eslint": "^9.26.0",
+        "eslint-plugin-prettier": "^5.4.0",
+        "eslint-webpack-plugin": "^5.0.1",
+        "gulp": "^5.0.0",
+        "gulp-babel": "^8.0.0",
+        "gulp-if": "^3.0.0",
+        "gulp-newer": "^1.4.0",
+        "gulp-notify": "^5.0.0",
+        "gulp-plumber": "^1.2.1",
+        "gulp-postcss": "^10.0.0",
+        "gulp-rename": "^2.0.0",
+        "gulp-sass": "^6.0.1",
+        "gulp-util": "^3.0.8",
+        "node-sass": "^9.0.0",
+        "pkginfo": "^0.4.1",
+        "postcss": "^8.5.3",
+        "postcss-import": "^16.1.0",
+        "prettier": "^3.5.3",
+        "sass": "^1.89.0",
+        "sass-loader": "^16.0.5",
+        "standard-version": "^9.5.0",
+        "style-loader": "^4.0.0",
+        "tailwindcss": "^4.1.7",
+        "terser-webpack-plugin": "^5.3.14",
+        "webpack": "^5.99.8",
+        "webpack-stream": "^7.0.0",
+        "gulp-clone": "^2.0.1",
+        "webpack-manifest-plugin": "^5.0.1"
+    }
+}

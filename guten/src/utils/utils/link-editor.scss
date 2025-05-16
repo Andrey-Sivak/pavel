@@ -1,0 +1,49 @@
+.admin {
+  &_link-wrapper {
+    position: relative;
+    margin-bottom: 5px;
+  }
+
+  &_menu-item {
+    margin: 0;
+    padding: 5px;
+  }
+
+  &_link-controls {
+    transition: opacity 0.2s ease-in-out;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    background: #fff;
+    padding: 5px;
+    border: 1px solid #ccc;
+    width: 300px;
+    display: flex;
+    align-items: flex-start;
+    column-gap: 10px;
+
+    * {
+      color: #000!important;
+    }
+  }
+
+  &_link-url {
+    margin-bottom: 5px;
+  }
+
+  &_link-target {
+    margin: 0;
+  }
+
+  &_link-save {
+    padding: 6px 14px!important;
+    justify-self: start!important;
+    align-self: start!important;
+
+    svg {
+      fill: #fff;
+    }
+  }
+}
