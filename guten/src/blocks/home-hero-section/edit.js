@@ -4,19 +4,15 @@ import {
 	CardBody,
 	CardHeader,
 	__experimentalVStack as VStack,
-	__experimentalSpacer as Spacer,
 } from '@wordpress/components';
-import { Button } from '@wordpress/components';
 import './editor.scss';
-import { Fragment, useState } from '@wordpress/element';
+import { Fragment } from '@wordpress/element';
 import ImageUploader from '../../utils/ImageUploader.js';
 import LinkEditor from '../../utils/LinkEditor.js';
 
 const Edit = (props) => {
 	const { attributes, setAttributes } = props;
 	const { title, subtitle, button, image } = attributes;
-
-	const [isButtonFocus, setIsButtonFocus] = useState(false);
 
 	const baseClass = 'wp-block-pavel-home-hero-section';
 
