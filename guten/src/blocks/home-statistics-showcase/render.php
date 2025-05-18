@@ -35,7 +35,7 @@ if (empty($stats)) {
 
 				</div>
 				<div class="<?php echo esc_attr($base_class . '__item-content'); ?>">
-					<div class="<?php echo esc_attr($base_class . '__number'); ?>">
+					<div class="<?php echo esc_attr($base_class . '__number pm-section-heading'); ?>">
 						<?php echo wp_kses_post($stat['number']); ?>
 					</div>
 					<?php if (!empty($stat['unit'])) : ?>
