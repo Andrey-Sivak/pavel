@@ -1,8 +1,9 @@
 .pm-header {
 	background-image: linear-gradient(to top, rgba(#003459, 0) 0%, #003459 100%);
 
-	&__button {
-		background-image: linear-gradient(134deg, #00A8E8 0%, #D0F1FD 40%, #fff 50%, #D0F1FD 60%, #00A8E8 100%);
+	.pm-header__button {
+		font-size: 17px;
+		line-height: 1.29;
 	}
 }
 

@@ -42,9 +42,9 @@ $pavel_body_class = 'bg-secondary';
 			}
 			?>
 
-			<a href="#contact" class="pm-header__button text-secondary text-[17px] leading-[1.29] py-4 px-10.5 rounded-full transition-all duration-300 flex items-center gap-2.5">
+			<a href="#contact" class="pm-button pm-header__button">
 				<span>Let’s connect</span>
-				<span class="rotate-45">
+				<span class="pm-button__arrow">
 					<?php get_template_part( '/vector-images/button-arrow' ); ?>
 				</span>
 			</a>
