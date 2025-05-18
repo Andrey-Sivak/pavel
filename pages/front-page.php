@@ -8,8 +8,8 @@
 get_header();
 ?>
 
-<div class="relative z-20 overflow-x-hidden">
+<main class="relative z-20 overflow-x-hidden">
 	<?php the_content(); ?>
-</div>
+</main>
 
 <?php get_footer(); ?>
