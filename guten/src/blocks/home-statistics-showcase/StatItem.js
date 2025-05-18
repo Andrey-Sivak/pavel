@@ -11,6 +11,7 @@ const StatItem = ({ item, onChange, onRemove }) => {
 	return (
 		<Panel>
 			<PanelBody
+				initialOpen={false}
 				title={
 					item.number
 						? `${item.number} ${item.unit} - ${item.description.substring(0, 30)}...`
