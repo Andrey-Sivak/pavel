@@ -117,3 +117,5 @@ add_action('enqueue_block_assets', function () {
 	wp_enqueue_style('pavel-admin-style', get_template_directory_uri() . '/dist/css/admin-styles.min.css', array(), PAVEL_VERSION);
 	wp_enqueue_style('fonts-style', get_template_directory_uri() . '/fonts/fonts.css', array(), PAVEL_VERSION);
 });
+
+require get_template_directory() . '/guten/guten.php';
