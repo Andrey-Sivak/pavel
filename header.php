@@ -10,7 +10,7 @@
 
 declare(strict_types=1);
 
-$pavel_body_class = 'pt-27.5';
+$pavel_body_class = 'bg-secondary';
 ?>
 
 <!doctype html>
