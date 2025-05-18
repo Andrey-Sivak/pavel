@@ -21,6 +21,7 @@ function pavel_custom_gutenberg_block_init(): void {
 	register_block_type(__DIR__ . '/build/test-block');
 	register_block_type(__DIR__ . '/build/home-hero-section');
 	register_block_type(__DIR__ . '/build/home-statistics-showcase');
+	register_block_type(__DIR__ . '/build/home-services-showcase');
 }
 
 add_action( 'init', 'pavel_custom_gutenberg_block_init' );
