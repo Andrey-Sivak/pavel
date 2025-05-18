@@ -39,24 +39,12 @@ const Edit = (props) => {
 			<div {...blockProps}>
 				<Card>
 					<CardHeader>
-						<h4
-							style={{
-								margin: 0,
-								fontSize: '1.25rem',
-								fontWeight: 'bold',
-							}}
-						>
-							Hero Section
-						</h4>
+						<h4 className="pm-admin-section-title">Hero Section</h4>
 					</CardHeader>
 					<CardBody>
-						<VStack>
-							<div style={{ marginBottom: '10px' }}>
-								<p
-									style={{
-										fontSize: '14px',
-									}}
-								>
+						<VStack style={{ gap: 20 }}>
+							<div>
+								<p className="pm-admin-label-text">
 									Section Title:
 								</p>
 								<RichText
@@ -69,12 +57,8 @@ const Edit = (props) => {
 									placeholder="Input section title..."
 								/>
 							</div>
-							<div style={{ marginBottom: '10px' }}>
-								<p
-									style={{
-										fontSize: '14px',
-									}}
-								>
+							<div>
+								<p className="pm-admin-label-text">
 									Short Description:
 								</p>
 								<RichText
@@ -87,14 +71,8 @@ const Edit = (props) => {
 									placeholder="Input short description..."
 								/>
 							</div>
-							<div style={{ marginBottom: '10px' }}>
-								<p
-									style={{
-										fontSize: '14px',
-									}}
-								>
-									Button:
-								</p>
+							<div>
+								<p className="pm-admin-label-text">Button:</p>
 								<LinkEditor
 									url={button.url}
 									target={button.target}
@@ -124,14 +102,8 @@ const Edit = (props) => {
 									/>
 								</LinkEditor>
 							</div>
-							<div className="">
-								<p
-									style={{
-										fontSize: '14px',
-									}}
-								>
-									Image:
-								</p>
+							<div>
+								<p className="pm-admin-label-text">Image:</p>
 								<ImageUploader
 									image={image.url}
 									onSelect={onSelectImage}
