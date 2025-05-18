@@ -1,3 +1,5 @@
+@use "./base/variables";
+
 .is-root-container {
 	max-width: 100%;
 	overflow: hidden;
@@ -15,7 +17,8 @@
 	}
 
 	.pm-admin-button {
-		background-color: var();
+		background-color: var(--color-bright-blue);
+		transition: all ease-in-out .3s;
 		color: #fff;
 		border-radius: 8px;
 		font-size: 16px;
@@ -29,7 +32,7 @@
 
 		&:hover {
 			color: #fff !important;
-			background-color: rgba(#1B873B, .75) !important;
+			background-color: var(--color-medium-blue) !important;
 		}
 	}
 }
