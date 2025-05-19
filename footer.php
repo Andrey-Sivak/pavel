@@ -20,7 +20,7 @@ declare(strict_types=1);
 				wp_nav_menu(
 					array(
 						'theme_location' => 'menu-1',
-						'menu_id'        => 'primary-menu',
+						'menu_id'        => 'primary-menu-footer',
 						'container'      => false,
 						'menu_class'     => 'pm-nav-menu flex items-center',
 						'fallback_cb'    => false,
