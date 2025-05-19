@@ -9,10 +9,7 @@ class Header {
 
 		this.boundScrollHandler = this.scrollHandler.bind(this);
 
-		const origin = new URL(window.location.href).origin;
-		this.menuLinks = this.headerEl.querySelectorAll(
-			`#primary-menu a[href^="${origin}#"], #primary-menu a[href^="#"]`,
-		);
+		this.menu = this.headerEl.querySelector('#primary-menu');
 
 		this.contactUsBtn = document.querySelector('.pm-header__button');
 		// this.mobBurgerBtn = document.querySelector('.mob-burger-btn');
@@ -54,15 +51,11 @@ class Header {
 
 		// window.addEventListener('click', this.closeLangsSwitcher.bind(this));
 
-		this.menuLinks.forEach((link) => {
-			link.addEventListener('click', (e) => {
-				scrollToElement(e);
-
-				if (document.body.classList.contains('mob-menu-active')) {
-					document.body.classList.remove('mob-menu-active');
-				}
-			});
-		});
+		if (this.menu) {
+			import('./NavMenu.js').then(
+				({ default: NavMenu }) => new NavMenu(this.menu),
+			);
+		}
 	}
 
 	isHeaderHide(scrolled) {
