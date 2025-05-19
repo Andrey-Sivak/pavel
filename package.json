@@ -21,8 +21,8 @@
     "scripts": {
         "dev": "gulp",
         "build": "gulp build --build",
-      "guten-build": "wp-scripts build --webpack-src-dir=guten/src/blocks --output-path=guten/build",
-      "guten-start": "wp-scripts start --webpack-src-dir=guten/src/blocks --output-path=guten/build"
+        "guten-build": "wp-scripts build --webpack-src-dir=guten/src/blocks --output-path=guten/build",
+        "guten-start": "wp-scripts start --webpack-src-dir=guten/src/blocks --output-path=guten/build"
     },
     "devDependencies": {
         "@babel/core": "^7.27.1",
@@ -40,6 +40,7 @@
         "eslint-webpack-plugin": "^5.0.1",
         "gulp": "^5.0.0",
         "gulp-babel": "^8.0.0",
+        "gulp-clone": "^2.0.1",
         "gulp-if": "^3.0.0",
         "gulp-newer": "^1.4.0",
         "gulp-notify": "^5.0.0",
@@ -57,11 +58,11 @@
         "sass-loader": "^16.0.5",
         "standard-version": "^9.5.0",
         "style-loader": "^4.0.0",
+        "swiper": "^11.2.6",
         "tailwindcss": "^4.1.7",
         "terser-webpack-plugin": "^5.3.14",
         "webpack": "^5.99.8",
-        "webpack-stream": "^7.0.0",
-        "gulp-clone": "^2.0.1",
-        "webpack-manifest-plugin": "^5.0.1"
+        "webpack-manifest-plugin": "^5.0.1",
+        "webpack-stream": "^7.0.0"
     }
 }
