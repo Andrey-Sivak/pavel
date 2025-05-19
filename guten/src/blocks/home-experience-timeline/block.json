@@ -1,0 +1,63 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "pavel/home-experience-timeline",
+  "version": "0.1.0",
+  "title": "Experience Timeline",
+  "category": "widgets",
+  "description": "Display professional experience as an interactive timeline with company logos and descriptions.",
+  "attributes": {
+    "heading": {
+      "type": "string",
+      "default": ""
+    },
+    "subheading": {
+      "type": "string",
+      "default": ""
+    },
+    "button": {
+      "type": "object",
+      "default":  {
+        "text": "",
+        "url": "",
+        "target": ""
+      }
+    },
+    "experiences": {
+      "type": "array",
+      "default": [],
+      "items": {
+        "type": "object",
+        "default": {
+          "logo": {
+            "id": null,
+            "url": ""
+          },
+          "timeline": "",
+          "description": ""
+        }
+      }
+    }
+  },
+  "supports": {
+    "html": true,
+    "typography": {
+      "fontSize": false,
+      "lineHeight": false
+    },
+    "spacing": {
+      "padding": false,
+      "margin": false
+    },
+    "color": {
+      "background": false,
+      "gradients": false,
+      "text": false
+    }
+  },
+  "textdomain": "pm",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "render": "file:./render.php"
+}
