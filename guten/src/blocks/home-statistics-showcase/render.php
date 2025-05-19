@@ -1,8 +1,12 @@
 <?php
 $stats = $attributes['stats'] ?? [];
+$block_id = $attributes['blockId'] ?? '';
+
 $wrapper_attributes = get_block_wrapper_attributes([
-	'class' => 'pm-wrap'
+	'class' => 'pm-wrap',
+	'id' => !empty($block_id) ? esc_attr($block_id) : null,
 ]);
+
 $base_class = 'wp-block-pavel-home-statistics-showcase';
 
 if (empty($stats)) {

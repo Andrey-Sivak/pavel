@@ -10,11 +10,18 @@ import { useBlockProps } from '@wordpress/block-editor';
 import { Fragment } from '@wordpress/element';
 import ServiceItem from './ServiceItem.js';
 import './editor.scss';
+import BlockIdInspectorPanel from '../../common-components/BlockIdInspectorPanel.js';
 
 const Edit = (props) => {
 	const { attributes, setAttributes } = props;
-	const { heading, subheading, description, servicesLabel, services } =
-		attributes;
+	const {
+		heading,
+		subheading,
+		description,
+		blockId,
+		servicesLabel,
+		services,
+	} = attributes;
 
 	const blockProps = useBlockProps({
 		className: 'wp-block-pavel-home-services-showcase',
@@ -46,6 +53,10 @@ const Edit = (props) => {
 
 	return (
 		<Fragment>
+			<BlockIdInspectorPanel
+				setAttributes={setAttributes}
+				blockId={blockId}
+			/>
 			<div {...blockProps}>
 				<Card>
 					<CardHeader>

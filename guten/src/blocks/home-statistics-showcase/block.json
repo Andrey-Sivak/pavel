@@ -7,6 +7,10 @@
   "category": "widgets",
   "description": "Display professional statistics and achievements with numbers and descriptions.",
   "attributes": {
+    "blockId": {
+      "type": "string",
+      "default": ""
+    },
     "stats": {
       "type": "array",
       "default": [],

@@ -3,6 +3,7 @@ $heading = $attributes['heading'] ?? '';
 $subheading = $attributes['subheading'] ?? '';
 $button = $attributes['button'] ?? '';
 $experiences = $attributes['experiences'] ?? [];
+$block_id = $attributes['blockId'] ?? '';
 
 if (!empty($experiences)) {
 	$experiences = array_reverse($experiences);
@@ -11,6 +12,7 @@ if (!empty($experiences)) {
 $wrapper_attributes = get_block_wrapper_attributes([
 	'class' => 'pm-wrap'
 ]);
+
 $base_class = 'wp-block-pavel-home-experience-timeline';
 ?>
 
@@ -22,7 +24,10 @@ $base_class = 'wp-block-pavel-home-experience-timeline';
 				fill="#00171F"/>
 		</svg>
 	</div>
-	<div class="<?php echo esc_attr($base_class . '__content pm-container'); ?>">
+	<div
+		class="<?php echo esc_attr($base_class . '__content pm-container'); ?>"
+		id="<?php echo !empty($block_id) ? esc_attr($block_id) : null; ?>"
+	>
 
 		<?php if (!empty($heading)) : ?>
 			<h2 class="<?php echo esc_attr($base_class . '__heading pm-section-heading'); ?>">

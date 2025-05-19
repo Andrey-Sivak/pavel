@@ -7,6 +7,10 @@
   "category": "widgets",
   "description": "Display client testimonials with ratings, quotes, and attribution information.",
   "attributes": {
+    "blockId": {
+      "type": "string",
+      "default": ""
+    },
     "heading": {
       "type": "string",
       "default": ""

@@ -7,6 +7,10 @@
   "category": "widgets",
   "description": "Display professional services with heading, introduction, and service cards.",
   "attributes": {
+    "blockId": {
+      "type": "string",
+      "default": ""
+    },
     "heading": {
       "type": "string",
       "default": ""

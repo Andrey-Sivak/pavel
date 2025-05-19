@@ -9,10 +9,11 @@ import { useBlockProps } from '@wordpress/block-editor';
 import { Fragment } from '@wordpress/element';
 import StatItem from './StatItem.js';
 import './editor.scss';
+import BlockIdInspectorPanel from '../../common-components/BlockIdInspectorPanel.js';
 
 const Edit = (props) => {
 	const { attributes, setAttributes } = props;
-	const { stats } = attributes;
+	const { stats, blockId } = attributes;
 
 	const blockProps = useBlockProps({
 		className: 'wp-block-pavel-home-statistics-showcase',
@@ -45,6 +46,10 @@ const Edit = (props) => {
 
 	return (
 		<Fragment>
+			<BlockIdInspectorPanel
+				setAttributes={setAttributes}
+				blockId={blockId}
+			/>
 			<div {...blockProps}>
 				<Card>
 					<CardHeader>

@@ -10,10 +10,11 @@ import { useBlockProps } from '@wordpress/block-editor';
 import { Fragment } from '@wordpress/element';
 import TestimonialItem from './TestimonialItem.js';
 import './editor.scss';
+import BlockIdInspectorPanel from '../../common-components/BlockIdInspectorPanel.js';
 
 const Edit = (props) => {
 	const { attributes, setAttributes } = props;
-	const { heading, testimonials } = attributes;
+	const { heading, testimonials, blockId } = attributes;
 
 	const blockProps = useBlockProps({
 		className: 'wp-block-pavel-home-testimonials-showcase',
@@ -47,6 +48,10 @@ const Edit = (props) => {
 
 	return (
 		<Fragment>
+			<BlockIdInspectorPanel
+				setAttributes={setAttributes}
+				blockId={blockId}
+			/>
 			<div {...blockProps}>
 				<Card>
 					<CardHeader>

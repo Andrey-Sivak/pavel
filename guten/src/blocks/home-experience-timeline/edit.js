@@ -11,10 +11,11 @@ import { Fragment } from '@wordpress/element';
 import ExperienceItem from './ExperienceItem.js';
 import './editor.scss';
 import LinkEditor from '../../utils/LinkEditor.js';
+import BlockIdInspectorPanel from '../../common-components/BlockIdInspectorPanel.js';
 
 const Edit = (props) => {
 	const { attributes, setAttributes } = props;
-	const { heading, subheading, button, experiences } = attributes;
+	const { heading, subheading, button, experiences, blockId } = attributes;
 
 	const blockProps = useBlockProps({
 		className: 'wp-block-pavel-home-experience-timeline',
@@ -59,6 +60,10 @@ const Edit = (props) => {
 
 	return (
 		<Fragment>
+			<BlockIdInspectorPanel
+				setAttributes={setAttributes}
+				blockId={blockId}
+			/>
 			<div {...blockProps}>
 				<Card>
 					<CardHeader>

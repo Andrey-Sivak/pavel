@@ -7,6 +7,10 @@
   "category": "widgets",
   "description": "Display professional experience as an interactive timeline with company logos and descriptions.",
   "attributes": {
+    "blockId": {
+      "type": "string",
+      "default": ""
+    },
     "heading": {
       "type": "string",
       "default": ""
