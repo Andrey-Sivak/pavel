@@ -42,11 +42,13 @@ $pavel_body_class = 'bg-secondary';
 			}
 			?>
 
-			<a href="#contact" class="pm-button pm-header__button">
-				<span>Let’s connect</span>
-				<span class="pm-button__arrow">
-					<?php get_template_part( '/vector-images/button-arrow' ); ?>
-				</span>
-			</a>
+			<div class="flex items-center gap-2">
+				<a href="#contact" class="pm-button pm-header__button">
+					<span>Let’s connect</span>
+					<span class="pm-button__arrow"><?php get_template_part( '/vector-images/button-arrow' ); ?></span>
+				</a>
+
+				<?php get_template_part('/template-parts/language-switcher'); ?>
+			</div>
 		</div>
 	</header>

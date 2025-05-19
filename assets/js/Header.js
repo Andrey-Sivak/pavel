@@ -14,12 +14,7 @@ class Header {
 		this.contactUsBtn = document.querySelector('.pm-header__button');
 		// this.mobBurgerBtn = document.querySelector('.mob-burger-btn');
 		// this.boundDisplayMobMenuHandler = this.displayMobMenu.bind(this);
-		// this.langs = document.querySelector(
-		// 	'.wp-block-journeyo-hero-section__header-langs',
-		// );
-		// this.activeLang = document.querySelector(
-		// 	'.wp-block-journeyo-hero-section__header-langs-active',
-		// );
+		this.languageSwitcher = document.querySelector('.pm-languages');
 
 		this.init();
 	}
@@ -42,18 +37,16 @@ class Header {
 			);
 		}
 
-		// if (this.activeLang) {
-		// 	this.activeLang.addEventListener(
-		// 		'click',
-		// 		this.displayLangsSwitcher.bind(this),
-		// 	);
-		// }
-
-		// window.addEventListener('click', this.closeLangsSwitcher.bind(this));
-
 		if (this.menu) {
 			import('./NavMenu.js').then(
 				({ default: NavMenu }) => new NavMenu(this.menu),
+			);
+		}
+
+		if (this.languageSwitcher) {
+			import('./LanguageSwitcher.js').then(
+				({ default: LanguageSwitcher }) =>
+					new LanguageSwitcher(this.languageSwitcher),
 			);
 		}
 	}
@@ -72,9 +65,9 @@ class Header {
 		if (this.isHeaderHide(scrolled)) {
 			this.headerEl.classList.add('pm-out');
 
-			// if (this.langs.classList.contains('active')) {
-			// 	this.langs.classList.remove('active');
-			// }
+			if (this.languageSwitcher.classList.contains('active')) {
+				this.languageSwitcher.classList.remove('active');
+			}
 		} else {
 			this.headerEl.classList.remove('pm-out');
 		}
@@ -97,10 +90,6 @@ class Header {
 	// );
 	// }
 
-	// displayLangsSwitcher() {
-	// this.langs.classList.toggle('active');
-	// }
-
 	scrollToContactSection(e) {
 		scrollToElement(e);
 
@@ -108,22 +97,6 @@ class Header {
 			document.body.classList.remove('mob-menu-active');
 		}
 	}
-
-	// closeLangsSwitcher(e) {
-	// 	if (
-	// 		e.target.classList.contains(
-	// 			'wp-block-journeyo-hero-section__header-langs-active',
-	// 		) ||
-	// 		e.target.classList.contains('wpml-flag') ||
-	// 		e.target.classList.contains('wpml-lang-code')
-	// 	) {
-	// 		return;
-	// 	}
-	//
-	// if (this.langs.classList.contains('active')) {
-	// 	this.langs.classList.remove('active');
-	// }
-	// }
 }
 
 export default Header;
