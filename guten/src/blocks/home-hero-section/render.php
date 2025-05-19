@@ -66,7 +66,7 @@ if (!function_exists('get_bg_svg')) {
 					itemscope
 					itemtype="https://schema.org/ContactPoint"
 				>
-					<span>Let’s connect</span>
+					<span><?php echo esc_html($button['text']); ?></span>
 					<span class="pm-button__arrow"><?php get_template_part( '/vector-images/button-arrow' ); ?></span>
 					<meta itemprop="contactType" content="customer support">
 				</a>
