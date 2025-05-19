@@ -1,6 +1,15 @@
 .pm-header {
 	background-image: linear-gradient(to top, rgba(#003459, 0) 0%, #003459 100%);
 
+	&.pm-scrolled {
+		box-shadow: 0 0 15px 2px rgba(0, 0, 0, .25);
+		background-color: var(--color-deep-blue);
+	}
+
+	&.pm-out {
+		transform: translateY(-130%);
+	}
+
 	.pm-header__button {
 		font-size: 17px;
 		line-height: 1.29;

@@ -24,7 +24,7 @@ $pavel_body_class = 'bg-secondary';
 </head>
 <body <?php body_class( $pavel_body_class ); ?>>
 <?php wp_body_open(); ?>
-	<header id="pm-header" class="pm-header pm-wrap fixed top-0 left-0 w-full z-50 py-6.5 transition-all duration-300 bg-">
+	<header id="pm-header" class="pm-header pm-wrap fixed top-0 left-0 w-full z-50 pt-6.5 pb-5 transition-all duration-300">
 		<div class="pm-container flex items-center justify-between">
 			<?php get_template_part( '/template-parts/logo' ); ?>
 
