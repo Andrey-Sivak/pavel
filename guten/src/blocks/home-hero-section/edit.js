@@ -1,8 +1,9 @@
-import { useBlockProps, RichText } from '@wordpress/block-editor';
+import { useBlockProps } from '@wordpress/block-editor';
 import {
 	Card,
 	CardBody,
 	CardHeader,
+	TextControl,
 	__experimentalVStack as VStack,
 } from '@wordpress/components';
 import './editor.scss';
@@ -30,6 +31,15 @@ const Edit = (props) => {
 		});
 	};
 
+	const uprateButtonText = (newButtonText) => {
+		setAttributes({
+			button: {
+				...button,
+				text: newButtonText,
+			},
+		});
+	};
+
 	return (
 		<Fragment>
 			<div {...blockProps}>
@@ -39,65 +49,41 @@ const Edit = (props) => {
 					</CardHeader>
 					<CardBody>
 						<VStack style={{ gap: 20 }}>
-							<div>
-								<p className="pm-admin-label-text">
-									Section Title:
-								</p>
-								<RichText
-									tagName="p"
-									className={``}
-									value={title}
-									onChange={(newTitle) =>
-										setAttributes({ title: newTitle })
-									}
-									placeholder="Input section title..."
+							<TextControl
+								label="Section Title:"
+								value={title}
+								onChange={(newTitle) =>
+									setAttributes({ title: newTitle })
+								}
+								placeholder="Input section title..."
+							/>
+							<TextControl
+								label="Short Description:"
+								value={subtitle}
+								onChange={(newSubtitle) =>
+									setAttributes({ subtitle: newSubtitle })
+								}
+								placeholder="Input short description..."
+							/>
+							<LinkEditor
+								url={button.url}
+								target={button.target}
+								onChange={(newValue) =>
+									setAttributes({
+										button: {
+											...newValue,
+											text: button.text,
+										},
+									})
+								}
+							>
+								<TextControl
+									label="Button text"
+									value={button.text}
+									onChange={uprateButtonText}
+									placeholder="Button text..."
 								/>
-							</div>
-							<div>
-								<p className="pm-admin-label-text">
-									Short Description:
-								</p>
-								<RichText
-									tagName="p"
-									className={``}
-									value={subtitle}
-									onChange={(newSubtitle) =>
-										setAttributes({ subtitle: newSubtitle })
-									}
-									placeholder="Input short description..."
-								/>
-							</div>
-							<div>
-								<p className="pm-admin-label-text">Button:</p>
-								<LinkEditor
-									url={button.url}
-									target={button.target}
-									onChange={(newValue) =>
-										setAttributes({
-											button: {
-												...newValue,
-												text: button.text,
-											},
-										})
-									}
-								>
-									<RichText
-										tagName="span"
-										className={`${baseClass}__button `}
-										value={button.text}
-										onChange={(newButtonText) =>
-											setAttributes({
-												button: {
-													...button,
-													text: newButtonText,
-												},
-											})
-										}
-										placeholder="Button text..."
-										allowedFormats={[]}
-									/>
-								</LinkEditor>
-							</div>
+							</LinkEditor>
 							<div>
 								<p className="pm-admin-label-text">Image:</p>
 								<ImageUploader

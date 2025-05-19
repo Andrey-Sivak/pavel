@@ -1,11 +1,12 @@
 import {
 	Card,
+	TextControl,
 	CardBody,
 	CardHeader,
 	Button,
 	__experimentalVStack as VStack,
 } from '@wordpress/components';
-import { useBlockProps, RichText } from '@wordpress/block-editor';
+import { useBlockProps } from '@wordpress/block-editor';
 import { Fragment } from '@wordpress/element';
 import ServiceItem from './ServiceItem.js';
 import './editor.scss';
@@ -54,68 +55,46 @@ const Edit = (props) => {
 					</CardHeader>
 					<CardBody>
 						<VStack style={{ gap: 20 }}>
-							<div>
-								<p className="pm-admin-label-text">
-									Main Heading:
-								</p>
-								<RichText
-									tagName="p"
-									value={heading}
-									onChange={(newHeading) =>
-										setAttributes({ heading: newHeading })
-									}
-									placeholder="Input main heading..."
-								/>
-							</div>
-							<div>
-								<p className="pm-admin-label-text">
-									Subheading:
-								</p>
-								<RichText
-									tagName="p"
-									value={subheading}
-									onChange={(newSubheading) =>
-										setAttributes({
-											subheading: newSubheading,
-										})
-									}
-									placeholder="Input subheading..."
-								/>
-							</div>
-							<div>
-								<p className="pm-admin-label-text">
-									Description:
-								</p>
-								<RichText
-									tagName="p"
-									value={description}
-									onChange={(newDescription) =>
-										setAttributes({
-											description: newDescription,
-										})
-									}
-									placeholder="Input description..."
-								/>
-							</div>
-							<div>
-								<p className="pm-admin-label-text">
-									Services Label:
-								</p>
-								<RichText
-									tagName="p"
-									value={servicesLabel}
-									onChange={(newServicesLabel) =>
-										setAttributes({
-											servicesLabel: newServicesLabel,
-										})
-									}
-									placeholder="Input services label (e.g. 'My Services')..."
-								/>
-							</div>
+							<TextControl
+								label="Section Heading:"
+								value={heading}
+								onChange={(newHeading) =>
+									setAttributes({ heading: newHeading })
+								}
+								placeholder="Input section heading..."
+							/>
+							<TextControl
+								label="Section Subheading:"
+								value={subheading}
+								onChange={(newSubheading) =>
+									setAttributes({
+										subheading: newSubheading,
+									})
+								}
+								placeholder="Input subheading..."
+							/>
+							<TextControl
+								label="Description:"
+								value={description}
+								onChange={(newDescription) =>
+									setAttributes({
+										description: newDescription,
+									})
+								}
+								placeholder="Input description..."
+							/>
+							<TextControl
+								label="Services Label:"
+								value={servicesLabel}
+								onChange={(newServicesLabel) =>
+									setAttributes({
+										servicesLabel: newServicesLabel,
+									})
+								}
+								placeholder="Input services label (e.g. 'My Services')..."
+							/>
 
-							<h4 className="pm-admin-subsection-title">
-								Services
-							</h4>
+							<h4 className="pm-admin-section-title">Services</h4>
 
 							{services.length > 0 ? (
 								<div className="services-items">

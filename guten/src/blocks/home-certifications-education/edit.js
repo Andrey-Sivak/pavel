@@ -3,9 +3,10 @@ import {
 	CardBody,
 	CardHeader,
 	Button,
+	TextControl,
 	__experimentalVStack as VStack,
 } from '@wordpress/components';
-import { useBlockProps, RichText } from '@wordpress/block-editor';
+import { useBlockProps } from '@wordpress/block-editor';
 import { Fragment } from '@wordpress/element';
 import CredentialItem from './CredentialItem.js';
 import './editor.scss';
@@ -59,23 +60,16 @@ const Edit = (props) => {
 					</CardHeader>
 					<CardBody>
 						<VStack style={{ gap: 20 }}>
-							<div>
-								<p className="pm-admin-label-text">
-									Section Heading:
-								</p>
-								<RichText
-									tagName="p"
-									value={heading}
-									onChange={(newHeading) =>
-										setAttributes({ heading: newHeading })
-									}
-									placeholder="Input section heading..."
-								/>
-							</div>
+							<TextControl
+								label="Section Heading:"
+								value={heading}
+								onChange={(newHeading) =>
+									setAttributes({ heading: newHeading })
+								}
+								placeholder="Input section heading..."
+							/>
 
-							<hr />
-
-							<h4 className="pm-admin-subsection-title">
+							<h4 className="pm-admin-section-title">
 								Certifications
 							</h4>
 

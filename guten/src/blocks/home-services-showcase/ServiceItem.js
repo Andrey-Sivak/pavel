@@ -6,7 +6,6 @@ import {
 	Button,
 	__experimentalVStack as VStack,
 } from '@wordpress/components';
-import { RichText } from '@wordpress/block-editor';
 
 const ServiceItem = ({ item, onChange, onRemove }) => {
 	return (
@@ -17,32 +16,22 @@ const ServiceItem = ({ item, onChange, onRemove }) => {
 			>
 				<PanelRow>
 					<VStack style={{ gap: 15, width: '100%' }}>
-						<div>
-							<p className="pm-admin-label-text">
-								Service Title:
-							</p>
-							<RichText
-								tagName="p"
-								value={item.title}
-								onChange={(value) =>
-									onChange({ ...item, title: value })
-								}
-								placeholder="Input service title..."
-							/>
-						</div>
-						<div>
-							<p className="pm-admin-label-text">
-								Service Description:
-							</p>
-							<RichText
-								tagName="p"
-								value={item.description}
-								onChange={(value) =>
-									onChange({ ...item, description: value })
-								}
-								placeholder="Input service description..."
-							/>
-						</div>
+						<TextControl
+							label="Service Title:"
+							value={item.title}
+							onChange={(value) =>
+								onChange({ ...item, title: value })
+							}
+							placeholder="Input service title..."
+						/>
+						<TextControl
+							label="Service Description:"
+							value={item.description}
+							onChange={(value) =>
+								onChange({ ...item, description: value })
+							}
+							placeholder="Input service description..."
+						/>
 						<Button isDestructive onClick={onRemove}>
 							Remove Service
 						</Button>
