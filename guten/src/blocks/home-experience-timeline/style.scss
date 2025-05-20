@@ -14,10 +14,18 @@
 		max-height: 100%;
 	}
 
+	&__decor-top-right {
+		position: absolute;
+		z-index: 20;
+		left: auto;
+		right: 0;
+		top: -180px;
+	}
+
 	&__content {
 		padding-top: 72px;
 		position: relative;
-		z-index: 20;
+		z-index: 30;
 	}
 
 	&__heading {

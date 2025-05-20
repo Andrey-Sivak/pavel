@@ -9,6 +9,11 @@ $base_class = 'wp-block-pavel-home-certifications-education';
 ?>
 
 <section <?php echo $wrapper_attributes; ?>>
+
+	<div class="<?php echo esc_attr($base_class . '__decor-top-left'); ?>">
+		<?php get_template_part( '/vector-images/home-certifications-section-decor' ); ?>
+	</div>
+
 	<div class="<?php echo esc_attr($base_class . '__content pm-container'); ?>">
 		<?php if (!empty($heading)) : ?>
 			<h2 class="<?php echo esc_attr($base_class . '__heading pm-section-heading'); ?>">

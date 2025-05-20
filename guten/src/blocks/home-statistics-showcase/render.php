@@ -20,6 +20,11 @@ if (empty($stats)) {
 			<path d="M1920 680.646C1920 738.479 1875.23 785.361 1820 785.361H1145.49C1116.68 785.361 1100 808.051 1080.57 832.16C1066.81 851.93 1043.46 874.085 1016.5 887.007C997.286 896.216 974.251 900 957 900C915.542 900 869.5 872.016 839.429 832.16C819.274 805.447 803.323 785.361 774.512 785.361H100C44.7715 785.361 2.819e-06 738.479 0 680.646V0H1920V680.646Z" fill="#00171F"/>
 		</svg>
 	</div>
+
+	<div class="<?php echo esc_attr($base_class . '__decor-bottom-left'); ?>">
+		<?php get_template_part( '/vector-images/home-statistic-block-decor' ); ?>
+	</div>
+
 	<div class="<?php echo esc_attr($base_class . '__content pm-container'); ?>">
 		<?php foreach ($stats as $stat) : ?>
 			<div class="<?php echo esc_attr($base_class . '__item'); ?>">

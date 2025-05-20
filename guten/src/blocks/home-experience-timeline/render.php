@@ -24,6 +24,11 @@ $base_class = 'wp-block-pavel-home-experience-timeline';
 				fill="#00171F"/>
 		</svg>
 	</div>
+
+	<div class="<?php echo esc_attr($base_class . '__decor-top-right'); ?>">
+		<?php get_template_part( '/vector-images/home-experience-section-decor' ); ?>
+	</div>
+
 	<div
 		class="<?php echo esc_attr($base_class . '__content pm-container'); ?>"
 		id="<?php echo !empty($block_id) ? esc_attr($block_id) : null; ?>"

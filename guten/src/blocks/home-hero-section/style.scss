@@ -34,6 +34,13 @@
 		}
 	}
 
+	&__decor-top-left {
+		position: absolute;
+		z-index: 50;
+		left: 0;
+		top: 0;
+	}
+
 	&__arrow-to-bottom {
 		z-index: 100;
 		position: absolute;
@@ -48,7 +55,7 @@
 		grid-template-columns: 1fr 34.17%;
 		gap: 10px;
 		position: relative;
-		z-index: 50;
+		z-index: 60;
 		padding-top: 105px;
 		padding-bottom: 0;
 

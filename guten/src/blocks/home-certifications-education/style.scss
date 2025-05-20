@@ -1,6 +1,19 @@
 .wp-block-pavel-home-certifications-education {
 	margin-top: 62px;
 	margin-bottom: 70px;
+	position: relative;
+
+	&__decor-top-left {
+		position: absolute;
+		z-index: 10;
+		left: 0;
+		top: -350px;
+	}
+
+	&__content {
+		position: relative;
+		z-index: 20;
+	}
 
 	&__heading {
 		background: linear-gradient(to left, var(--color-medium-blue) 0%, var(--color-deep-blue) 100%);

@@ -44,6 +44,9 @@ if (!function_exists('get_bg_svg')) {
 		</svg>
 	</div>
 
+	<div class="<?php echo esc_attr($base_class . '__decor-top-left'); ?>">
+		<?php get_template_part( '/vector-images/hero-section-decor' ); ?>
+	</div>
 
 	<div class="<?php echo esc_attr($base_class . '__content pm-container') ?>">
 		<div class="<?php echo esc_attr($base_class . '__content_text') ?>">
