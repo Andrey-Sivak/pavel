@@ -1,0 +1,91 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "pavel/contact-section",
+  "version": "0.1.0",
+  "title": "Contact Section",
+  "category": "widgets",
+  "description": "Display a professional contact section with profile image, social links, and call-to-action buttons.",
+  "attributes": {
+    "blockId": {
+      "type": "string",
+      "default": ""
+    },
+    "heading": {
+      "type": "string",
+      "default": ""
+    },
+    "subtitle": {
+      "type": "string",
+      "default": ""
+    },
+    "profileImage": {
+      "type": "object",
+      "default": {
+        "id": null,
+        "url": ""
+      }
+    },
+    "socialLinks": {
+      "type": "array",
+      "default": [],
+      "items": {
+        "type": "object",
+        "properties": {
+          "icon": {
+            "type": "object",
+            "default": {
+              "id": null,
+              "url": ""
+            }
+          },
+          "url": {
+            "type": "string",
+            "default": ""
+          },
+          "target": {
+            "type": "string",
+            "default": ""
+          }
+        }
+      }
+    },
+    "primaryButton": {
+      "type": "object",
+      "default": {
+        "text": "",
+        "url": "",
+        "target": ""
+      }
+    },
+    "secondaryButton": {
+      "type": "object",
+      "default": {
+        "text": "",
+        "url": "",
+        "target": ""
+      }
+    }
+  },
+  "supports": {
+    "html": true,
+    "typography": {
+      "fontSize": false,
+      "lineHeight": false
+    },
+    "spacing": {
+      "padding": false,
+      "margin": false
+    },
+    "color": {
+      "background": false,
+      "gradients": false,
+      "text": false
+    }
+  },
+  "textdomain": "pm",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "render": "file:./render.php"
+}

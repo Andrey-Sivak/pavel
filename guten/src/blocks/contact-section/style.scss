@@ -1,0 +1,99 @@
+.wp-block-pavel-contact-section {
+	padding-top: 70px;
+	margin-top: 70px;
+	position: relative;
+	overflow: hidden;
+
+	&__decor-top-left {
+		position: absolute;
+		z-index: 10;
+		left: auto;
+		top: 0;
+		right: 0;
+	}
+
+	&__content {
+		display: grid;
+		gap: 130px;
+		grid-template-columns: 470px 1fr;
+		align-items: center;
+		position: relative;
+		z-index: 50;
+	}
+
+	&__photo {
+		position: relative;
+
+		img {
+			image-rendering: pixelated;
+			position: relative;
+			z-index: 50;
+		}
+
+		&-shadow {
+			position: absolute;
+			z-index: 30;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			width: 128.5%;
+		}
+
+		&-bg {
+			position: absolute;
+			z-index: 10;
+			width: 191%;
+			top: auto;
+			bottom: -113px;
+			left: -63%;
+		}
+	}
+
+	&__heading {
+		margin-top: 0;
+		background: linear-gradient(to left, var(--color-medium-blue) 0%, var(--color-deep-blue) 100%);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-clip: text;
+		text-fill-color: transparent;
+		color: var(--color-deep-blue);
+		margin-bottom: 52px;
+	}
+
+	&__subtitle {
+		margin-top: 0;
+		margin-bottom: 52px;
+		font-size: 35px;
+		line-height: 1.29;
+	}
+
+	&__socials {
+		display: flex;
+		align-items: center;
+		gap: 50px;
+	}
+
+	&__buttons {
+		display: flex;
+		align-items: center;
+		gap: 70px;
+		margin-top: 30px;
+	}
+
+	&__button {
+		width: 250px!important;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 12px;
+		border-radius: 1000px;
+
+		&.contact-button-secondary {
+			padding: 16px 44px;
+			background: linear-gradient(to left, var(--color-medium-blue) 0%, var(--color-deep-blue) 100%);
+			font-size: 20px;
+			line-height: 25px;
+			text-align: center;
+		}
+	}
+}
