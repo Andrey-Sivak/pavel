@@ -10,7 +10,11 @@ $base_class = 'wp-block-pavel-home-certifications-education';
 
 <section <?php echo $wrapper_attributes; ?>>
 
-	<div class="<?php echo esc_attr($base_class . '__decor-top-left'); ?>">
+	<div
+		class="<?php echo esc_attr($base_class . '__decor-top-left'); ?>"
+		data-parallax
+		data-parallax-speed="0.1"
+	>
 		<?php get_template_part( '/vector-images/home-certifications-section-decor' ); ?>
 	</div>
 

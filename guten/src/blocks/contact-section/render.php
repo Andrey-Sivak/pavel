@@ -18,7 +18,11 @@ $base_class = 'wp-block-pavel-contact-section';
 	<?php echo $wrapper_attributes; ?>
 >
 
-	<div class="<?php echo esc_attr($base_class . '__decor-top-left'); ?>">
+	<div
+		class="<?php echo esc_attr($base_class . '__decor-top-left'); ?>"
+		data-parallax
+		data-parallax-speed="0.15"
+	>
 		<?php get_template_part( '/vector-images/contact-section-decor' ); ?>
 	</div>
 

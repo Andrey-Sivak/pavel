@@ -25,7 +25,12 @@ $base_class = 'wp-block-pavel-home-experience-timeline';
 		</svg>
 	</div>
 
-	<div class="<?php echo esc_attr($base_class . '__decor-top-right'); ?>">
+	<div
+		class="<?php echo esc_attr($base_class . '__decor-top-right'); ?>"
+		data-parallax
+		data-parallax-speed="0.15"
+		data-parallax-reverse="true"
+	>
 		<?php get_template_part( '/vector-images/home-experience-section-decor' ); ?>
 	</div>
 

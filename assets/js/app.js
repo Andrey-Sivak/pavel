@@ -5,10 +5,17 @@
 		),
 		header: document.querySelector('.pm-header'),
 		footer: document.querySelector('.pm-footer'),
+		elementsToParallax: document.querySelectorAll('[data-parallax]'),
 	};
 
 	if (elements.header) {
 		import('./Header.js').then(({ default: Header }) => new Header());
+	}
+
+	if (elements.elementsToParallax.length) {
+		import('./Parallax.js').then(({ default: Parallax }) => {
+			new Parallax();
+		});
 	}
 
 	if (elements.reviewsSlider) {
