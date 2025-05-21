@@ -10,21 +10,13 @@ if (!empty($experiences)) {
 }
 
 $wrapper_attributes = get_block_wrapper_attributes([
-	'class' => 'pm-wrap'
+	'class' => 'pm-wrap masked'
 ]);
 
 $base_class = 'wp-block-pavel-home-experience-timeline';
 ?>
 
 <section <?php echo $wrapper_attributes; ?>>
-	<div class="<?php echo esc_attr($base_class . '__bg '); ?>" aria-hidden="true">
-		<svg preserveAspectRatio="none" viewBox="0 0 1920 900" fill="none">
-			<path
-				d="M1920 219.354C1920 161.521 1875.23 114.639 1820 114.639H1145.49C1116.68 114.639 1100 91.9489 1080.57 67.8404C1066.81 48.0699 1043.46 25.9155 1016.5 12.9928C997.286 3.78388 974.251 6.51138e-05 957 2.68221e-05C915.542 0.000118842 869.5 27.9845 839.429 67.8404C819.274 94.5528 803.323 114.639 774.512 114.639H100C44.7715 114.639 2.819e-06 161.521 0 219.354V900H1920V219.354Z"
-				fill="#00171F"/>
-		</svg>
-	</div>
-
 	<div
 		class="<?php echo esc_attr($base_class . '__decor-top-right'); ?>"
 		data-parallax
@@ -35,7 +27,7 @@ $base_class = 'wp-block-pavel-home-experience-timeline';
 	</div>
 
 	<div
-		class="<?php echo esc_attr($base_class . '__content pm-container'); ?>"
+		class="<?php echo esc_attr($base_class . '__content masked pm-container'); ?>"
 		id="<?php echo !empty($block_id) ? esc_attr($block_id) : null; ?>"
 	>
 

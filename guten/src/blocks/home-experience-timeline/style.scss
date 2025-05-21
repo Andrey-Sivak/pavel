@@ -1,18 +1,6 @@
 .wp-block-pavel-home-experience-timeline {
 	position: relative;
 	z-index: 20;
-	padding-top: 113px;
-	margin-top: -113px;
-
-	&__bg {
-		position: absolute;
-		z-index: 10;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: auto;
-		max-height: 100%;
-	}
 
 	&__decor-top-right {
 		position: absolute;
