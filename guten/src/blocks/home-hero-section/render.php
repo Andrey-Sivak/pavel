@@ -16,11 +16,11 @@ $base_class = 'wp-block-pavel-home-hero-section';
 	<div class="<?php echo esc_attr($base_class . '__bg ' . $base_class . '__bg-overlay-1') ?>" aria-hidden="true"></div>
 	<div class="<?php echo esc_attr($base_class . '__bg ' . $base_class . '__bg-overlay-2') ?>" aria-hidden="true"></div>
 
-	<div class="<?php echo esc_attr($base_class . '__decor-top-left'); ?>">
-		<?php get_template_part('/vector-images/hero-section-decor'); ?>
-	</div>
-
 	<div class="<?php echo esc_attr($base_class . '__wrapper pm-wrap'); ?>">
+
+		<div class="<?php echo esc_attr($base_class . '__decor-top-left'); ?>">
+			<?php get_template_part('/vector-images/hero-section-decor'); ?>
+		</div>
 
 		<div class="<?php echo esc_attr($base_class . '__arrow-to-bottom') ?>">
 			<svg width="70" height="70" viewBox="0 0 70 70" fill="none">
