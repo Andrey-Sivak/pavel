@@ -1,10 +1,17 @@
 @use 'swiper/css';
 @use 'swiper/css/pagination';
-//@use 'swiper/css/navigation';
-//@use 'swiper/css/autoplay';
+
+@use '../../../../assets/scss/base/breakpoints' as *;
+
+$wrap-container-name: testimonials-showcase;
 
 .wp-block-pavel-home-testimonials-showcase {
-	padding-top: 70px;
+	container-type: inline-size;
+	container-name: $wrap-container-name;
+
+	&__wrap {
+
+	}
 
 	&__heading {
 		margin-bottom: 50px;
@@ -97,8 +104,12 @@
 	}
 
 	&__testimonial-item {
-		padding: 40px;
 		position: relative;
+		padding: 2.71vw;
+
+		@container #{$wrap-container-name} (min-width: #{$bp-container}) {
+			padding: 40px;
+		}
 
 		&-content {
 			position: relative;
@@ -126,10 +137,14 @@
 	}
 
 	&__quote {
-		font-size: 26px;
 		font-weight: bold;
 		line-height: 1.15;
 		margin: 0;
+		font-size: 1.76vw;
+
+		@container #{$wrap-container-name} (min-width: #{$bp-container}) {
+			font-size: 26px;
+		}
 	}
 
 	&__attribution {
@@ -141,7 +156,11 @@
 	&__author {
 		text-align: right;
 		font-style: italic;
-		font-size: 27px;
+		font-size: 1.83vw;
 		line-height: 1.29;
+
+		@container #{$wrap-container-name} (min-width: #{$bp-container}) {
+			font-size: 27px;
+		}
 	}
 }

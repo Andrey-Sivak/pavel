@@ -1,8 +1,18 @@
+@use '../../../../assets/scss/base/breakpoints' as *;
+
+$wrap-container-name: contact-section;
+
 .wp-block-pavel-contact-section {
-	padding-top: 70px;
-	margin-top: 70px;
 	position: relative;
 	overflow: hidden;
+	container-type: inline-size;
+	container-name: $wrap-container-name;
+
+	&__wrap {
+		position: relative;
+		padding-top: 70px;
+		margin-top: 70px;
+	}
 
 	&__decor-top-left {
 		position: absolute;
@@ -10,15 +20,35 @@
 		left: auto;
 		top: 0;
 		right: 0;
+		width: 19%;
+
+		svg {
+			max-width: 100%;
+			height: auto;
+		}
 	}
 
 	&__content {
 		display: grid;
-		gap: 130px;
-		grid-template-columns: 470px 1fr;
 		align-items: center;
 		position: relative;
 		z-index: 50;
+		gap: 60px;
+		grid-template-columns: 32vw 1fr;
+
+		@container #{$wrap-container-name} (min-width: #{$bp-xl}) {
+			gap: 100px;
+		}
+
+		@container #{$wrap-container-name} (min-width: #{$bp-container}) {
+			gap: 130px;
+			grid-template-columns: 470px 1fr;
+		}
+
+		&-inner {
+			position: relative;
+			z-index: 50;
+		}
 	}
 
 	&__photo {
@@ -37,15 +67,25 @@
 			left: 50%;
 			transform: translate(-50%, -50%);
 			width: 128.5%;
+
+			svg {
+				max-width: 100%;
+				height: auto;
+			}
 		}
 
 		&-bg {
 			position: absolute;
 			z-index: 10;
-			width: 191%;
 			top: auto;
+			width: 191%;
 			bottom: -113px;
 			left: -63%;
+
+			svg {
+				max-width: 100%;
+				height: auto;
+			}
 		}
 	}
 
@@ -57,27 +97,44 @@
 		background-clip: text;
 		text-fill-color: transparent;
 		color: var(--color-deep-blue);
-		margin-bottom: 52px;
+		margin-bottom: 30px;
+
+		@container #{$wrap-container-name} (min-width: #{$bp-xl}) {
+			margin-bottom: 52px;
+		}
 	}
 
 	&__subtitle {
 		margin-top: 0;
-		margin-bottom: 52px;
-		font-size: 35px;
 		line-height: 1.29;
+		margin-bottom: 30px;
+		font-size: 2.5vw;
+
+		@container #{$wrap-container-name} (min-width: #{$bp-xl}) {
+			margin-bottom: 52px;
+			font-size: 35px;
+		}
 	}
 
 	&__socials {
 		display: flex;
 		align-items: center;
-		gap: 50px;
+		gap: 20px;
+
+		@container #{$wrap-container-name} (min-width: #{$bp-xl}) {
+			gap: 50px;
+		}
 	}
 
 	&__buttons {
 		display: flex;
 		align-items: center;
-		gap: 70px;
 		margin-top: 30px;
+		gap: 20px;
+
+		@container #{$wrap-container-name} (min-width: #{$bp-xl}) {
+			gap: 70px;
+		}
 	}
 
 	&__button {

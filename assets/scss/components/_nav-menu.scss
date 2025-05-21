@@ -1,11 +1,17 @@
+@use "../base/breakpoints" as *;
+
 .pm-nav-menu {
 
 	li {
-		font-size: 17px;
 		line-height: 1.29;
 		white-space: nowrap;
 		position: relative;
-		margin: 0 20px;
+		font-size: 17px;
+		margin: 0 14px;
+
+		@media (min-width: #{$bp-xl}) {
+			margin: 0 20px;
+		}
 
 		&:last-child {
 			margin-right: 0;
@@ -24,10 +30,14 @@
 			content: '';
 			position: absolute;
 			top: 50%;
-			left: -20px;
 			width: 1px;
 			height: 12px;
 			transform: translateY(-50%);
+			left: -14px;
+
+			@media (min-width: #{$bp-xl}) {
+				left: -20px;
+			}
 		}
 
 		@media (hover: hover) {

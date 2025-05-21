@@ -36,7 +36,7 @@ class ReviewsSlider {
 			breakpoints: {
 				320: { slidesPerView: 1 },
 				767: { slidesPerView: 2 },
-				1200: { slidesPerView: this.initSlidesCount },
+				1024: { slidesPerView: this.initSlidesCount },
 			},
 		});
 	}
