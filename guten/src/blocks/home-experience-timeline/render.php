@@ -31,7 +31,7 @@ $base_class = 'wp-block-pavel-home-experience-timeline';
 		data-parallax-speed="0.15"
 		data-parallax-reverse="true"
 	>
-		<?php get_template_part( '/vector-images/home-experience-section-decor' ); ?>
+		<?php get_template_part('/vector-images/home-experience-section-decor'); ?>
 	</div>
 
 	<div
@@ -73,7 +73,17 @@ $base_class = 'wp-block-pavel-home-experience-timeline';
 						</div>
 
 						<div class="<?php echo esc_attr($base_class . '__experience-timeline'); ?>">
-							<?php echo wp_kses_post($experience['timeline']); ?>
+							<div class="<?php echo esc_attr($base_class . '__experience-timeline-text'); ?>">
+								<?php echo wp_kses_post($experience['timeline']); ?>
+							</div>
+							<div class="<?php echo esc_attr($base_class . '__experience-timeline-circle'); ?>">
+								<?php get_template_part('/vector-images/ex-timl-decor-circle'); ?>
+							</div>
+							<?php if ($count !== count($experiences) - 1) : ?>
+								<div class="<?php echo esc_attr($base_class . '__experience-timeline-jumper'); ?>">
+									<?php get_template_part('/vector-images/ex-timl-decor-jumper'); ?>
+								</div>
+							<?php endif; ?>
 						</div>
 					</div>
 				<?php endif; ?>

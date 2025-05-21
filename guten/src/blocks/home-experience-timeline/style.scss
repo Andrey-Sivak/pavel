@@ -42,7 +42,7 @@
 
 	&__subheading {
 		text-align: center;
-		margin-bottom: 40px;
+		margin-bottom: 63px;
 		margin-top: 0;
 		font-weight: 500;
 		font-size: 44px;
@@ -52,19 +52,30 @@
 	&__timeline {
 		display: grid;
 		align-items: start;
-		grid-template-columns: repeat(2, 1fr);
 	}
 
 	&__experience {
 
 		&-item {
 			display: grid;
+			grid-auto-rows: 226px;
 			align-items: center;
-			gap: 50px;
+			gap: 45px;
+			width: 100%;
+			max-width: calc(50% - 12px);
+			margin-top: -80px;
+
+			&:first-child {
+				margin-top: 0;
+
+				.wp-block-pavel-home-experience-timeline__experience-timeline-circle {
+					transform: rotate(225deg) !important;
+				}
+			}
 
 			&:nth-child(even) {
 				grid-template-columns: 208px 1fr;
-				margin-top: 110px;
+				margin-left: auto;
 
 				.wp-block-pavel-home-experience-timeline__experience-content {
 					order: 2;
@@ -72,6 +83,19 @@
 
 				.wp-block-pavel-home-experience-timeline__experience-timeline {
 					order: 1;
+				}
+
+				.wp-block-pavel-home-experience-timeline__experience-timeline-jumper {
+					left: -26%;
+					top: 74%;
+					transform: rotate(145deg);
+				}
+
+				&:last-child {
+
+					.wp-block-pavel-home-experience-timeline__experience-timeline-circle {
+						transform: rotate(45deg);
+					}
 				}
 			}
 
@@ -86,6 +110,23 @@
 
 				.wp-block-pavel-home-experience-timeline__experience-timeline {
 					order: 2;
+				}
+
+				.wp-block-pavel-home-experience-timeline__experience-timeline-circle {
+					transform: rotate(180deg);
+				}
+
+				.wp-block-pavel-home-experience-timeline__experience-timeline-jumper {
+					left: 82%;
+					top: 74%;
+					transform: rotate(35deg);
+				}
+
+				&:last-child {
+
+					.wp-block-pavel-home-experience-timeline__experience-timeline-circle {
+						transform: rotate(135deg);
+					}
 				}
 			}
 		}
@@ -107,12 +148,31 @@
 		}
 
 		&-timeline {
-			max-width: 45%;
-			text-align: center;
-			font-style: italic;
-			font-size: 27px;
-			line-height: 1.29;
-			margin: 0 auto;
+			position: relative;
+
+			&-text {
+				max-width: 45%;
+				position: absolute;
+				z-index: 20;
+				text-align: center;
+				font-style: italic;
+				font-size: 27px;
+				line-height: 1.29;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+			}
+
+			&-circle {
+				position: relative;
+				z-index: 10;
+				width: 100%;
+			}
+
+			&-jumper {
+				position: absolute;
+				z-index: 10;
+			}
 		}
 	}
 
