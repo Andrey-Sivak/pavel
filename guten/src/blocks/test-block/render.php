@@ -1,10 +1,12 @@
 <?php
 $title = $attributes['title'] ?? '';
 
-$wrapper_attributes = get_block_wrapper_attributes([
-	'class' => 'pm-wrap'
-]);
-$base_class = 'wp-block-pavel-test-block';
+$wrapper_attributes = get_block_wrapper_attributes(
+	array(
+		'class' => 'pm-wrap',
+	)
+);
+$base_class         = 'wp-block-pavel-test-block';
 
 
 ?>

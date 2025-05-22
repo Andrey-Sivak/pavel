@@ -40,7 +40,7 @@ declare(strict_types=1);
 		</div>
 
 		<p class="text-center mt-6 text-[10px] leading-[12px]">
-			&copy;<?php echo esc_html(date('Y')); ?> Pavel – Digital Product Leader
+			&copy;<?php echo esc_html( date( 'Y' ) ); ?> Pavel – Digital Product Leader
 		</p>
 	</div>
 </footer>

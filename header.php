@@ -32,8 +32,8 @@ $pavel_body_class = 'bg-secondary';
 					type="button"
 					aria-expanded="false"
 					aria-controls="mobile-menu"
-					title="<?php echo esc_attr__('Toggle mobile navigation', 'pm'); ?>">
-				<span class="pm-visually-hidden"><?php echo esc_html__('Menu', 'pm'); ?></span>
+					title="<?php echo esc_attr__( 'Toggle mobile navigation', 'pm' ); ?>">
+				<span class="pm-visually-hidden"><?php echo esc_html__( 'Menu', 'pm' ); ?></span>
 				<span class="mob-burger-btn-top"></span>
 				<span class="mob-burger-btn-center"></span>
 				<span class="mob-burger-btn-bottom"></span>
@@ -59,7 +59,7 @@ $pavel_body_class = 'bg-secondary';
 					<span class="pm-button__arrow"><?php get_template_part( '/vector-images/button-arrow' ); ?></span>
 				</a>
 
-				<?php get_template_part('/template-parts/language-switcher'); ?>
+				<?php get_template_part( '/template-parts/language-switcher' ); ?>
 			</div>
 		</div>
 	</header>

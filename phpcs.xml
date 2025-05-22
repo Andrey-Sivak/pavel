@@ -8,6 +8,7 @@
     <!-- Exclude non-PHP or third-party directories -->
     <exclude-pattern>*/\.github/*</exclude-pattern>
     <exclude-pattern>*/assets/*</exclude-pattern>
+    <exclude-pattern>*/guten/build/*</exclude-pattern>
     <exclude-pattern>*/dist/*</exclude-pattern>
     <exclude-pattern>*/languages/*</exclude-pattern>
     <exclude-pattern>*/vector-images/*</exclude-pattern>
