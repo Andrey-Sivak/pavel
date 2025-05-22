@@ -6,7 +6,7 @@ import {
 	TextControl,
 	__experimentalVStack as VStack,
 } from '@wordpress/components';
-import { useBlockProps } from '@wordpress/block-editor';
+import { useBlockProps, RichText } from '@wordpress/block-editor';
 import { Fragment } from '@wordpress/element';
 import './editor.scss';
 import ImageUploader from '../../utils/ImageUploader.js';
@@ -26,8 +26,10 @@ const Edit = (props) => {
 		blockId,
 	} = attributes;
 
+	const baseClass = 'wp-block-pavel-contact-section';
+
 	const blockProps = useBlockProps({
-		className: 'wp-block-pavel-contact-section',
+		className: baseClass,
 	});
 
 	const handleSelectProfileImage = (media) => {
@@ -78,24 +80,28 @@ const Edit = (props) => {
 				blockId={blockId}
 			/>
 			<div {...blockProps}>
-				<Card>
-					<CardHeader>
-						<h4 className="pm-admin-section-title">
-							Contact Section
-						</h4>
-					</CardHeader>
-					<CardBody>
-						<VStack style={{ gap: 20 }}>
-							<TextControl
-								label="Section Heading:"
+				<div className={`${baseClass}__wrap pm-wrap`}>
+					<div className={`${baseClass}__content pm-container`}>
+						<div className={`${baseClass}__photo`}>
+							<ImageUploader
+								image={profileImage.url}
+								onSelect={handleSelectProfileImage}
+							/>
+						</div>
+
+						<div className={`${baseClass}__content-inner`}>
+							<RichText
+								tagName="p"
+								className={`${baseClass}__heading pm-section-heading`}
 								value={heading}
 								onChange={(newHeading) =>
 									setAttributes({ heading: newHeading })
 								}
 								placeholder="Input section heading..."
 							/>
-							<TextControl
-								label="Section Subtitle:"
+							<RichText
+								tagName="p"
+								className={`${baseClass}__subtitle`}
 								value={subtitle}
 								onChange={(newSubtitle) =>
 									setAttributes({ subtitle: newSubtitle })
@@ -103,105 +109,103 @@ const Edit = (props) => {
 								placeholder="Input section subtitle..."
 							/>
 
-							<div className="pm-admin-image">
-								<p className="pm-admin-label-text">Photo:</p>
-								<ImageUploader
-									image={profileImage.url}
-									onSelect={handleSelectProfileImage}
-								/>
-							</div>
-
-							<div>
-								<p className="pm-admin-section-title">
-									Social Links
-								</p>
+							<div className={`${baseClass}__socials`}>
 								{socialLinks.length > 0 ? (
-									<div style={{ marginBottom: 20 }}>
-										{socialLinks.map(
-											(socialLink, index) => (
-												<SocialLink
-													item={socialLink}
-													updateSocial={updateSocial}
-													onRemove={() =>
-														removeSocialLink(index)
-													}
-													key={index}
-													index={index}
-												/>
-											),
-										)}
-									</div>
+									socialLinks.map((socialLink, index) => (
+										<SocialLink
+											item={socialLink}
+											updateSocial={updateSocial}
+											onRemove={() =>
+												removeSocialLink(index)
+											}
+											baseClass={baseClass}
+											key={index}
+											index={index}
+										/>
+									))
 								) : (
 									<p>
 										No social links added yet. Add your
-										first social link below.
+										first social link.
 									</p>
 								)}
 								<Button
 									onClick={addSocialLink}
 									className="button-secondary pm-admin-button"
 								>
-									Add Social Link
+									{socialLinks.length > 0
+										? '+'
+										: 'Add Social Link'}
 								</Button>
 							</div>
 
-							<p className="pm-admin-section-title">Buttons</p>
-							<LinkEditor
-								url={primaryButton.url}
-								target={primaryButton.target}
-								onChange={(newValue) =>
-									setAttributes({
-										primaryButton: {
-											...newValue,
-											text: primaryButton.text,
-										},
-									})
-								}
-							>
-								<TextControl
-									label="Primary Button"
-									value={primaryButton.text}
-									onChange={(newButtonText) => {
-										setAttributes({
-											primaryButton: {
-												...primaryButton,
-												text: newButtonText,
-											},
-										});
-									}}
-									placeholder="Button text..."
-								/>
-							</LinkEditor>
-
-							<LinkEditor
-								url={secondaryButton.url}
-								target={secondaryButton.target}
-								onChange={(newValue) =>
-									setAttributes({
-										secondaryButton: {
-											...newValue,
-											text: secondaryButton.text,
-										},
-									})
-								}
-							>
-								<TextControl
-									label="Secondary Button"
-									value={secondaryButton.text}
-									onChange={(newButtonText) => {
-										setAttributes({
-											secondaryButton: {
-												...secondaryButton,
-												text: newButtonText,
-											},
-										});
-									}}
-									placeholder="Button text..."
-								/>
-							</LinkEditor>
-						</VStack>
-					</CardBody>
-				</Card>
+							<div className={`${baseClass}__buttons`}>
+								<div
+									className={`${baseClass}__button pm-button contact-button-primary`}
+								>
+									<LinkEditor
+										url={primaryButton.url}
+										target={primaryButton.target}
+										onChange={(newValue) =>
+											setAttributes({
+												primaryButton: {
+													...newValue,
+													text: primaryButton.text,
+												},
+											})
+										}
+									>
+										<RichText
+											tagName="span"
+											value={primaryButton.text}
+											onChange={(newButtonText) => {
+												setAttributes({
+													primaryButton: {
+														...primaryButton,
+														text: newButtonText,
+													},
+												});
+											}}
+											placeholder="Button text..."
+											allowedFormats={[]}
+										/>
+									</LinkEditor>
+								</div>
+								<div
+									className={`${baseClass}__button contact-button-secondary`}
+								>
+									<LinkEditor
+										url={secondaryButton.url}
+										target={secondaryButton.target}
+										onChange={(newValue) =>
+											setAttributes({
+												secondaryButton: {
+													...newValue,
+													text: secondaryButton.text,
+												},
+											})
+										}
+									>
+										<RichText
+											tagName="span"
+											value={secondaryButton.text}
+											onChange={(newButtonText) => {
+												setAttributes({
+													secondaryButton: {
+														...secondaryButton,
+														text: newButtonText,
+													},
+												});
+											}}
+											placeholder="Button text..."
+											allowedFormats={[]}
+										/>
+									</LinkEditor>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
 		</Fragment>
 	);

@@ -1,12 +1,8 @@
 .wp-block-pavel-home-services-showcase {
-	padding-top: 0 !important;
-	padding-bottom: 0 !important;
-	margin-top: 0 !important;
-	margin-bottom: 0 !important;
-	text-align: left !important;
-	background: none !important;
+	max-width: unset !important;
 
-	p {
-		margin: 0;
+	.pm-remove-button-cross {
+		top: 20px;
+		right: 20px;
 	}
 }

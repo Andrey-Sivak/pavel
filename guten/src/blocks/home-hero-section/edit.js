@@ -1,11 +1,4 @@
-import { useBlockProps } from '@wordpress/block-editor';
-import {
-	Card,
-	CardBody,
-	CardHeader,
-	TextControl,
-	__experimentalVStack as VStack,
-} from '@wordpress/components';
+import { useBlockProps, RichText } from '@wordpress/block-editor';
 import './editor.scss';
 import { Fragment } from '@wordpress/element';
 import ImageUploader from '../../utils/ImageUploader.js';
@@ -43,57 +36,82 @@ const Edit = (props) => {
 	return (
 		<Fragment>
 			<div {...blockProps}>
-				<Card>
-					<CardHeader>
-						<h4 className="pm-admin-section-title">Hero Section</h4>
-					</CardHeader>
-					<CardBody>
-						<VStack style={{ gap: 20 }}>
-							<TextControl
-								label="Section Title:"
+				<div
+					className={`${baseClass}__bg ${baseClass}__bg-overlay-1`}
+				/>
+				<div
+					className={`${baseClass}__bg ${baseClass}__bg-overlay-2`}
+				/>
+
+				<div className={`${baseClass}__wrapper pm-wrap`}>
+					<div className={`${baseClass}__arrow-to-bottom`}>
+						<svg
+							width="70"
+							height="70"
+							viewBox="0 0 70 70"
+							fill="none"
+						>
+							<path
+								d="M20.4167 27.7084L35 42.2917L49.5834 27.7084"
+								stroke="white"
+								strokeWidth="4"
+								strokeLinecap="round"
+								strokeLinejoin="round"
+							/>
+						</svg>
+					</div>
+
+					<div className={`${baseClass}__content pm-container`}>
+						<div className={`${baseClass}__content_text`}>
+							<RichText
+								tagName="p"
+								className={`${baseClass}__title`}
 								value={title}
 								onChange={(newTitle) =>
 									setAttributes({ title: newTitle })
 								}
 								placeholder="Input section title..."
 							/>
-							<TextControl
-								label="Short Description:"
+							<RichText
+								tagName="p"
+								className={`${baseClass}__subtitle`}
 								value={subtitle}
 								onChange={(newSubtitle) =>
 									setAttributes({ subtitle: newSubtitle })
 								}
 								placeholder="Input short description..."
 							/>
-							<LinkEditor
-								url={button.url}
-								target={button.target}
-								onChange={(newValue) =>
-									setAttributes({
-										button: {
-											...newValue,
-											text: button.text,
-										},
-									})
-								}
-							>
-								<TextControl
-									label="Button text"
-									value={button.text}
-									onChange={uprateButtonText}
-									placeholder="Button text..."
-								/>
-							</LinkEditor>
-							<div>
-								<p className="pm-admin-label-text">Image:</p>
-								<ImageUploader
-									image={image.url}
-									onSelect={onSelectImage}
-								/>
+							<div className={`${baseClass}__button pm-button`}>
+								<LinkEditor
+									url={button.url}
+									target={button.target}
+									onChange={(newValue) =>
+										setAttributes({
+											button: {
+												...newValue,
+												text: button.text,
+											},
+										})
+									}
+								>
+									<RichText
+										tagName="span"
+										value={button.text}
+										onChange={uprateButtonText}
+										placeholder="Button text..."
+										allowedFormats={[]}
+									/>
+								</LinkEditor>
 							</div>
-						</VStack>
-					</CardBody>
-				</Card>
+						</div>
+						<div className={`${baseClass}__image`}>
+							<ImageUploader
+								image={image.url}
+								onSelect={onSelectImage}
+							/>
+						</div>
+					</div>
+				</div>
 			</div>
 		</Fragment>
 	);

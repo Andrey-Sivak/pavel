@@ -10,6 +10,20 @@
 @import "tailwindcss/index.css";
 
 html,
-body,
-*:before,
-*:after {}
+body {
+	color: #fff;
+	font-family: var(--albert-font), sans-serif;
+}
+
+body {
+	container-type: inline-size;
+	container-name: pm-main;
+}
+
+* {
+	line-height: inherit;
+
+	a {
+		text-decoration: none;
+	}
+}

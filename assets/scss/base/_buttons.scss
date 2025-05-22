@@ -13,7 +13,7 @@
 	font-size: 16px;
 	padding: 14px 30px;
 
-	@media (min-width: #{$bp-xl}) {
+	@container pm-main (min-width: #{$bp-xl}) {
 		font-size: 20px;
 		padding: 16px 42px;
 	}

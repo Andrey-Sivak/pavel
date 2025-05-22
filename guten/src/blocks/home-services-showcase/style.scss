@@ -124,6 +124,7 @@ $clip-path-polygon-mob: polygon( 50.037% 4.066%,50.037% 4.066%,48.816% 4.012%,47
 	&__service {
 
 		&-item {
+			position: relative;
 			border-radius: 20px;
 			background-color: #fff;
 			background-image: linear-gradient(50deg, #fff 0%, var(--color-light-blue) 100%);

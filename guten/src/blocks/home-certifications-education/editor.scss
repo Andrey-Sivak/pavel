@@ -1,16 +1,25 @@
+@use '../../../../assets/scss/base/breakpoints' as *;
+
+$wrap-container-name: certifications-education;
+
 .wp-block-pavel-home-certifications-education {
-	//margin-top: 0 !important;
-	//margin-bottom: 0 !important;
+	max-width: unset !important;
 
-	p {
-		margin: 0;
-	}
+	&__credential {
 
-	.components-panel__row {
+		&-item {
 
-		.components-button {
-			justify-self: unset !important;
-			max-width: 250px;
+			&:nth-last-child(2) {
+				padding-bottom: 4.74vw;
+				border-bottom-right-radius: 4.4vw;
+				border-bottom-left-radius: 4.4vw;
+
+				@container #{$wrap-container-name} (min-width: #{$bp-container}) {
+					padding-bottom: 70px;
+					border-bottom-right-radius: 65px;
+					border-bottom-left-radius: 65px;
+				}
+			}
 		}
 	}
 }

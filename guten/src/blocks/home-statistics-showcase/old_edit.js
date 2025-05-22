@@ -15,10 +15,8 @@ const Edit = (props) => {
 	const { attributes, setAttributes } = props;
 	const { stats, blockId } = attributes;
 
-	const baseClass = 'wp-block-pavel-home-statistics-showcase';
-
 	const blockProps = useBlockProps({
-		className: baseClass,
+		className: 'wp-block-pavel-home-statistics-showcase',
 	});
 
 	const updateStat = (index, newStatData) => {
@@ -53,37 +51,43 @@ const Edit = (props) => {
 				blockId={blockId}
 			/>
 			<div {...blockProps}>
-				<div className={`${baseClass}__wrap pm-wrap`}>
-					<div className={`${baseClass}__content pm-container`}>
-						{stats.length > 0 ? (
-							stats.map((stat, index) => (
-								<StatItem
-									key={index}
-									item={stat}
-									baseClass={baseClass}
-									onChange={(newData) =>
-										updateStat(index, newData)
-									}
-									onRemove={() => removeStat(index)}
-								/>
-							))
-						) : (
-							<p>
-								No statistics added yet. Add your first
-								statistic.
-							</p>
-						)}
+				<Card>
+					<CardHeader>
+						<h4 className="pm-admin-section-title">
+							Statistics Showcase
+						</h4>
+					</CardHeader>
+					<CardBody>
+						<VStack style={{ gap: 20 }}>
+							{stats.length > 0 ? (
+								<div className="statistics-items">
+									{stats.map((stat, index) => (
+										<StatItem
+											key={index}
+											item={stat}
+											onChange={(newData) =>
+												updateStat(index, newData)
+											}
+											onRemove={() => removeStat(index)}
+										/>
+									))}
+								</div>
+							) : (
+								<p>
+									No statistics added yet. Add your first
+									statistic below.
+								</p>
+							)}
 
-						{stats.length < 4 && (
 							<Button
 								onClick={addStat}
 								className="button-secondary pm-admin-button"
 							>
 								Add Statistic
 							</Button>
-						)}
-					</div>
-				</div>
+						</VStack>
+					</CardBody>
+				</Card>
 			</div>
 		</Fragment>
 	);

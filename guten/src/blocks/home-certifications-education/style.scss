@@ -55,6 +55,7 @@ $wrap-container-name: certifications-education;
 	&__credential {
 
 		&-item {
+			position: relative;
 			background-image: linear-gradient(to right, #003459 0%, #007EA7 100%);
 			display: grid;
 			align-items: center;

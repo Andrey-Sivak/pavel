@@ -6,7 +6,7 @@ import {
 	Button,
 	__experimentalVStack as VStack,
 } from '@wordpress/components';
-import { useBlockProps, RichText } from '@wordpress/block-editor';
+import { useBlockProps } from '@wordpress/block-editor';
 import { Fragment } from '@wordpress/element';
 import ExperienceItem from './ExperienceItem.js';
 import './editor.scss';
@@ -17,10 +17,8 @@ const Edit = (props) => {
 	const { attributes, setAttributes } = props;
 	const { heading, subheading, button, experiences, blockId } = attributes;
 
-	const baseClass = 'wp-block-pavel-home-experience-timeline';
-
 	const blockProps = useBlockProps({
-		className: baseClass,
+		className: 'wp-block-pavel-home-experience-timeline',
 	});
 
 	const updateExperience = (index, newExperienceData) => {
@@ -67,26 +65,6 @@ const Edit = (props) => {
 				blockId={blockId}
 			/>
 			<div {...blockProps}>
-				<RichText
-					tagName="p"
-					className={`${baseClass}__heading pm-section-heading`}
-					value={heading}
-					onChange={(newHeading) =>
-						setAttributes({ heading: newHeading })
-					}
-					placeholder="Input section heading..."
-				/>
-				<RichText
-					tagName="p"
-					className={`${baseClass}__subheading`}
-					value={subheading}
-					onChange={(newSubheading) =>
-						setAttributes({
-							subheading: newSubheading,
-						})
-					}
-					placeholder="Input subheading..."
-				/>
 				<Card>
 					<CardHeader>
 						<h4 className="pm-admin-section-title">
@@ -95,6 +73,24 @@ const Edit = (props) => {
 					</CardHeader>
 					<CardBody>
 						<VStack style={{ gap: 20 }}>
+							<TextControl
+								label="Section Heading:"
+								value={heading}
+								onChange={(newHeading) =>
+									setAttributes({ heading: newHeading })
+								}
+								placeholder="Input section heading..."
+							/>
+							<TextControl
+								label="Section Subheading:"
+								value={subheading}
+								onChange={(newSubheading) =>
+									setAttributes({
+										subheading: newSubheading,
+									})
+								}
+								placeholder="Input subheading..."
+							/>
 							<LinkEditor
 								url={button.url}
 								target={button.target}

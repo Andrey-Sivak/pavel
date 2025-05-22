@@ -1,4 +1,7 @@
 @use "./base/variables";
+@use "./base/common";
+@use "./components/typo";
+@use "./base/buttons";
 
 .is-root-container {
 	max-width: 100%;
@@ -6,6 +9,9 @@
 	position: relative;
 	container-type: inline-size;
 	container-name: pm-main;
+	font-family: var(--albert-font), sans-serif;
+	background-color: var(--color-dark-blue);
+	color: #fff;
 }
 
 .is-root-container,

@@ -1,12 +1,5 @@
-import {
-	Card,
-	TextControl,
-	CardBody,
-	CardHeader,
-	Button,
-	__experimentalVStack as VStack,
-} from '@wordpress/components';
-import { useBlockProps } from '@wordpress/block-editor';
+import { Button } from '@wordpress/components';
+import { useBlockProps, RichText } from '@wordpress/block-editor';
 import { Fragment } from '@wordpress/element';
 import ServiceItem from './ServiceItem.js';
 import './editor.scss';
@@ -23,8 +16,10 @@ const Edit = (props) => {
 		services,
 	} = attributes;
 
+	const baseClass = 'wp-block-pavel-home-services-showcase';
+
 	const blockProps = useBlockProps({
-		className: 'wp-block-pavel-home-services-showcase',
+		className: baseClass,
 	});
 
 	const updateService = (index, newServiceData) => {
@@ -58,44 +53,43 @@ const Edit = (props) => {
 				blockId={blockId}
 			/>
 			<div {...blockProps}>
-				<Card>
-					<CardHeader>
-						<h4 className="pm-admin-section-title">
-							Services Showcase
-						</h4>
-					</CardHeader>
-					<CardBody>
-						<VStack style={{ gap: 20 }}>
-							<TextControl
-								label="Section Heading:"
-								value={heading}
-								onChange={(newHeading) =>
-									setAttributes({ heading: newHeading })
-								}
-								placeholder="Input section heading..."
-							/>
-							<TextControl
-								label="Section Subheading:"
-								value={subheading}
-								onChange={(newSubheading) =>
-									setAttributes({
-										subheading: newSubheading,
-									})
-								}
-								placeholder="Input subheading..."
-							/>
-							<TextControl
-								label="Description:"
-								value={description}
-								onChange={(newDescription) =>
-									setAttributes({
-										description: newDescription,
-									})
-								}
-								placeholder="Input description..."
-							/>
-							<TextControl
-								label="Services Label:"
+				<div className={`${baseClass}__wrap pm-wrap`}>
+					<div className={`${baseClass}__content pm-container`}>
+						<RichText
+							tagName="p"
+							className={`${baseClass}__heading pm-section-heading`}
+							value={heading}
+							onChange={(newHeading) =>
+								setAttributes({ heading: newHeading })
+							}
+							placeholder="Input section heading..."
+						/>
+						<RichText
+							tagName="p"
+							className={`${baseClass}__subheading`}
+							value={subheading}
+							onChange={(newSubheading) =>
+								setAttributes({
+									subheading: newSubheading,
+								})
+							}
+							placeholder="Input subheading..."
+						/>{' '}
+						<RichText
+							tagName="p"
+							className={`${baseClass}__description`}
+							value={description}
+							onChange={(newDescription) =>
+								setAttributes({
+									description: newDescription,
+								})
+							}
+							placeholder="Input description..."
+						/>
+						<div className={`${baseClass}__services`}>
+							<RichText
+								tagName="p"
+								className={`${baseClass}__services-label`}
 								value={servicesLabel}
 								onChange={(newServicesLabel) =>
 									setAttributes({
@@ -104,15 +98,13 @@ const Edit = (props) => {
 								}
 								placeholder="Input services label (e.g. 'My Services')..."
 							/>
-
-							<h4 className="pm-admin-section-title">Services</h4>
-
-							{services.length > 0 ? (
-								<div className="services-items">
-									{services.map((service, index) => (
+							<div className={`${baseClass}__services-grid`}>
+								{services.length > 0 ? (
+									services.map((service, index) => (
 										<ServiceItem
 											key={index}
 											item={service}
+											baseClass={baseClass}
 											onChange={(newData) =>
 												updateService(index, newData)
 											}
@@ -120,24 +112,24 @@ const Edit = (props) => {
 												removeService(index)
 											}
 										/>
-									))}
-								</div>
-							) : (
-								<p>
-									No services added yet. Add your first
-									service below.
-								</p>
-							)}
+									))
+								) : (
+									<p>
+										No services added yet. Add your first
+										service.
+									</p>
+								)}
 
-							<Button
-								onClick={addService}
-								className="button-secondary pm-admin-button"
-							>
-								Add Service
-							</Button>
-						</VStack>
-					</CardBody>
-				</Card>
+								<Button
+									onClick={addService}
+									className="button-secondary pm-admin-button"
+								>
+									Add Service
+								</Button>
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
 		</Fragment>
 	);

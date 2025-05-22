@@ -1,5 +1,12 @@
-import { Button } from '@wordpress/components';
-import { useBlockProps, RichText } from '@wordpress/block-editor';
+import {
+	Card,
+	CardBody,
+	CardHeader,
+	Button,
+	TextControl,
+	__experimentalVStack as VStack,
+} from '@wordpress/components';
+import { useBlockProps } from '@wordpress/block-editor';
 import { Fragment } from '@wordpress/element';
 import CredentialItem from './CredentialItem.js';
 import './editor.scss';
@@ -8,10 +15,8 @@ const Edit = (props) => {
 	const { attributes, setAttributes } = props;
 	const { heading, credentials } = attributes;
 
-	const baseClass = 'wp-block-pavel-home-certifications-education';
-
 	const blockProps = useBlockProps({
-		className: baseClass,
+		className: 'wp-block-pavel-home-certifications-education',
 	});
 
 	const updateCredential = (index, newCredentialData) => {
@@ -47,34 +52,46 @@ const Edit = (props) => {
 	return (
 		<Fragment>
 			<div {...blockProps}>
-				<div className={`${baseClass}__wrap pm-wrap`}>
-					<div className={`${baseClass}__content pm-container`}>
-						<RichText
-							tagName="p"
-							className={`${baseClass}__heading pm-section-heading`}
-							value={heading}
-							onChange={(newHeading) =>
-								setAttributes({ heading: newHeading })
-							}
-							placeholder="Input section heading..."
-						/>
-						<div className={`${baseClass}__credentials-grid`}>
+				<Card>
+					<CardHeader>
+						<h4 className="pm-admin-section-title">
+							Certifications & Education
+						</h4>
+					</CardHeader>
+					<CardBody>
+						<VStack style={{ gap: 20 }}>
+							<TextControl
+								label="Section Heading:"
+								value={heading}
+								onChange={(newHeading) =>
+									setAttributes({ heading: newHeading })
+								}
+								placeholder="Input section heading..."
+							/>
+
+							<h4 className="pm-admin-section-title">
+								Certifications
+							</h4>
+
 							{credentials.length > 0 ? (
-								credentials.map((credential, index) => (
-									<CredentialItem
-										key={index}
-										item={credential}
-										baseClass={baseClass}
-										onChange={(newData) =>
-											updateCredential(index, newData)
-										}
-										onRemove={() => removeCredential(index)}
-									/>
-								))
+								<div className="credentials-items">
+									{credentials.map((credential, index) => (
+										<CredentialItem
+											key={index}
+											item={credential}
+											onChange={(newData) =>
+												updateCredential(index, newData)
+											}
+											onRemove={() =>
+												removeCredential(index)
+											}
+										/>
+									))}
+								</div>
 							) : (
 								<p>
 									No certifications added yet. Add your first
-									Certification.
+									Certification below.
 								</p>
 							)}
 
@@ -84,9 +101,9 @@ const Edit = (props) => {
 							>
 								Add Certification
 							</Button>
-						</div>
-					</div>
-				</div>
+						</VStack>
+					</CardBody>
+				</Card>
 			</div>
 		</Fragment>
 	);

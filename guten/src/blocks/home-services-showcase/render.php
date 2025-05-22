@@ -15,25 +15,21 @@ $base_class = 'wp-block-pavel-home-services-showcase';
 <section <?php echo $wrapper_attributes; ?>>
 	<div class="<?php echo esc_attr($base_class . '__wrap pm-wrap'); ?>">
 		<div class="<?php echo esc_attr($base_class . '__content pm-container'); ?>">
-			<?php if (!empty($heading) || !empty($subheading) || !empty($description)) : ?>
-				<div class="<?php echo esc_attr($base_class . '__header'); ?>">
-					<?php if (!empty($heading)) : ?>
-						<h2 class="<?php echo esc_attr($base_class . '__heading pm-section-heading'); ?>">
-							<?php echo wp_kses_post($heading); ?>
-						</h2>
-					<?php endif; ?>
+			<?php if (!empty($heading)) : ?>
+				<h2 class="<?php echo esc_attr($base_class . '__heading pm-section-heading'); ?>">
+					<?php echo wp_kses_post($heading); ?>
+				</h2>
+			<?php endif; ?>
 
-					<?php if (!empty($subheading)) : ?>
-						<h3 class="<?php echo esc_attr($base_class . '__subheading'); ?>">
-							<?php echo wp_kses_post($subheading); ?>
-						</h3>
-					<?php endif; ?>
+			<?php if (!empty($subheading)) : ?>
+				<h3 class="<?php echo esc_attr($base_class . '__subheading'); ?>">
+					<?php echo wp_kses_post($subheading); ?>
+				</h3>
+			<?php endif; ?>
 
-					<?php if (!empty($description)) : ?>
-						<div class="<?php echo esc_attr($base_class . '__description'); ?>">
-							<?php echo wp_kses_post($description); ?>
-						</div>
-					<?php endif; ?>
+			<?php if (!empty($description)) : ?>
+				<div class="<?php echo esc_attr($base_class . '__description'); ?>">
+					<?php echo wp_kses_post($description); ?>
 				</div>
 			<?php endif; ?>
 

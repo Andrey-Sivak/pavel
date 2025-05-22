@@ -1,15 +1,13 @@
 .wp-block-pavel-home-hero-section {
-	padding-top: 0 !important;
-	padding-bottom: 0 !important;
-	margin-bottom: 0 !important;
-	//max-width: unset !important;
+	padding-bottom: 40px;
+	max-width: unset !important;
 
-	p {
-		margin: 0;
-	}
+	&__button {
 
-	.components-button {
-		justify-self: unset !important;
-		max-width: 280px;
+		.admin_link-controls {
+			left: 0;
+			transform: unset;
+			top: 120%;
+		}
 	}
 }

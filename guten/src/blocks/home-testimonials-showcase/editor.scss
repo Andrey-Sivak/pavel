@@ -1,6 +1,16 @@
-.wp-block-pavel-home-testimonials-showcase {
+@use '../../../../assets/scss/base/breakpoints' as *;
 
-	p {
-		margin: 0;
+$wrap-container-name: testimonials-showcase;
+
+.wp-block-pavel-home-testimonials-showcase {
+	max-width: unset !important;
+
+	&__testimonials-grid {
+		display: grid;
+
+		@container #{$wrap-container-name} (min-width: #{$bp-md}) {
+			grid-template-columns: repeat(3, 1fr);
+			gap: 30px;
+		}
 	}
 }
