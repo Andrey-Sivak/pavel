@@ -42,11 +42,15 @@ $wrap-container-name: experience-timeline;
 
 	&__subheading {
 		text-align: center;
-		margin-bottom: 63px;
+		margin-bottom: 0;
 		margin-top: 0;
 		font-weight: 500;
 		font-size: clamp(22px, 3.4vw, 40px);
 		line-height: 1.13;
+
+		@container #{$wrap-container-name} (min-width: #{$bp-lg}) {
+			margin-bottom: 63px;
+		}
 
 		@container #{$wrap-container-name} (min-width: #{$bp-xl}) {
 			font-size: 44px;
@@ -56,72 +60,151 @@ $wrap-container-name: experience-timeline;
 	&__timeline {
 		display: grid;
 		align-items: start;
+		gap: 40px;
+		margin-top: 40px;
+
+		@container #{$wrap-container-name} (min-width: #{$bp-md}) {
+			margin-top: 0;
+			gap: 0;
+		}
 	}
 
 	&__experience {
 
 		&-item {
 			display: grid;
-			grid-auto-rows: 226px;
 			align-items: center;
-			gap: 45px;
 			width: 100%;
-			margin-top: -80px;
-			//max-width: calc(50% - 12px);
+			gap: 20px;
+			max-width: 100%;
+
+			@container #{$wrap-container-name} (min-width: #{$bp-md}) {
+				margin-top: -14.3vw;
+				grid-auto-rows: 32.5vw;
+				max-width: 55%;
+			}
 
 			@container #{$wrap-container-name} (min-width: #{$bp-lg}) {
+				gap: 3vw;
+				margin-top: -5.42vw;
+				grid-auto-rows: 15.33vw;
+				max-width: calc(50% - .81vw);
+			}
+
+			@container #{$wrap-container-name} (min-width: #{$bp-container}) {
 				max-width: calc(50% - 12px);
+				grid-auto-rows: 226px;
+				margin-top: -80px;
+				gap: 45px;
+			}
+
+			&.pm-visible {
+
+				.wp-block-pavel-home-experience-timeline__experience-timeline-jumper {
+					animation: showJumper .5s forwards .3s;
+				}
 			}
 
 			&:first-child {
 				margin-top: 0;
 
 				.wp-block-pavel-home-experience-timeline__experience-timeline-circle {
-					transform: rotate(225deg) !important;
+
+					@container #{$wrap-container-name} (min-width: #{$bp-md}) {
+						transform: rotate(225deg) !important;
+					}
 				}
 			}
 
 			&:nth-child(even) {
 				margin-left: auto;
-				//grid-template-columns: 208px 1fr;
+				grid-template-columns: 31.4vw 1fr;
+
+				@container #{$wrap-container-name} (min-width: #{$bp-md}) {
+					grid-template-columns: 1fr 2fr;
+				}
 
 				@container #{$wrap-container-name} (min-width: #{$bp-lg}) {
+					grid-template-columns: 14.11vw 1fr;
+				}
+
+				@container #{$wrap-container-name} (min-width: #{$bp-container}) {
 					grid-template-columns: 208px 1fr;
 				}
 
 				.wp-block-pavel-home-experience-timeline__experience-content {
+					transform: translateX(100%);
+					opacity: 0;
 					order: 2;
+				}
+
+				&.pm-visible {
+					.wp-block-pavel-home-experience-timeline__experience-content {
+						animation: showEvenElems .5s forwards;
+					}
 				}
 
 				.wp-block-pavel-home-experience-timeline__experience-timeline {
 					order: 1;
 				}
 
+				/* Jumper */
 				.wp-block-pavel-home-experience-timeline__experience-timeline-jumper {
-					left: -26%;
-					top: 74%;
-					transform: rotate(145deg);
+					left: 13%;
+					top: -14%;
+					transform: rotate(67deg);
+
+					@container #{$wrap-container-name} (min-width: #{$bp-lg}) {
+						left: -30%;
+						top: 2%;
+						transform: rotate(35deg);
+					}
 				}
 
 				&:last-child {
 
 					.wp-block-pavel-home-experience-timeline__experience-timeline-circle {
-						transform: rotate(45deg);
+
+						@container #{$wrap-container-name} (min-width: #{$bp-md}) {
+							transform: rotate(45deg);
+						}
 					}
 				}
 			}
 
 			&:nth-child(odd) {
-				//grid-template-columns: 1fr 208px;
+				grid-template-columns: 1fr 31.4vw;
+
+				@container #{$wrap-container-name} (min-width: #{$bp-md}) {
+					grid-template-columns: 2fr 1fr;
+				}
 
 				@container #{$wrap-container-name} (min-width: #{$bp-lg}) {
+					grid-template-columns: 1fr 14.11vw;
+				}
+
+				@container #{$wrap-container-name} (min-width: #{$bp-container}) {
 					grid-template-columns: 1fr 208px;
 				}
 
+
 				.wp-block-pavel-home-experience-timeline__experience-content {
+					transform: translateX(-100%);
+					opacity: 0;
 					text-align: right;
 					align-items: flex-end;
 					order: 1;
+
+					picture {
+						display: flex;
+						justify-content: flex-end;
+					}
+				}
+
+				&.pm-visible {
+					.wp-block-pavel-home-experience-timeline__experience-content {
+						animation: showOddElems .5s forwards;
+					}
 				}
 
 				.wp-block-pavel-home-experience-timeline__experience-timeline {
@@ -132,16 +215,26 @@ $wrap-container-name: experience-timeline;
 					transform: rotate(180deg);
 				}
 
+				/* Jumper */
 				.wp-block-pavel-home-experience-timeline__experience-timeline-jumper {
-					left: 82%;
-					top: 74%;
-					transform: rotate(35deg);
+					left: 56%;
+					top: -15%;
+					transform: rotate(111deg);
+
+					@container #{$wrap-container-name} (min-width: #{$bp-lg}) {
+						left: 83%;
+						top: -2%;
+						transform: rotate(145deg);
+					}
 				}
 
 				&:last-child {
 
 					.wp-block-pavel-home-experience-timeline__experience-timeline-circle {
-						transform: rotate(135deg);
+
+						@container #{$wrap-container-name} (min-width: #{$bp-md}) {
+							transform: rotate(135deg);
+						}
 					}
 				}
 			}
@@ -155,50 +248,134 @@ $wrap-container-name: experience-timeline;
 		&-logo {
 			margin-bottom: 16px;
 			margin-top: 0;
+			width: fit-content;
+
+			img {
+				width: 80%;
+
+				@container #{$wrap-container-name} (min-width: #{$bp-container}) {
+					width: auto;
+				}
+			}
 		}
 
 		&-description {
 			margin: 0;
-			font-size: 26px;
 			line-height: 1.15;
+			font-size: 4vw;
+
+			@container #{$wrap-container-name} (min-width: #{$bp-md}) {
+				font-size: 2.34vw;
+			}
+
+			@container #{$wrap-container-name} (min-width: #{$bp-lg}) {
+				font-size: 1.75vw;
+			}
+
+			@container #{$wrap-container-name} (min-width: #{$bp-container}) {
+				font-size: 26px;
+			}
 		}
 
 		&-timeline {
 			position: relative;
 
-			display: none;
-
-			@container #{$wrap-container-name} (min-width: #{$bp-lg}) {
-				display: block;
-			}
-
 			&-text {
-				max-width: 45%;
+				max-width: 60%;
 				position: absolute;
 				z-index: 20;
 				text-align: center;
 				font-style: italic;
-				font-size: 27px;
 				line-height: 1.29;
 				top: 50%;
 				left: 50%;
 				transform: translate(-50%, -50%);
+				font-size: 18px;
+
+				@container #{$wrap-container-name} (min-width: #{$bp-md}) {
+					max-width: 45%;
+					font-size: 16px;
+				}
+
+				@container #{$wrap-container-name} (min-width: #{$bp-lg}) {
+					font-size: 1.83vw;
+				}
+
+				@container #{$wrap-container-name} (min-width: #{$bp-container}) {
+					font-size: 27px;
+				}
 			}
 
 			&-circle {
 				position: relative;
 				z-index: 10;
 				width: 100%;
+
+				svg {
+					max-width: 100%;
+					height: auto;
+				}
 			}
 
 			&-jumper {
-				position: absolute;
-				z-index: 10;
+				opacity: 0;
+				will-change: opacity;
+				display: none;
+
+				@container #{$wrap-container-name} (min-width: #{$bp-md}) {
+					display: block;
+					position: absolute;
+					z-index: 10;
+					width: 30%;
+				}
+
+				@container #{$wrap-container-name} (min-width: #{$bp-lg}) {
+					width: 45%;
+				}
+
+				svg {
+					max-width: 100%;
+					height: auto;
+				}
 			}
 		}
 	}
 
 	&__button {
 		margin: 40px auto 0;
+	}
+}
+
+@keyframes showJumper {
+	from {
+		opacity: 0;
+	}
+
+	to {
+		opacity: 1;
+	}
+}
+
+@keyframes showOddElems {
+	from {
+		opacity: 0;
+		transform: translateX(-100%);
+	}
+
+	to {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
+
+@keyframes showEvenElems {
+	from {
+		opacity: 0;
+		transform: translateX(100%);
+	}
+
+	to {
+		opacity: 1;
+		transform: translateX(0);
 	}
 }

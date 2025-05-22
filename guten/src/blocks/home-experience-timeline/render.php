@@ -52,7 +52,7 @@ $base_class = 'wp-block-pavel-home-experience-timeline';
 				foreach ( $experiences as $index => $experience ) :
 					?>
 					<?php if ( ! empty( $experience['timeline'] ) && ! empty( $experience['description'] ) ) : ?>
-					<div class="<?php echo esc_attr( $base_class . '__experience-item' ); ?>">
+					<div class="<?php echo esc_attr( $base_class . '__experience-item pm-animate' ); ?>">
 
 						<div class="<?php echo esc_attr( $base_class . '__experience-content' ); ?>">
 							<?php if ( ! empty( $experience['logo']['id'] ) ) : ?>
@@ -73,7 +73,7 @@ $base_class = 'wp-block-pavel-home-experience-timeline';
 							<div class="<?php echo esc_attr( $base_class . '__experience-timeline-circle' ); ?>">
 								<?php get_template_part( '/vector-images/ex-timl-decor-circle' ); ?>
 							</div>
-							<?php if ( $count !== count( $experiences ) - 1 ) : ?>
+							<?php if ( $count ) : ?>
 								<div class="<?php echo esc_attr( $base_class . '__experience-timeline-jumper' ); ?>">
 									<?php get_template_part( '/vector-images/ex-timl-decor-jumper' ); ?>
 								</div>
