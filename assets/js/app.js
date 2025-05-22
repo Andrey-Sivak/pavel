@@ -8,6 +8,9 @@
 		formContainers: [...document.querySelectorAll('.pm-form-wrap')],
 		footer: document.querySelector('.pm-footer'),
 		elementsToParallax: document.querySelectorAll('[data-parallax]'),
+		homeHeroSection: document.querySelector(
+			'.wp-block-pavel-home-hero-section',
+		),
 	};
 
 	if (elements.header) {
@@ -17,6 +20,12 @@
 	import('./Animations.js').then(
 		({ default: Animations }) => new Animations(),
 	);
+
+	if (elements.homeHeroSection) {
+		import('./HomeHeroSection.js').then(
+			({ default: HomeHeroSection }) => new HomeHeroSection(),
+		);
+	}
 
 	if (elements.modals.length) {
 		elements.modals.forEach((modal) => {
