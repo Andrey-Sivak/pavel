@@ -45,7 +45,27 @@ declare(strict_types=1);
 	</div>
 </footer>
 
-<?php wp_footer(); ?>
+<?php
+get_template_part(
+	'/template-parts/modal',
+	null,
+	array(
+		'modal_id'  => 'contact',
+		'shortcode' => '[contact-form-7 id="0e8a695" title="Contact me"]',
+	)
+);
+
+get_template_part(
+	'/template-parts/modal',
+	null,
+	array(
+		'modal_id'  => 'form-modal',
+		'shortcode' => '',
+	)
+);
+
+wp_footer();
+?>
 
 </body>
 </html>

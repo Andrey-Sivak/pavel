@@ -10,7 +10,7 @@
 
 declare(strict_types=1);
 
-$pavel_body_class = 'bg-secondary';
+$pavel_body_class = 'bg-secondary pm-modal-open pm-contact';
 ?>
 
 <!doctype html>
