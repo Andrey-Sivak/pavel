@@ -14,6 +14,10 @@
 		import('./Header.js').then(({ default: Header }) => new Header());
 	}
 
+	import('./Animations.js').then(
+		({ default: Animations }) => new Animations(),
+	);
+
 	if (elements.modals.length) {
 		elements.modals.forEach((modal) => {
 			import('./Modal.js').then(({ default: Modal }) => new Modal(modal));

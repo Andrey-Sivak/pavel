@@ -34,13 +34,13 @@ $base_class = 'wp-block-pavel-home-experience-timeline';
 	>
 
 		<?php if ( ! empty( $heading ) ) : ?>
-			<h2 class="<?php echo esc_attr( $base_class . '__heading pm-section-heading' ); ?>">
+			<h2 class="<?php echo esc_attr( $base_class . '__heading pm-section-heading pm-animate' ); ?>">
 				<?php echo wp_kses_post( $heading ); ?>
 			</h2>
 		<?php endif; ?>
 
 		<?php if ( ! empty( $subheading ) ) : ?>
-			<h3 class="<?php echo esc_attr( $base_class . '__subheading' ); ?>">
+			<h3 class="<?php echo esc_attr( $base_class . '__subheading pm-animate' ); ?>">
 				<?php echo wp_kses_post( $subheading ); ?>
 			</h3>
 		<?php endif; ?>
@@ -92,7 +92,7 @@ $base_class = 'wp-block-pavel-home-experience-timeline';
 			<a
 				href="<?php echo esc_url( $button['url'] ); ?>"
 				target="<?php echo esc_attr( $button['target'] ); ?>"
-				class="<?php echo $base_class . '__button pm-button'; ?>"
+				class="<?php echo $base_class . '__button pm-button pm-animate'; ?>"
 				aria-label="<?php echo esc_attr( sprintf( 'Go to %s form', $button['text'] ) ); ?>"
 				title="<?php echo esc_attr( $button['text'] ); ?>"
 				itemprop="contactPoint"

@@ -40,7 +40,7 @@ $base_class = 'wp-block-pavel-contact-section';
 
 		<div class="<?php echo esc_attr( $base_class . '__content pm-container' ); ?>">
 			<?php if ( ! empty( $profileImage['id'] ) ) : ?>
-				<figure class="<?php echo esc_attr( $base_class . '__photo' ); ?>">
+				<figure class="<?php echo esc_attr( $base_class . '__photo pm-animate' ); ?>">
 					<?php echo wp_get_attachment_image( $profileImage['id'], 'full', false, array() ); ?>
 
 					<div class="<?php echo esc_attr( $base_class . '__photo-shadow' ); ?>">
@@ -54,13 +54,13 @@ $base_class = 'wp-block-pavel-contact-section';
 
 			<div class="<?php echo esc_attr( $base_class . '__content-inner' ); ?>">
 				<?php if ( ! empty( $heading ) ) : ?>
-					<h2 class="<?php echo esc_attr( $base_class . '__heading pm-section-heading' ); ?>">
+					<h2 class="<?php echo esc_attr( $base_class . '__heading pm-section-heading pm-animate' ); ?>">
 						<?php echo wp_kses_post( $heading ); ?>
 					</h2>
 				<?php endif; ?>
 
 				<?php if ( ! empty( $subtitle ) ) : ?>
-					<div class="<?php echo esc_attr( $base_class . '__subtitle' ); ?>">
+					<div class="<?php echo esc_attr( $base_class . '__subtitle pm-animate' ); ?>">
 						<?php echo wp_kses_post( $subtitle ); ?>
 					</div>
 				<?php endif; ?>
@@ -70,7 +70,7 @@ $base_class = 'wp-block-pavel-contact-section';
 						<?php foreach ( $socialLinks as $socialLink ) : ?>
 							<a
 								href="<?php echo esc_url( $socialLink['url'] ); ?>"
-								class="<?php echo esc_attr( $base_class . '__social-item' ); ?>"
+								class="<?php echo esc_attr( $base_class . '__social-item pm-animate' ); ?>"
 								<?php echo ! empty( $socialLink['target'] ) ? 'target="' . esc_attr( $socialLink['target'] ) . '"' : ''; ?>
 								rel="noopener noreferrer"
 							>
@@ -88,7 +88,7 @@ $base_class = 'wp-block-pavel-contact-section';
 					<?php if ( ! empty( $primaryButton['text'] ) ) : ?>
 						<a
 							href="<?php echo esc_url( $primaryButton['url'] ); ?>"
-							class="<?php echo esc_attr( $base_class . '__button pm-button contact-button-primary' ); ?>"
+							class="<?php echo esc_attr( $base_class . '__button pm-button contact-button-primary pm-animate' ); ?>"
 							<?php echo ! empty( $primaryButton['target'] ) ? 'target="' . esc_attr( $primaryButton['target'] ) . '"' : ''; ?>
 							aria-label="<?php echo esc_attr( sprintf( 'Go to %s form', $primaryButton['text'] ) ); ?>"
 							itemprop="contactPoint"
@@ -105,7 +105,7 @@ $base_class = 'wp-block-pavel-contact-section';
 					<?php if ( ! empty( $secondaryButton['text'] ) ) : ?>
 						<a
 							href="<?php echo esc_url( $secondaryButton['url'] ); ?>"
-							class="<?php echo esc_attr( $base_class . '__button contact-button-secondary' ); ?>"
+							class="<?php echo esc_attr( $base_class . '__button contact-button-secondary pm-animate' ); ?>"
 							<?php echo ! empty( $secondaryButton['target'] ) ? 'target="' . esc_attr( $secondaryButton['target'] ) . '"' : ''; ?>
 							aria-label="<?php echo esc_attr( sprintf( 'Go to %s form', $secondaryButton['text'] ) ); ?>"
 							itemprop="contactPoint"

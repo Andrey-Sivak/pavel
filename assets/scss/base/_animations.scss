@@ -1,0 +1,10 @@
+.pm-animate {
+  opacity: 0;
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+  transform: translateY(60px);
+
+  &.pm-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

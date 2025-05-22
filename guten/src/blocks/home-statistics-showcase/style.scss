@@ -66,10 +66,23 @@ $wrap-container-name: statistics-showcase;
 		@container #{$wrap-container-name} (min-width: #{$bp-md}) {
 			height: 300px;
 			padding: 5vw 30px 0;
+
+			&:nth-child(4),
+			&:nth-child(2) {
+				transition-delay: .2s;
+			}
 		}
 
 		@container #{$wrap-container-name} (min-width: #{$bp-lg}) {
 			padding: 3.5vw 16px 0;
+
+			&:nth-child(3) {
+				transition-delay: .4s;
+			}
+
+			&:nth-child(4) {
+				transition-delay: .6s;
+			}
 		}
 
 		@container #{$wrap-container-name} (min-width: #{$bp-xl}) {

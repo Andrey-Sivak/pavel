@@ -80,11 +80,6 @@ $wrap-container-name: hero-section;
 			opacity: .1;
 			bottom: 0;
 		}
-
-		svg {
-			width: 100%;
-			height: 100%;
-		}
 	}
 
 	&__decor-top-left {
@@ -110,6 +105,7 @@ $wrap-container-name: hero-section;
 		left: 50%;
 		transform: translateX(-50%);
 		bottom: 25px;
+		animation: infinitePulse 2s ease-in-out infinite;
 	}
 
 	&__content {
@@ -164,11 +160,15 @@ $wrap-container-name: hero-section;
 		color: currentColor;
 		margin: 0;
 		letter-spacing: 1px;
+		transform: translateY(200px);
+		opacity: 0;
+		animation: floatUp 1s forwards;
 		font-weight: 600;
 		line-height: 1.13;
 		font-size: 32px;
 
 		@container #{$wrap-container-name} (min-width: #{$bp-md}) {
+			animation: floatUp 1.2s forwards;
 			font-size: 5vw;
 		}
 
@@ -183,10 +183,14 @@ $wrap-container-name: hero-section;
 
 	&__subtitle {
 		margin: 0;
+		transform: translateY(150px);
+		opacity: 0;
+		animation: floatUp 1s forwards .2s;
 		line-height: 1.26;
 		font-size: 20px;
 
 		@container #{$wrap-container-name} (min-width: #{$bp-md}) {
+			animation: floatUp 1.2s forwards .2s;
 			font-size: 2.5vw;
 		}
 
@@ -199,13 +203,27 @@ $wrap-container-name: hero-section;
 		}
 	}
 
+	&__button {
+		transform: translateY(100px);
+		opacity: 0;
+		animation: floatUp 1s forwards .3s;
+
+		@container #{$wrap-container-name} (min-width: #{$bp-md}) {
+			animation: floatUp 1.2s forwards .4s;
+		}
+	}
+
 	&__image {
 		position: relative;
 		z-index: 10;
 		max-width: 250px;
 		margin: 0 auto;
+		opacity: 0;
+		transform: translateY(250px);
+		animation: floatUp 1.2s forwards .2s;
 
 		@container #{$wrap-container-name} (min-width: #{$bp-md}) {
+			animation: floatUp 1.2s forwards .15s;
 			margin: 0;
 			max-width: none;
 		}
@@ -241,6 +259,9 @@ $wrap-container-name: hero-section;
 			right: -37.15%;
 			top: auto;
 			bottom: -6.5%;
+			opacity: 0;
+			transform: translateY(250px);
+			animation: scaleIn 1.2s forwards .1s;
 
 			svg {
 				max-width: 100%;
@@ -250,3 +271,46 @@ $wrap-container-name: hero-section;
 	}
 }
 
+
+@keyframes floatUp {
+	0% {
+		transform: translateY(200px);
+		opacity: 0;
+	}
+	70% {
+		transform: translateY(-10px);
+	}
+	100% {
+		transform: translateY(0);
+		opacity: 1;
+	}
+}
+
+@keyframes scaleIn {
+	0% {
+		transform: scale(0.5);
+		opacity: 0;
+	}
+	70% {
+		transform: scale(1.05);
+	}
+	100% {
+		transform: scale(1);
+		opacity: 1;
+	}
+}
+
+@keyframes infinitePulse {
+	0% {
+		transform: translateY(0) translateX(-50%) scale(1);
+		opacity: 1;
+	}
+	50% {
+		transform: translateY(10px) translateX(-50%) scale(1.1);
+		opacity: 0.7;
+	}
+	100% {
+		transform: translateY(0) translateX(-50%) scale(1);
+		opacity: 1;
+	}
+}

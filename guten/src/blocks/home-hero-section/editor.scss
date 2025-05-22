@@ -10,4 +10,10 @@
 			top: 120%;
 		}
 	}
+
+	&__subtitle,
+	&__title {
+		opacity: 1!important;
+		transform: none!important;
+	}
 }

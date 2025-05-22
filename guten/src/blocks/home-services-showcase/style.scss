@@ -133,6 +133,14 @@ $clip-path-polygon-mob: polygon( 50.037% 4.066%,50.037% 4.066%,48.816% 4.012%,47
 			@container #{$wrap-container-name} (min-width: #{$bp-md}) {
 				border-radius: 45px;
 				padding: 4vw 2.71vw;
+
+				&:nth-child(3n+2) {
+					transition-delay: .2s;
+				}
+
+				&:nth-child(3n) {
+					transition-delay: .4s;
+				}
 			}
 
 			@container #{$wrap-container-name} (min-width: #{$bp-container}) {

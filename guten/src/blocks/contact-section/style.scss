@@ -179,6 +179,10 @@ $wrap-container-name: contact-section;
 		@container #{$wrap-container-name} (min-width: #{$bp-lg}) {
 			width: auto;
 		}
+
+		&:nth-child(2) {
+			transition-delay: .2s;
+		}
 	}
 
 	&__buttons {
@@ -215,6 +219,10 @@ $wrap-container-name: contact-section;
 			text-align: center;
 			font-size: 16px;
 			padding: 14px 30px;
+
+			@container #{$wrap-container-name} (min-width: #{$bp-lg}) {
+				transition-delay: .2s;
+			}
 
 			@container #{$wrap-container-name} (min-width: #{$bp-xl}) {
 				font-size: 20px;

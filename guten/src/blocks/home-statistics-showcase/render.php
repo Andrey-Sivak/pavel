@@ -27,7 +27,7 @@ if ( empty( $stats ) ) {
 
 		<div class="<?php echo esc_attr( $base_class . '__content pm-container' ); ?>">
 			<?php foreach ( $stats as $stat ) : ?>
-				<div class="<?php echo esc_attr( $base_class . '__item' ); ?>">
+				<div class="<?php echo esc_attr( $base_class . '__item pm-animate' ); ?>">
 					<div class="<?php echo esc_attr( $base_class . '__item-decor-bg' ); ?>">
 						<?php get_template_part( '/vector-images/card-decor-border' ); ?>
 					</div>

@@ -16,7 +16,7 @@ $base_class         = 'wp-block-pavel-home-testimonials-showcase';
 		<div class="<?php echo esc_attr( $base_class . '__content pm-container' ); ?>">
 
 			<?php if ( ! empty( $heading ) ) : ?>
-				<h2 class="<?php echo esc_attr( $base_class . '__heading pm-section-heading' ); ?>">
+				<h2 class="<?php echo esc_attr( $base_class . '__heading pm-section-heading pm-animate' ); ?>">
 					<?php echo wp_kses_post( $heading ); ?>
 				</h2>
 			<?php endif; ?>
@@ -34,7 +34,7 @@ $base_class         = 'wp-block-pavel-home-testimonials-showcase';
 					<?php foreach ( $testimonials as $testimonial ) : ?>
 						<?php if ( ! empty( $testimonial['quote'] ) || ! empty( $testimonial['author'] ) ) : ?>
 							<div
-								class="<?php echo esc_attr( $base_class . '__testimonial-item' . ( count( $testimonials ) > 3 ? ' swiper-slide' : '' ) ); ?>">
+								class="<?php echo esc_attr( $base_class . '__testimonial-item pm-animate' . ( count( $testimonials ) > 3 ? ' swiper-slide' : '' ) ); ?>">
 								<div class="<?php echo esc_attr( $base_class . '__testimonial-item-decor-bg' ); ?>">
 									<?php get_template_part( '/vector-images/card-decor-border' ); ?>
 								</div>

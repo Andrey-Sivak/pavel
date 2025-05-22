@@ -18,7 +18,7 @@ $base_class         = 'wp-block-pavel-home-certifications-education';
 
 		<div class="<?php echo esc_attr( $base_class . '__content pm-container' ); ?>">
 			<?php if ( ! empty( $heading ) ) : ?>
-				<h2 class="<?php echo esc_attr( $base_class . '__heading pm-section-heading' ); ?>">
+				<h2 class="<?php echo esc_attr( $base_class . '__heading pm-section-heading pm-animate' ); ?>">
 					<?php echo wp_kses_post( $heading ); ?>
 				</h2>
 			<?php endif; ?>
@@ -27,7 +27,7 @@ $base_class         = 'wp-block-pavel-home-certifications-education';
 				<div class="<?php echo esc_attr( $base_class . '__credentials-grid' ); ?>">
 					<?php foreach ( $credentials as $credential ) : ?>
 						<?php if ( ! empty( $credential['title'] ) || ! empty( $credential['description'] ) || ! empty( $credential['institution'] ) ) : ?>
-							<div class="<?php echo esc_attr( $base_class . '__credential-item' ); ?>">
+							<div class="<?php echo esc_attr( $base_class . '__credential-item pm-animate' ); ?>">
 								<?php if ( ! empty( $credential['logo']['id'] ) ) : ?>
 									<figure class="<?php echo esc_attr( $base_class . '__credential-logo' ); ?>">
 										<?php
