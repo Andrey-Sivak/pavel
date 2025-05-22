@@ -1,10 +1,8 @@
 @use "../base/breakpoints" as *;
 
 .pm-button {
-	background-image: linear-gradient(134deg, #00A8E8 0%, #D0F1FD 40%, #fff 50%, #D0F1FD 60%, #00A8E8 100%);
-	color: var(--color-dark-blue);
+	position: relative;
 	line-height: 1.25;
-	transition: all .3s ease;
 	border-radius: 1000px;
 	display: flex;
 	align-items: center;
@@ -13,12 +11,88 @@
 	font-size: 16px;
 	padding: 14px 30px;
 
+	&.pm-button-admin {
+
+		.admin_link-wrapper {
+			margin-bottom: 0;
+		}
+	}
+
+	&:not(.pm-button-admin) {
+		overflow: hidden;
+	}
+
 	@container pm-main (min-width: #{$bp-xl}) {
 		font-size: 20px;
 		padding: 16px 42px;
 	}
 
+	&:before {
+		border-radius: inherit;
+		position: absolute;
+		content: '';
+		top: 0;
+		height: 100%;
+		transition: all ease-in-out .3s;
+		will-change: max-width;
+		z-index: -1;
+	}
+
 	&__arrow {
 		transform: rotate(45deg);
+	}
+
+	&.pm-button-primary {
+		color: var(--color-dark-blue);
+
+		&:before {
+			left: 50%;
+			transform: translateX(-50%);
+			width: 100%;
+			max-width: 100%;
+			background-image: linear-gradient(134deg, #00A8E8 0%, #D0F1FD 40%, #fff 50%, #D0F1FD 60%, #00A8E8 100%);
+		}
+
+		&:not(.pm-button-admin) {
+
+			&:before {
+				width: 150%;
+			}
+
+			&:active,
+			&:hover {
+
+				&:before {
+					max-width: 150%;
+				}
+			}
+		}
+	}
+
+	&.pm-button-secondary {
+		color: #fff;
+
+		&:before {
+			left: auto;
+			right: 0;
+			width: 100%;
+			will-change: transform;
+			background: linear-gradient(to right, var(--color-medium-blue) 0%, var(--color-deep-blue) 50%, var(--color-medium-blue) 100%);
+		}
+
+		&:not(.pm-button-admin) {
+
+			&:before {
+				width: 200%;
+			}
+
+			&:active,
+			&:hover {
+
+				&:before {
+					transform: translateX(50%);
+				}
+			}
+		}
 	}
 }

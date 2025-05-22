@@ -3,6 +3,7 @@ import './editor.scss';
 import { Fragment } from '@wordpress/element';
 import ImageUploader from '../../utils/ImageUploader.js';
 import LinkEditor from '../../utils/LinkEditor.js';
+import PrimaryButtonArrow from '../../common-components/PrimaryButtonArrow.js';
 
 const Edit = (props) => {
 	const { attributes, setAttributes } = props;
@@ -81,7 +82,9 @@ const Edit = (props) => {
 								}
 								placeholder="Input short description..."
 							/>
-							<div className={`${baseClass}__button pm-button`}>
+							<div
+								className={`${baseClass}__button pm-button pm-button-primary pm-button-admin`}
+							>
 								<LinkEditor
 									url={button.url}
 									target={button.target}
@@ -102,6 +105,7 @@ const Edit = (props) => {
 										allowedFormats={[]}
 									/>
 								</LinkEditor>
+								<PrimaryButtonArrow />
 							</div>
 						</div>
 						<div className={`${baseClass}__image`}>

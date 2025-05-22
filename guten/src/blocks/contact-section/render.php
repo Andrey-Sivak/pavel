@@ -88,7 +88,7 @@ $base_class = 'wp-block-pavel-contact-section';
 					<?php if ( ! empty( $primaryButton['text'] ) ) : ?>
 						<a
 							href="<?php echo esc_url( $primaryButton['url'] ); ?>"
-							class="<?php echo esc_attr( $base_class . '__button pm-button contact-button-primary pm-animate' ); ?>"
+							class="<?php echo esc_attr( $base_class . '__button pm-button pm-button-primary pm-animate' ); ?>"
 							<?php echo ! empty( $primaryButton['target'] ) ? 'target="' . esc_attr( $primaryButton['target'] ) . '"' : ''; ?>
 							aria-label="<?php echo esc_attr( sprintf( 'Go to %s form', $primaryButton['text'] ) ); ?>"
 							itemprop="contactPoint"
@@ -105,7 +105,7 @@ $base_class = 'wp-block-pavel-contact-section';
 					<?php if ( ! empty( $secondaryButton['text'] ) ) : ?>
 						<a
 							href="<?php echo esc_url( $secondaryButton['url'] ); ?>"
-							class="<?php echo esc_attr( $base_class . '__button contact-button-secondary pm-animate' ); ?>"
+							class="<?php echo esc_attr( $base_class . '__button pm-button pm-button-secondary contact-button-secondary pm-animate' ); ?>"
 							<?php echo ! empty( $secondaryButton['target'] ) ? 'target="' . esc_attr( $secondaryButton['target'] ) . '"' : ''; ?>
 							aria-label="<?php echo esc_attr( sprintf( 'Go to %s form', $secondaryButton['text'] ) ); ?>"
 							itemprop="contactPoint"

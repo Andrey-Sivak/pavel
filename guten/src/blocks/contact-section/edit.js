@@ -13,6 +13,7 @@ import ImageUploader from '../../utils/ImageUploader.js';
 import SocialLink from './SocialLink.js';
 import LinkEditor from '../../utils/LinkEditor.js';
 import BlockIdInspectorPanel from '../../common-components/BlockIdInspectorPanel.js';
+import PrimaryButtonArrow from '../../common-components/PrimaryButtonArrow.js';
 
 const Edit = (props) => {
 	const { attributes, setAttributes } = props;
@@ -141,7 +142,7 @@ const Edit = (props) => {
 
 							<div className={`${baseClass}__buttons`}>
 								<div
-									className={`${baseClass}__button pm-button contact-button-primary`}
+									className={`${baseClass}__button pm-button pm-button-primary pm-button-admin`}
 								>
 									<LinkEditor
 										url={primaryButton.url}
@@ -170,9 +171,10 @@ const Edit = (props) => {
 											allowedFormats={[]}
 										/>
 									</LinkEditor>
+									<PrimaryButtonArrow />
 								</div>
 								<div
-									className={`${baseClass}__button contact-button-secondary`}
+									className={`${baseClass}__button pm-button pm-button-secondary pm-button-admin`}
 								>
 									<LinkEditor
 										url={secondaryButton.url}

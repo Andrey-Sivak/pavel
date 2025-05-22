@@ -92,7 +92,7 @@ $base_class = 'wp-block-pavel-home-experience-timeline';
 			<a
 				href="<?php echo esc_url( $button['url'] ); ?>"
 				target="<?php echo esc_attr( $button['target'] ); ?>"
-				class="<?php echo $base_class . '__button pm-button pm-animate'; ?>"
+				class="<?php echo $base_class . '__button pm-button pm-button-primary pm-animate'; ?>"
 				aria-label="<?php echo esc_attr( sprintf( 'Go to %s form', $button['text'] ) ); ?>"
 				title="<?php echo esc_attr( $button['text'] ); ?>"
 				itemprop="contactPoint"
