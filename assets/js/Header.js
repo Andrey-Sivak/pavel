@@ -12,8 +12,8 @@ class Header {
 		this.menu = this.headerEl.querySelector('#primary-menu');
 
 		this.contactUsBtn = document.querySelector('.pm-header__button');
-		// this.mobBurgerBtn = document.querySelector('.mob-burger-btn');
-		// this.boundDisplayMobMenuHandler = this.displayMobMenu.bind(this);
+		this.mobBurgerBtn = document.querySelector('.mob-burger-btn');
+		this.boundDisplayMobMenuHandler = this.displayMobMenu.bind(this);
 		this.languageSwitcher = document.querySelector('.pm-languages');
 
 		this.init();
@@ -23,12 +23,12 @@ class Header {
 		this.boundScrollHandler();
 		window.addEventListener('scroll', this.boundScrollHandler);
 
-		// if (this.mobBurgerBtn) {
-		// 	this.mobBurgerBtn.addEventListener(
-		// 		'click',
-		// 		this.boundDisplayMobMenuHandler,
-		// 	);
-		// }
+		if (this.mobBurgerBtn) {
+			this.mobBurgerBtn.addEventListener(
+				'click',
+				this.boundDisplayMobMenuHandler,
+			);
+		}
 
 		if (this.contactUsBtn) {
 			this.contactUsBtn.addEventListener(
@@ -81,14 +81,14 @@ class Header {
 		this.scrollPrev = scrolled;
 	}
 
-	// displayMobMenu() {
-	// 	document.body.classList.toggle('mob-menu-active');
-	//
-	// this.mobBurgerBtn.setAttribute(
-	// 	'aria-expanded',
-	// 	document.body.classList.contains('mob-menu-active'),
-	// );
-	// }
+	displayMobMenu() {
+		document.body.classList.toggle('mob-menu-active');
+
+		this.mobBurgerBtn.setAttribute(
+			'aria-expanded',
+			document.body.classList.contains('mob-menu-active'),
+		);
+	}
 
 	scrollToContactSection(e) {
 		scrollToElement(e);

@@ -45,8 +45,12 @@ $wrap-container-name: experience-timeline;
 		margin-bottom: 63px;
 		margin-top: 0;
 		font-weight: 500;
-		font-size: 44px;
+		font-size: 3.4vw;
 		line-height: 1.13;
+
+		@container #{$wrap-container-name} (min-width: #{$bp-xl}) {
+			font-size: 44px;
+		}
 	}
 
 	&__timeline {
@@ -62,8 +66,12 @@ $wrap-container-name: experience-timeline;
 			align-items: center;
 			gap: 45px;
 			width: 100%;
-			max-width: calc(50% - 12px);
 			margin-top: -80px;
+			//max-width: calc(50% - 12px);
+
+			@container #{$wrap-container-name} (min-width: #{$bp-lg}) {
+				max-width: calc(50% - 12px);
+			}
 
 			&:first-child {
 				margin-top: 0;
@@ -74,8 +82,12 @@ $wrap-container-name: experience-timeline;
 			}
 
 			&:nth-child(even) {
-				grid-template-columns: 208px 1fr;
 				margin-left: auto;
+				//grid-template-columns: 208px 1fr;
+
+				@container #{$wrap-container-name} (min-width: #{$bp-lg}) {
+					grid-template-columns: 208px 1fr;
+				}
 
 				.wp-block-pavel-home-experience-timeline__experience-content {
 					order: 2;
@@ -100,7 +112,11 @@ $wrap-container-name: experience-timeline;
 			}
 
 			&:nth-child(odd) {
-				grid-template-columns: 1fr 208px;
+				//grid-template-columns: 1fr 208px;
+
+				@container #{$wrap-container-name} (min-width: #{$bp-lg}) {
+					grid-template-columns: 1fr 208px;
+				}
 
 				.wp-block-pavel-home-experience-timeline__experience-content {
 					text-align: right;
@@ -149,6 +165,12 @@ $wrap-container-name: experience-timeline;
 
 		&-timeline {
 			position: relative;
+
+			display: none;
+
+			@container #{$wrap-container-name} (min-width: #{$bp-lg}) {
+				display: block;
+			}
 
 			&-text {
 				max-width: 45%;

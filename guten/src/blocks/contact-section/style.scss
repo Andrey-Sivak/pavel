@@ -97,7 +97,11 @@ $wrap-container-name: contact-section;
 		background-clip: text;
 		text-fill-color: transparent;
 		color: var(--color-deep-blue);
-		margin-bottom: 30px;
+		margin-bottom: 20px;
+
+		@container #{$wrap-container-name} (min-width: #{$bp-lg}) {
+			margin-bottom: 30px;
+		}
 
 		@container #{$wrap-container-name} (min-width: #{$bp-xl}) {
 			margin-bottom: 52px;
@@ -107,8 +111,13 @@ $wrap-container-name: contact-section;
 	&__subtitle {
 		margin-top: 0;
 		line-height: 1.29;
-		margin-bottom: 30px;
-		font-size: 2.5vw;
+		margin-bottom: 20px;
+		font-size: 2.2vw;
+
+		@container #{$wrap-container-name} (min-width: #{$bp-lg}) {
+			margin-bottom: 30px;
+			font-size: 2.5vw;
+		}
 
 		@container #{$wrap-container-name} (min-width: #{$bp-xl}) {
 			margin-bottom: 52px;
@@ -126,11 +135,24 @@ $wrap-container-name: contact-section;
 		}
 	}
 
+	&__social-item {
+		display: block;
+		width: 40px;
+
+		@container #{$wrap-container-name} (min-width: #{$bp-lg}) {
+			width: auto;
+		}
+	}
+
 	&__buttons {
-		display: flex;
 		align-items: center;
 		margin-top: 30px;
+		display: grid;
 		gap: 20px;
+
+		@container #{$wrap-container-name} (min-width: #{$bp-lg}) {
+			display: flex;
+		}
 
 		@container #{$wrap-container-name} (min-width: #{$bp-xl}) {
 			gap: 70px;
@@ -146,11 +168,16 @@ $wrap-container-name: contact-section;
 		border-radius: 1000px;
 
 		&.contact-button-secondary {
-			padding: 16px 44px;
 			background: linear-gradient(to left, var(--color-medium-blue) 0%, var(--color-deep-blue) 100%);
-			font-size: 20px;
-			line-height: 25px;
+			line-height: 1.25;
 			text-align: center;
+			font-size: 16px;
+			padding: 14px 30px;
+
+			@container #{$wrap-container-name} (min-width: #{$bp-xl}) {
+				font-size: 20px;
+				padding: 16px 44px;
+			}
 		}
 	}
 }

@@ -25,8 +25,19 @@ $pavel_body_class = 'bg-secondary';
 <body <?php body_class( $pavel_body_class ); ?>>
 <?php wp_body_open(); ?>
 	<header id="pm-header" class="pm-header pm-wrap fixed top-0 left-0 w-full z-50 xl:pt-6.5 pt-5 xl:pb-5 pb-4.5 transition-all duration-300">
-		<div class="pm-container flex items-center justify-between">
+		<div class="pm-container lg:flex grid grid-cols-2 lg:gap-0 gap-5 items-center lg:justify-between">
 			<?php get_template_part( '/template-parts/logo' ); ?>
+
+			<button class="mob-burger-btn"
+					type="button"
+					aria-expanded="false"
+					aria-controls="mobile-menu"
+					title="<?php echo esc_attr__('Toggle mobile navigation', 'pm'); ?>">
+				<span class="pm-visually-hidden"><?php echo esc_html__('Menu', 'pm'); ?></span>
+				<span class="mob-burger-btn-top"></span>
+				<span class="mob-burger-btn-center"></span>
+				<span class="mob-burger-btn-bottom"></span>
+			</button>
 
 			<?php
 			if ( has_nav_menu( 'menu-1' ) ) {
@@ -42,7 +53,7 @@ $pavel_body_class = 'bg-secondary';
 			}
 			?>
 
-			<div class="flex items-center gap-2">
+			<div class="lg:flex grid items-center lg:gap-2 gap-4 pm-header__right">
 				<a href="#contact" class="pm-button pm-header__button">
 					<span>Let’s connect</span>
 					<span class="pm-button__arrow"><?php get_template_part( '/vector-images/button-arrow' ); ?></span>
