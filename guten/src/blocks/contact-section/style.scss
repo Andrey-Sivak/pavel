@@ -10,8 +10,12 @@ $wrap-container-name: contact-section;
 
 	&__wrap {
 		position: relative;
-		padding-top: 70px;
-		margin-top: 70px;
+		margin-top: 40px;
+
+		@container #{$wrap-container-name} (min-width: #{$bp-md}) {
+			padding-top: 70px;
+			margin-top: 70px;
+		}
 	}
 
 	&__decor-top-left {
@@ -34,7 +38,10 @@ $wrap-container-name: contact-section;
 		position: relative;
 		z-index: 50;
 		gap: 60px;
-		grid-template-columns: 32vw 1fr;
+
+		@container #{$wrap-container-name} (min-width: #{$bp-md}) {
+			grid-template-columns: 32vw 1fr;
+		}
 
 		@container #{$wrap-container-name} (min-width: #{$bp-xl}) {
 			gap: 100px;
@@ -48,11 +55,25 @@ $wrap-container-name: contact-section;
 		&-inner {
 			position: relative;
 			z-index: 50;
+			order: 1;
+
+			@container #{$wrap-container-name} (min-width: #{$bp-md}) {
+				order: 2;
+			}
 		}
 	}
 
 	&__photo {
 		position: relative;
+		order: 2;
+		max-width: 350px;
+		margin: 0 auto;
+
+		@container #{$wrap-container-name} (min-width: #{$bp-md}) {
+			margin: 0;
+			max-width: 100%;
+			order: 1;
+		}
 
 		img {
 			image-rendering: pixelated;
@@ -98,6 +119,11 @@ $wrap-container-name: contact-section;
 		text-fill-color: transparent;
 		color: var(--color-deep-blue);
 		margin-bottom: 20px;
+		text-align: center;
+
+		@container #{$wrap-container-name} (min-width: #{$bp-md}) {
+			text-align: left;
+		}
 
 		@container #{$wrap-container-name} (min-width: #{$bp-lg}) {
 			margin-bottom: 30px;
@@ -112,7 +138,12 @@ $wrap-container-name: contact-section;
 		margin-top: 0;
 		line-height: 1.29;
 		margin-bottom: 20px;
-		font-size: 2.2vw;
+		font-size: clamp(16px, 2.2vw, 24px);
+		text-align: center;
+
+		@container #{$wrap-container-name} (min-width: #{$bp-md}) {
+			text-align: left;
+		}
 
 		@container #{$wrap-container-name} (min-width: #{$bp-lg}) {
 			margin-bottom: 30px;
@@ -129,6 +160,11 @@ $wrap-container-name: contact-section;
 		display: flex;
 		align-items: center;
 		gap: 20px;
+		justify-content: center;
+
+		@container #{$wrap-container-name} (min-width: #{$bp-md}) {
+			justify-content: flex-start;
+		}
 
 		@container #{$wrap-container-name} (min-width: #{$bp-xl}) {
 			gap: 50px;
@@ -166,6 +202,11 @@ $wrap-container-name: contact-section;
 		justify-content: center;
 		gap: 12px;
 		border-radius: 1000px;
+		margin: 0 auto;
+
+		@container #{$wrap-container-name} (min-width: #{$bp-md}) {
+			margin: 0;
+		}
 
 		&.contact-button-secondary {
 			background: linear-gradient(to left, var(--color-medium-blue) 0%, var(--color-deep-blue) 100%);

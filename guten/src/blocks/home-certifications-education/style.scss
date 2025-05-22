@@ -39,8 +39,12 @@ $wrap-container-name: certifications-education;
 		text-fill-color: transparent;
 		color: var(--color-deep-blue);
 		margin-top: 0;
-		margin-bottom: 50px;
 		text-align: center;
+		margin-bottom: 40px;
+
+		@container #{$wrap-container-name} (min-width: #{$bp-md}) {
+			margin-bottom: 50px;
+		}
 	}
 
 	&__credentials-grid {
@@ -54,9 +58,12 @@ $wrap-container-name: certifications-education;
 			background-image: linear-gradient(to right, #003459 0%, #007EA7 100%);
 			display: grid;
 			align-items: center;
-			grid-template-columns: 21.7vw 1fr;
 			padding: 3.4vw 5.43vw;
 			gap: 3.4vw;
+
+			@container #{$wrap-container-name} (min-width: #{$bp-md}) {
+				grid-template-columns: 21.7vw 1fr;
+			}
 
 			@container #{$wrap-container-name} (min-width: #{$bp-container}) {
 				grid-template-columns: 320px 1fr;
@@ -92,19 +99,34 @@ $wrap-container-name: certifications-education;
 		&-logo {
 			display: flex;
 			align-items: center;
+			justify-content: center;
+
+			@container #{$wrap-container-name} (min-width: #{$bp-md}) {
+				justify-content: flex-start;
+			}
 
 			img {
-				max-height: 220px;
+				max-height: 150px;
+				max-width: 150px;
 				object-fit: contain;
+
+				@container #{$wrap-container-name} (min-width: #{$bp-md}) {
+					max-width: 100%;
+					max-height: 220px;
+				}
 			}
 		}
 
 		&-title {
 			line-height: 1.12;
 			margin-top: 0;
-			margin-bottom: 20px;
 			font-weight: bold;
-			font-size: 2.7vw;
+			margin-bottom: 16px;
+			font-size: clamp(20px, 2.7vw, 38px);
+
+			@container #{$wrap-container-name} (min-width: #{$bp-md}) {
+				margin-bottom: 20px;
+			}
 
 			@container #{$wrap-container-name} (min-width: #{$bp-container}) {
 				font-size: 40px;
@@ -117,9 +139,13 @@ $wrap-container-name: certifications-education;
 
 		&-description {
 			margin-top: 0;
-			margin-bottom: 20px;
+			margin-bottom: 16px;
 			line-height: 1.29;
-			font-size: 2.37vw;
+			font-size: clamp(18px, 2.37vw, 34px);
+
+			@container #{$wrap-container-name} (min-width: #{$bp-md}) {
+				margin-bottom: 20px;
+			}
 
 			@container #{$wrap-container-name} (min-width: #{$bp-container}) {
 				font-size: 35px;
@@ -130,7 +156,7 @@ $wrap-container-name: certifications-education;
 			text-align: right;
 			font-style: italic;
 			line-height: 1.29;
-			font-size: 1.83vw;
+			font-size: clamp(15px, 1.83vw, 24px);
 
 			@container #{$wrap-container-name} (min-width: #{$bp-container}) {
 				font-size: 27px;

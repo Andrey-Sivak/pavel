@@ -12,7 +12,7 @@ declare(strict_types=1);
 ?>
 <footer id="pm-footer" class="pm-footer pm-wrap relative z-30 pb-7.5 pt-17.5">
 	<div class="pm-container">
-		<div class="flex w-full items-center justify-between pb-6 border-b border-white/20">
+		<div class="flex md:flex-row flex-col md:text-left text-center w-full items-center justify-between pb-6 border-b border-white/20 pm-footer__inner">
 			<?php get_template_part( '/template-parts/logo' ); ?>
 
 			<?php

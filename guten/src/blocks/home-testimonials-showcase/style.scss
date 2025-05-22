@@ -14,7 +14,6 @@ $wrap-container-name: testimonials-showcase;
 	}
 
 	&__heading {
-		margin-bottom: 50px;
 		text-align: center;
 		background: linear-gradient(to left, var(--color-medium-blue) 0%, var(--color-deep-blue) 100%);
 		-webkit-background-clip: text;
@@ -22,6 +21,11 @@ $wrap-container-name: testimonials-showcase;
 		background-clip: text;
 		text-fill-color: transparent;
 		color: var(--color-deep-blue);
+		margin-bottom: 40px;
+
+		@container #{$wrap-container-name} (min-width: #{$bp-md}) {
+			margin-bottom: 50px;
+		}
 	}
 
 	&__testimonials-grid {
@@ -148,7 +152,7 @@ $wrap-container-name: testimonials-showcase;
 		font-weight: bold;
 		line-height: 1.15;
 		margin: 0;
-		font-size: 2.35vw;
+		font-size: clamp(18px, 2.35vw, 25px);
 
 		@container #{$wrap-container-name} (min-width: #{$bp-lg}) {
 			font-size: 1.76vw;
@@ -169,7 +173,7 @@ $wrap-container-name: testimonials-showcase;
 		text-align: right;
 		font-style: italic;
 		line-height: 1.29;
-		font-size: 2.25vw;
+		font-size: clamp(18px, 2.25vw, 24px);
 
 		@container #{$wrap-container-name} (min-width: #{$bp-lg}) {
 			font-size: 1.83vw;

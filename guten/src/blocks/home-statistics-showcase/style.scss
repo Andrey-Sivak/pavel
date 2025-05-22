@@ -10,8 +10,13 @@ $wrap-container-name: statistics-showcase;
 
 	&__wrap {
 		position: relative;
-		padding-top: 70px;
-		padding-bottom: 100px;
+		padding-top: 50px;
+		padding-bottom: 50px;
+
+		@container #{$wrap-container-name} (min-width: #{$bp-md}) {
+			padding-top: 70px;
+			padding-bottom: 100px;
+		}
 
 		@container #{$wrap-container-name} (min-width: #{$bp-xl}) {
 			padding-bottom: 172px;
@@ -35,9 +40,14 @@ $wrap-container-name: statistics-showcase;
 		z-index: 30;
 		position: relative;
 		display: grid;
-		grid-template-columns: repeat(2, 1fr);
-		max-width: 650px !important;
-		gap: 20px;
+		max-width: 350px !important;
+		gap: 30px;
+
+		@container #{$wrap-container-name} (min-width: #{$bp-md}) {
+			gap: 20px;
+			max-width: 650px !important;
+			grid-template-columns: repeat(2, 1fr);
+		}
 
 		@container #{$wrap-container-name} (min-width: #{$bp-lg}) {
 			max-width: var(--container-w) !important;
@@ -50,9 +60,13 @@ $wrap-container-name: statistics-showcase;
 	}
 
 	&__item {
-		height: 300px;
-		padding: 5vw 30px 0;
+		padding: 30px 16px 40px;
 		position: relative;
+
+		@container #{$wrap-container-name} (min-width: #{$bp-md}) {
+			height: 300px;
+			padding: 5vw 30px 0;
+		}
 
 		@container #{$wrap-container-name} (min-width: #{$bp-lg}) {
 			padding: 3.5vw 16px 0;
@@ -106,7 +120,11 @@ $wrap-container-name: statistics-showcase;
 		line-height: 1.15;
 		margin-top: 0;
 		margin-bottom: 4px;
-		font-size: 5vw;
+		font-size: 48px;
+
+		@container #{$wrap-container-name} (min-width: #{$bp-md}) {
+			font-size: 5vw;
+		}
 
 		@container #{$wrap-container-name} (min-width: #{$bp-lg}) {
 			font-size: 4.5vw;
@@ -124,7 +142,11 @@ $wrap-container-name: statistics-showcase;
 	&__unit {
 		margin: 0;
 		line-height: 1;
-		font-size: 3vw;
+		font-size: 28px;
+
+		@container #{$wrap-container-name} (min-width: #{$bp-md}) {
+			font-size: 3vw;
+		}
 
 		@container #{$wrap-container-name} (min-width: #{$bp-lg}) {
 			font-size: 2.4vw;
