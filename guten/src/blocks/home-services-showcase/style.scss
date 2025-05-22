@@ -125,9 +125,9 @@ $clip-path-polygon-mob: polygon( 50.037% 4.066%,50.037% 4.066%,48.816% 4.012%,47
 
 		&-item {
 			position: relative;
+			overflow: hidden;
 			border-radius: 20px;
 			background-color: #fff;
-			background-image: linear-gradient(50deg, #fff 0%, var(--color-light-blue) 100%);
 			padding: 30px 16px;
 
 			@container #{$wrap-container-name} (min-width: #{$bp-md}) {
@@ -146,9 +146,35 @@ $clip-path-polygon-mob: polygon( 50.037% 4.066%,50.037% 4.066%,48.816% 4.012%,47
 			@container #{$wrap-container-name} (min-width: #{$bp-container}) {
 				padding: 60px 40px;
 			}
+
+			&:before {
+				z-index: 10;
+				position: absolute;
+				display: block;
+				content: '';
+				top: 0;
+				right: 0;
+				left: auto;
+				width: 200%;
+				height: 200%;
+				background-image: linear-gradient(50deg, var(--color-light-blue) 10%, #fff 50%, var(--color-light-blue) 90%);
+				transition: transform .3s ease-in-out;
+			}
+
+			@media (hover: hover) {
+
+				&:hover {
+
+					&:before {
+						transform: translate(50%, -50%);
+					}
+				}
+			}
 		}
 
 		&-title {
+			position: relative;
+			z-index: 20;
 			line-height: 1.12;
 			font-weight: bold;
 			background: linear-gradient(to left, var(--color-medium-blue) 0%, var(--color-deep-blue) 100%);
@@ -179,6 +205,8 @@ $clip-path-polygon-mob: polygon( 50.037% 4.066%,50.037% 4.066%,48.816% 4.012%,47
 		}
 
 		&-description {
+			position: relative;
+			z-index: 20;
 			color: var(--color-dark-blue);
 			line-height: 1.26;
 			margin: 0;
