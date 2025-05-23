@@ -38,10 +38,48 @@ $wrap-container-name: testimonials-showcase;
 		}
 
 		&.pm-items-3 {
+			padding: 0;
 			width: 100%;
 			display: grid;
-			grid-template-columns: repeat(3, 1fr);
-			gap: 30px;
+			gap: 20px;
+			max-width: 400px;
+			margin: 0 auto;
+
+			@container #{$wrap-container-name} (min-width: #{$bp-md}) {
+				gap: 30px;
+				grid-template-columns: repeat(4, 1fr);
+				max-width: 850px;
+			}
+
+			@container #{$wrap-container-name} (min-width: #{$bp-lg}) {
+				max-width: 100%;
+				margin: 0 0 50px;
+				grid-template-columns: repeat(3, 1fr);
+			}
+
+			.wp-block-pavel-home-testimonials-showcase__testimonial-item {
+
+				@container #{$wrap-container-name} (min-width: #{$bp-md}) {
+					grid-column: span 2;
+				}
+
+				@container #{$wrap-container-name} (min-width: #{$bp-lg}) {
+					grid-column: span 1;
+				}
+
+				&:last-child {
+
+					@container #{$wrap-container-name} (min-width: #{$bp-md}) {
+						grid-column-start: 2;
+						grid-column-end: 4;
+					}
+
+					@container #{$wrap-container-name} (min-width: #{$bp-lg}) {
+						grid-column-start: unset;
+						grid-column-end: unset;
+					}
+				}
+			}
 		}
 
 		&.pm-items-2 {
