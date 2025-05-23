@@ -55,7 +55,7 @@ $pavel_body_class = 'bg-secondary pm-modal-open pm-contact';
 
 			<div class="lg:flex grid items-center lg:gap-2 gap-4 pm-header__right">
 				<a href="#contact" class="pm-button pm-button-primary pm-header__button">
-					<span>Let’s connect</span>
+					<span><?php echo esc_html__( 'Let’s connect', 'pm' ); ?></span>
 					<span class="pm-button__arrow"><?php get_template_part( '/vector-images/button-arrow' ); ?></span>
 				</a>
 
