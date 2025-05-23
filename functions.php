@@ -129,18 +129,18 @@ require get_template_directory() . '/guten/guten.php';
 function pavel_add_icon_to_cf7_submit_button( $elements ) {
 	return preg_replace_callback(
 		'/<input[^>]+type=["\']submit["\'][^>]*>/i',
-		function($matches) {
-			preg_match('/value=["\'](.*?)["\']/i', $matches[0], $value_match);
-			$button_text = isset($value_match[1]) ? esc_html($value_match[1]) : 'Submit';
+		function( $matches ) {
+			preg_match( '/value=["\'](.*?)["\']/i', $matches[0], $value_match );
+			$button_text = isset( $value_match[1] ) ? esc_html( $value_match[1] ) : 'Submit';
 
-			preg_match('/class=["\'](.*?)["\']/i', $matches[0], $class_match);
+			preg_match( '/class=["\'](.*?)["\']/i', $matches[0], $class_match );
 			$existing_classes = $class_match[1] ?? '';
 
 			ob_start();
 			?>
-			<button type="submit" class="pm-button pm-button-primary <?php echo esc_attr($existing_classes); ?>">
+			<button type="submit" class="pm-button pm-button-primary <?php echo esc_attr( $existing_classes ); ?>">
 				<span><?php echo $button_text; ?></span>
-				<span class="pm-button__arrow"><?php get_template_part('/vector-images/button-arrow'); ?></span>
+				<span class="pm-button__arrow"><?php get_template_part( '/vector-images/button-arrow' ); ?></span>
 			</button>
 			<?php
 			return ob_get_clean();
@@ -149,3 +149,10 @@ function pavel_add_icon_to_cf7_submit_button( $elements ) {
 	);
 }
 add_filter( 'wpcf7_form_elements', 'pavel_add_icon_to_cf7_submit_button' );
+
+add_action(
+	'init',
+	function() {
+		load_textdomain( 'pm', get_template_directory() . '/languages/pm-cs_CZ.mo' );
+	}
+);

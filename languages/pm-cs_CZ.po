@@ -1,0 +1,187 @@
+# Copyright (C) 2025 Andrey-Sivak
+# This file is distributed under the GNU General Public License v2 or later.
+msgid ""
+msgstr ""
+"Project-Id-Version: Pavel 1.0.13\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/theme/Pavel\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2025-05-23T23:14:15+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.7.1\n"
+"X-Domain: pm\n"
+
+#. Theme Name of the theme
+msgid "Pavel"
+msgstr ""
+
+#. Theme URI of the theme
+msgid "https://github.com/Andrey-Sivak/pavel"
+msgstr ""
+
+#. Description of the theme
+msgid "Custom theme for personal Pavel Mikulenka website"
+msgstr ""
+
+#. Author of the theme
+msgid "Andrey-Sivak"
+msgstr ""
+
+#. Author URI of the theme
+msgid "https://github.com/Andrey-Sivak"
+msgstr ""
+
+#: 404.php:15
+msgid "Oops! That page can&rsquo;t be found."
+msgstr ""
+
+#: footer.php:43
+msgid "Pavel – Digital Product Leader"
+msgstr ""
+
+#: functions.php:42
+msgid "Primary"
+msgstr ""
+
+#: header.php:35
+msgid "Toggle mobile navigation"
+msgstr ""
+
+#: header.php:36
+msgid "Menu"
+msgstr ""
+
+#: header.php:58
+msgid "Let’s connect"
+msgstr "test btn text"
+
+#. Template Name of the theme
+msgid "Front Page"
+msgstr ""
+
+#: template-parts/language-switcher.php:8
+msgid "Language switcher"
+msgstr ""
+
+#: template-parts/modal.php:4
+msgid "Contact me"
+msgstr ""
+
+#: template-parts/modal.php:17
+msgid "Requesting.."
+msgstr ""
+
+#: template-parts/modal.php:22
+msgid "Your request has been sent successfully!"
+msgstr ""
+
+#: template-parts/modal.php:24
+msgid "We will contact you as soon as possible."
+msgstr ""
+
+#: template-parts/modal.php:26
+msgid "Back to home"
+msgstr ""
+
+#: template-parts/modal.php:33
+msgid "Close"
+msgstr ""
+
+#: guten/build/contact-section/block.json
+#: guten/src/blocks/contact-section/block.json
+msgctxt "block title"
+msgid "Contact Section"
+msgstr ""
+
+#: guten/build/contact-section/block.json
+#: guten/src/blocks/contact-section/block.json
+msgctxt "block description"
+msgid "Display a professional contact section with profile image, social links, and call-to-action buttons."
+msgstr ""
+
+#: guten/build/home-certifications-education/block.json
+#: guten/src/blocks/home-certifications-education/block.json
+msgctxt "block title"
+msgid "Certifications & Education"
+msgstr ""
+
+#: guten/build/home-certifications-education/block.json
+#: guten/src/blocks/home-certifications-education/block.json
+msgctxt "block description"
+msgid "Display professional certifications and educational qualifications with logos and descriptions."
+msgstr ""
+
+#: guten/build/home-experience-timeline/block.json
+#: guten/src/blocks/home-experience-timeline/block.json
+msgctxt "block title"
+msgid "Experience Timeline"
+msgstr ""
+
+#: guten/build/home-experience-timeline/block.json
+#: guten/src/blocks/home-experience-timeline/block.json
+msgctxt "block description"
+msgid "Display professional experience as an interactive timeline with company logos and descriptions."
+msgstr ""
+
+#: guten/build/home-hero-section/block.json
+#: guten/src/blocks/home-hero-section/block.json
+msgctxt "block title"
+msgid "Home Hero Section"
+msgstr ""
+
+#: guten/build/home-hero-section/block.json
+#: guten/src/blocks/home-hero-section/block.json
+msgctxt "block description"
+msgid "A prominent hero section featuring a title, text, and image."
+msgstr ""
+
+#: guten/build/home-services-showcase/block.json
+#: guten/src/blocks/home-services-showcase/block.json
+msgctxt "block title"
+msgid "Services Showcase"
+msgstr ""
+
+#: guten/build/home-services-showcase/block.json
+#: guten/src/blocks/home-services-showcase/block.json
+msgctxt "block description"
+msgid "Display professional services with heading, introduction, and service cards."
+msgstr ""
+
+#: guten/build/home-statistics-showcase/block.json
+#: guten/src/blocks/home-statistics-showcase/block.json
+msgctxt "block title"
+msgid "Statistics Showcase"
+msgstr ""
+
+#: guten/build/home-statistics-showcase/block.json
+#: guten/src/blocks/home-statistics-showcase/block.json
+msgctxt "block description"
+msgid "Display professional statistics and achievements with numbers and descriptions."
+msgstr ""
+
+#: guten/build/home-testimonials-showcase/block.json
+#: guten/src/blocks/home-testimonials-showcase/block.json
+msgctxt "block title"
+msgid "Testimonials Showcase"
+msgstr ""
+
+#: guten/build/home-testimonials-showcase/block.json
+#: guten/src/blocks/home-testimonials-showcase/block.json
+msgctxt "block description"
+msgid "Display client testimonials with ratings, quotes, and attribution information."
+msgstr ""
+
+#: guten/build/test-block/block.json
+#: guten/src/blocks/test-block/block.json
+msgctxt "block title"
+msgid "Test Block"
+msgstr ""
+
+#: guten/build/test-block/block.json
+#: guten/src/blocks/test-block/block.json
+msgctxt "block description"
+msgid "Test Block"
+msgstr ""
