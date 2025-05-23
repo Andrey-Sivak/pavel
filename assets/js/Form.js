@@ -14,7 +14,11 @@ class Form {
 		if (!this.form) return;
 
 		this.submitBtn = this.form.querySelector('button[type="submit"]');
-		this.formUID = this.form.getAttribute('action').substring(1);
+		const actionAttr = this.form.getAttribute('action');
+		const formIdMatch = actionAttr.match(/#wpcf7-f(\d+)-\w\d+/);
+		this.formUID = formIdMatch
+			? formIdMatch[0]
+			: actionAttr.substring(actionAttr.lastIndexOf('/') + 1);
 		this.loaderContainer = this.block.querySelector('.pm-form-loading');
 		this.successContainer = this.block.querySelector('.pm-form-success');
 
