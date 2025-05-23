@@ -13,7 +13,7 @@ class Form {
 		this.form = this.block.querySelector('.wpcf7-form');
 		if (!this.form) return;
 
-		this.submitBtn = this.form.querySelector('input[type="submit"]');
+		this.submitBtn = this.form.querySelector('button[type="submit"]');
 		this.formUID = this.form.getAttribute('action').substring(1);
 		this.loaderContainer = this.block.querySelector('.pm-form-loading');
 		this.successContainer = this.block.querySelector('.pm-form-success');
