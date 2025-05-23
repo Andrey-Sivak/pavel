@@ -201,7 +201,7 @@ $wrap-container-name: contact-section;
 	}
 
 	&__button {
-		width: 250px!important;
+		min-width: 250px;
 		margin: 0 auto;
 
 		@container #{$wrap-container-name} (min-width: #{$bp-md}) {
