@@ -1,5 +1,5 @@
 import Swiper from 'swiper';
-import { Navigation, Pagination, Autoplay } from 'swiper/modules';
+import { /*Navigation,*/ Pagination, Autoplay } from 'swiper/modules';
 
 class ReviewsSlider {
 	initSlidesCount = 3;
@@ -17,8 +17,10 @@ class ReviewsSlider {
 	init() {
 		const slideCount = this.slider.querySelectorAll('.swiper-slide').length;
 
+		if (slideCount <= this.initSlidesCount) return;
+
 		new Swiper(this.slider, {
-			modules: [Navigation, Pagination, Autoplay],
+			modules: [/*Navigation,*/ Pagination, Autoplay],
 			slidesPerView: this.initSlidesCount,
 			spaceBetween: 30,
 			loop: slideCount > this.initSlidesCount + 1,
