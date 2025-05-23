@@ -23,7 +23,7 @@ $wrap-container-name: pm-main;
 
 		@container #{$wrap-container-name} (min-width: #{$bp-lg}) {
 			font-size: 18px;
-			padding: 26px 40px;
+			padding: 18px 40px;
 		}
 
 		&:focus,
@@ -59,8 +59,8 @@ $wrap-container-name: pm-main;
 			margin-bottom: 20px;
 
 			@container #{$wrap-container-name} (min-width: #{$bp-lg}) {
-				gap: 30px;
-				margin-bottom: 40px;
+				gap: 24px;
+				margin-bottom: 30px;
 			}
 
 			br {
@@ -90,12 +90,13 @@ $wrap-container-name: pm-main;
 			}
 
 			& .wpcf7-form-control-wrap {
+				display: block;
 				z-index: 10;
 				position: relative;
 				border-radius: 8px;
 
 				@container #{$wrap-container-name} (min-width: #{$bp-lg}) {
-					border-radius: 18px;
+					border-radius: 10px;
 				}
 
 				&:before {

@@ -59,8 +59,8 @@ get_template_part(
 	'/template-parts/modal',
 	null,
 	array(
-		'modal_id'  => 'form-modal',
-		'shortcode' => '',
+		'modal_id'  => 'consultation',
+		'shortcode' => '[contact-form-7 id="d6fffca" title="Schedule a free consultation"]',
 	)
 );
 

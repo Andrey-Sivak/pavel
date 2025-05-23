@@ -26,16 +26,16 @@ html {
 		overflow: hidden;
 	}
 
-	//&.pm-form-modal {
-	//
-	//  .pm-modal#form-modal {
-	//    animation: modalFadeIn .3s ease forwards;
-	//
-	//    .pm-modal__inner {
-	//      transform: scale(1) translateY(0);
-	//    }
-	//  }
-	//}
+	&.pm-consultation {
+
+		.pm-modal#consultation {
+			animation: modalFadeIn .3s ease forwards;
+
+			.pm-modal__inner {
+				transform: scale(1) translateY(0);
+			}
+		}
+	}
 
 	&.pm-contact {
 
@@ -49,9 +49,8 @@ html {
 	}
 
 	&.pm-modal-closing {
-		.pm-modal#contact /*,
-    .pm-modal#form-modal*/
-		{
+		.pm-modal#contact,
+		.pm-modal#consultation {
 			animation: modalFadeOut .3s ease forwards;
 
 			.pm-modal__inner {

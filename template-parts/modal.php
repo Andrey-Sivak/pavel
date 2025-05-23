@@ -11,7 +11,7 @@ if ( $shortcode && $modal_id ) :
 		class="pm-modal fixed top-0 left-0 bg-black/75 w-full h-full flex items-center justify-center transition-all duration-500 opacity-0 -z-50"
 	>
 		<div
-			class="pm-modal__inner w-full bg-[#003459] md:max-w-[750px] max-w-[90%] relative xl:rounded-[60px] md:rounded-[40px] rounded-[20px] lg:py-15 md:py-10 py-7.5 md:px-12.5 px-4 transition-all duration-500 pm-form-wrap">
+			class="pm-modal__inner w-full bg-[#003459] md:max-w-[750px] max-w-[90%] relative xl:rounded-[60px] md:rounded-[40px] rounded-[20px] lg:py-10 md:py-10 py-7.5 md:px-12.5 px-4 transition-all duration-500 pm-form-wrap">
 			<div class="pm-form-loading" role="status" aria-live="polite">
 				<?php get_template_part( '/vector-images/loader' ); ?>
 				<span class="screen-reader-text"><?php echo esc_html__( 'Requesting..', 'pm' ); ?></span>
@@ -40,7 +40,7 @@ if ( $shortcode && $modal_id ) :
 				</svg>
 			</div>
 			<div class="relative z-10">
-				<p class="md:mb-10 mb-5 font-bold text-center text-white pm-form-title">
+				<p class="md:mb-7.5 mb-5 font-bold text-center text-white pm-form-title">
 					<?php echo esc_html( $modal_title ); ?>
 				</p>
 			</div>
