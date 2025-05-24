@@ -168,3 +168,20 @@ add_action(
 	},
 	0
 );
+
+/**
+ * Retrieves the shortcode for a specific form type and language.
+ *
+ * @param string $form_type The type of form identifier.
+ * @param string $language The language code to retrieve the shortcode for.
+ * @param array  $form_shortcodes An associative array containing form shortcodes organized by form type and language.
+ *
+ * @return string The shortcode for the specified form type and language. If the language-specific shortcode is not available, the English ('en') shortcode is returned as the default.
+ */
+function pavel_get_form_shortcode( $form_type, $language, $form_shortcodes ) {
+	if ( isset( $form_shortcodes[ $form_type ][ $language ] ) ) {
+		return $form_shortcodes[ $form_type ][ $language ];
+	}
+
+	return $form_shortcodes[ $form_type ]['en'];
+}

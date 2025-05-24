@@ -65,9 +65,10 @@ msgstr ""
 msgid "Language switcher"
 msgstr ""
 
+#: footer.php:66
 #: template-parts/modal.php:4
 msgid "Contact me"
-msgstr ""
+msgstr "Kontaktujte mě"
 
 #: template-parts/modal.php:17
 msgid "Requesting.."
@@ -183,4 +184,8 @@ msgstr ""
 #: guten/src/blocks/test-block/block.json
 msgctxt "block description"
 msgid "Test Block"
+msgstr ""
+
+#: footer.php:76
+msgid "Schedule a free consultation"
 msgstr ""

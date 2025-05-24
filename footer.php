@@ -46,12 +46,25 @@ declare(strict_types=1);
 </footer>
 
 <?php
+$pavel_current_language = apply_filters( 'wpml_current_language', null );
+$pavel_form_shortcodes  = array(
+	'contact'      => array(
+		'en' => '[contact-form-7 id="0e8a695" title="Contact me"]',
+		'cs' => '[contact-form-7 id="b0ef93b" title="Contact me - Ch"]',
+	),
+	'consultation' => array(
+		'en' => '[contact-form-7 id="d6fffca" title="Schedule a free consultation"]',
+		'cs' => '[contact-form-7 id="d622968" title="Schedule a free consultation - Ch"]',
+	),
+);
+
 get_template_part(
 	'/template-parts/modal',
 	null,
 	array(
-		'modal_id'  => 'contact',
-		'shortcode' => '[contact-form-7 id="0e8a695" title="Contact me"]',
+		'modal_id'    => 'contact',
+		'modal_title' => esc_html__( 'Contact me', 'pm' ),
+		'shortcode'   => pavel_get_form_shortcode( 'contact', $pavel_current_language, $pavel_form_shortcodes ),
 	)
 );
 
@@ -59,8 +72,9 @@ get_template_part(
 	'/template-parts/modal',
 	null,
 	array(
-		'modal_id'  => 'consultation',
-		'shortcode' => '[contact-form-7 id="d6fffca" title="Schedule a free consultation"]',
+		'modal_id'    => 'consultation',
+		'modal_title' => esc_html__( 'Schedule a free consultation', 'pm' ),
+		'shortcode'   => pavel_get_form_shortcode( 'consultation', $pavel_current_language, $pavel_form_shortcodes ),
 	)
 );
 
