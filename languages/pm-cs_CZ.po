@@ -55,7 +55,7 @@ msgstr ""
 
 #: header.php:58
 msgid "Let’s connect"
-msgstr ""
+msgstr "Spojme se"
 
 #. Template Name of the theme
 msgid "Front Page"
