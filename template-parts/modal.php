@@ -22,7 +22,7 @@ if ( $shortcode && $modal_id ) :
 					class="pm-form-success-text"><?php echo esc_html__( 'Your request has been sent successfully!', 'pm' ); ?></span>
 				<span
 					class="pm-form-success-subtext"><?php echo esc_html__( 'We will contact you as soon as possible.', 'pm' ); ?></span>
-				<button class="pm-form-success-btn pm-button contact-button-primary">
+				<button class="pm-form-success-btn pm-button pm-button-primary">
 					<span><?php echo esc_html__( 'Back to home', 'pm' ); ?></span>
 					<span
 						class="pm-button__arrow"><?php get_template_part( '/vector-images/button-arrow' ); ?></span>
