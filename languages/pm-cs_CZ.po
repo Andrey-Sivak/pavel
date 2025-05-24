@@ -9,7 +9,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2025-05-23T23:14:15+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Language: \n"
+"Language: cs_CZ\n"
 "X-Generator: WP-CLI 2.7.1\n"
 "X-Domain: pm\n"
 

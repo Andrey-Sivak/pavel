@@ -153,6 +153,18 @@ add_filter( 'wpcf7_form_elements', 'pavel_add_icon_to_cf7_submit_button' );
 add_action(
 	'init',
 	function() {
-		load_textdomain( 'pm', get_template_directory() . '/languages/pm-cs_CZ.mo' );
-	}
+		if ( function_exists( 'apply_filters' ) ) {
+			$current_language = apply_filters( 'wpml_current_language', null );
+			error_log( 'WPML API current language: ' . $current_language );
+
+			if ( $current_language === 'cs' ) {
+				global $locale;
+				$locale = 'cs_CZ';
+
+				unload_textdomain( 'pm' );
+				load_textdomain( 'pm', get_template_directory() . '/languages/pm-cs_CZ.mo' );
+			}
+		}
+	},
+	0
 );
