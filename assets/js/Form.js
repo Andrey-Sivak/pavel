@@ -21,6 +21,9 @@ class Form {
 			: actionAttr.substring(actionAttr.lastIndexOf('/') + 1);
 		this.loaderContainer = this.block.querySelector('.pm-form-loading');
 		this.successContainer = this.block.querySelector('.pm-form-success');
+		this.datetimeInput = this.form.querySelector(
+			'input[name="your-datetime-1"]',
+		);
 
 		this.init();
 	}
@@ -29,6 +32,17 @@ class Form {
 		this.submitBtn.addEventListener('click', () => {
 			this.block.classList.add('loading');
 		});
+
+		if (this.datetimeInput) {
+			const options = {
+				input: this.datetimeInput,
+				container: this.datetimeInput.closest('.pm-datepicker'),
+			};
+
+			import('./DateTimePicker.js').then(
+				({ default: DateTimePicker }) => new DateTimePicker(options),
+			);
+		}
 
 		document.addEventListener('wpcf7mailsent', (e) => {
 			const formUID = e.detail.apiResponse.into;
@@ -67,7 +81,7 @@ class Form {
 					setTimeout(this.closeModal.bind(this), 350);
 				}
 			}, 250);
-		}, 300);
+		}, 10);
 	}
 
 	closeModal() {

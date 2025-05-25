@@ -37,6 +37,18 @@ $wrap-container-name: pm-main;
 		}
 	}
 
+	.pm-datepicker {
+		position: relative;
+		z-index: 100;
+		--td-dark-btn-hover-bg: var(--color-dark-blue);
+		--td-dark-widget-background: var(--color-deep-blue);
+
+		.tempus-dominus-widget {
+			padding: 12px;
+			border-radius: 8px;
+		}
+	}
+
 	textarea {
 		height: 120px;
 	}
@@ -351,5 +363,28 @@ $wrap-container-name: pm-main;
 				transform: scale(1);
 			}
 		}
+	}
+}
+
+.pm-modal__inner-wrap {
+	scrollbar-width: thin;
+	scrollbar-color: var(--color-deep-blue) #fff;
+
+	&::-webkit-scrollbar {
+		width: 4px;
+	}
+
+	&::-webkit-scrollbar-track {
+		background: #f1f1f1;
+		border-radius: 10px;
+	}
+
+	&::-webkit-scrollbar-thumb {
+		background: #888;
+		border-radius: 10px;
+	}
+
+	&::-webkit-scrollbar-thumb:hover {
+		background: #555;
 	}
 }
