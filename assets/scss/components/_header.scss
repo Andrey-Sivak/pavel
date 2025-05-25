@@ -79,11 +79,30 @@ body .pm-header {
 
 		@media (min-width: #{$bp-lg}) {
 			margin: 0;
+			padding: 12px 20px;
 		}
 
 		@media (min-width: #{$bp-xl}) {
-			padding: 16px 42px;
+			padding: 12px 38px;
 			font-size: 17px;
+		}
+
+		@media (min-width: #{$bp-container}) {
+			padding: 16px 42px;
+		}
+
+		span {
+			&:first-child {
+				display: block;
+
+				@media (min-width: #{$bp-lg}) {
+					display: none;
+				}
+
+				@media (min-width: #{$bp-xl}) {
+					display: block;
+				}
+			}
 		}
 	}
 
