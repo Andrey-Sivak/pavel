@@ -15,43 +15,43 @@ msgstr ""
 
 #. Theme Name of the theme
 msgid "Pavel"
-msgstr ""
+msgstr "Pavel"
 
 #. Theme URI of the theme
 msgid "https://github.com/Andrey-Sivak/pavel"
-msgstr ""
+msgstr "https://github.com/Andrey-Sivak/pavel"
 
 #. Description of the theme
 msgid "Custom theme for personal Pavel Mikulenka website"
-msgstr ""
+msgstr "Vlastní téma pro osobní web Pavla Mikulenky"
 
 #. Author of the theme
 msgid "Andrey-Sivak"
-msgstr ""
+msgstr "Andrey-Sivak"
 
 #. Author URI of the theme
 msgid "https://github.com/Andrey-Sivak"
-msgstr ""
+msgstr "https://github.com/Andrey-Sivak"
 
 #: 404.php:15
 msgid "Oops! That page can&rsquo;t be found."
-msgstr ""
+msgstr "Jejda! Tato stránka nebyla nalezena."
 
 #: footer.php:43
 msgid "Pavel – Digital Product Leader"
-msgstr ""
+msgstr "Pavel – Digitální produktový lídr"
 
 #: functions.php:42
 msgid "Primary"
-msgstr ""
+msgstr "Hlavní"
 
 #: header.php:35
 msgid "Toggle mobile navigation"
-msgstr ""
+msgstr "Přepnout mobilní navigaci"
 
 #: header.php:36
 msgid "Menu"
-msgstr ""
+msgstr "Menu"
 
 #: header.php:58
 msgid "Let’s connect"
@@ -59,36 +59,36 @@ msgstr "Spojme se"
 
 #. Template Name of the theme
 msgid "Front Page"
-msgstr ""
+msgstr "Úvodní stránka"
 
 #: template-parts/language-switcher.php:8
 msgid "Language switcher"
-msgstr ""
+msgstr "Přepínač jazyků"
 
 #: footer.php:66
 #: template-parts/modal.php:4
 msgid "Contact me"
 msgstr "Kontaktujte mě"
 
-#: template-parts/modal.php:17
+#: template-parts/modal.php:30
 msgid "Requesting.."
-msgstr ""
+msgstr "Odesílám.."
 
-#: template-parts/modal.php:22
+#: template-parts/modal.php:35
 msgid "Your request has been sent successfully!"
-msgstr ""
+msgstr "Váš požadavek byl úspěšně odeslán!"
 
-#: template-parts/modal.php:24
+#: template-parts/modal.php:37
 msgid "We will contact you as soon as possible."
-msgstr ""
+msgstr "Budeme vás kontaktovat co nejdříve."
 
-#: template-parts/modal.php:26
+#: template-parts/modal.php:39
 msgid "Back to home"
-msgstr ""
+msgstr "Zpět na úvod"
 
-#: template-parts/modal.php:33
+#: template-parts/modal.php:17
 msgid "Close"
-msgstr ""
+msgstr "Zavřít"
 
 #: guten/build/contact-section/block.json
 #: guten/src/blocks/contact-section/block.json
@@ -188,4 +188,4 @@ msgstr ""
 
 #: footer.php:76
 msgid "Schedule a free consultation"
-msgstr ""
+msgstr "Naplánovat bezplatnou konzultaci"
