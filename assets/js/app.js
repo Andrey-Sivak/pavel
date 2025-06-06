@@ -11,6 +11,9 @@
 		homeHeroSection: document.querySelector(
 			'.wp-block-pavel-home-hero-section',
 		),
+		blogHeroSection: document.querySelector(
+			'.wp-block-pavel-blog-hero-section',
+		),
 	};
 
 	if (elements.header) {
@@ -21,9 +24,9 @@
 		({ default: Animations }) => new Animations(),
 	);
 
-	if (elements.homeHeroSection) {
-		import('./HomeHeroSection.js').then(
-			({ default: HomeHeroSection }) => new HomeHeroSection(),
+	if (elements.homeHeroSection || elements.blogHeroSection) {
+		import('./HeroSectionArrow.js').then(
+			({ default: HeroSectionArrow }) => new HeroSectionArrow(),
 		);
 	}
 
