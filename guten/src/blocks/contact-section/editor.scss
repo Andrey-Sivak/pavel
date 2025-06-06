@@ -1,3 +1,7 @@
 .wp-block-pavel-contact-section {
 	max-width: unset !important;
 }
+
+.block-library-block__reusable-block-container:has(.wp-block-pavel-contact-section) {
+	max-width: unset !important;
+}
