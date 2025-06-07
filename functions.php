@@ -186,6 +186,60 @@ function pavel_get_form_shortcode( $form_type, $language, $form_shortcodes ) {
 	return $form_shortcodes[ $form_type ]['en'];
 }
 
+function pavel_category_list(): void {
+	$cat_slugs = isset( $_GET['cats'] ) ? array_filter( explode( ',', $_GET['cats'] ) ) : array();
+
+	if ( is_category() ) {
+		$queried_cat = get_queried_object();
+		if ( $queried_cat && ! in_array( $queried_cat->slug, $cat_slugs, true ) ) {
+			$cat_slugs[] = $queried_cat->slug;
+		}
+	}
+
+	$cat_ids = array();
+	foreach ( $cat_slugs as $slug ) {
+		$term = get_category_by_slug( sanitize_title( $slug ) );
+		if ( $term ) {
+			$cat_ids[] = $term->term_id;
+		}
+	}
+
+	$categories = get_categories(
+		array(
+			'hide_empty' => false,
+			'exclude'    => get_cat_ID( 'Uncategorized' ),
+		)
+	);
+
+	echo '<nav class="mb-7.5">';
+	echo '<ul class="pm-blog__category-list flex items-center flex-wrap gap-y-1.5 gap-x-3.5">';
+
+	$base_btn_class  = 'pm-blog__category-item leading-none cursor-pointer py-2 px-4 block rounded-[6px] border border-[#003459] bg-transparent transition-all duration-300 hover:border-white';
+	$btn_inner_class = 'leading-[1.2]';
+
+	$active_btn_class = $base_btn_class . ' active';
+
+	$all_btn_class = empty( $cat_ids ) ? $active_btn_class : $base_btn_class;
+	echo '<li class="whitespace-nowrap shrink-0 grow-0">
+            <a class="' . $all_btn_class . '" href="' . get_home_url() . '" data-category-slug="all" data-category-id="0">
+                <span class="' . $btn_inner_class . '">' . esc_html__( 'All', 'pm' ) . '</span>
+            </a>
+        </li>';
+
+	foreach ( $categories as $category ) :
+		$is_active          = in_array( $category->term_id, $cat_ids, true );
+		$category_btn_class = $is_active ? $active_btn_class : $base_btn_class;
+		echo '<li class="whitespace-nowrap shrink-0 grow-0">
+                <a class="' . $category_btn_class . '" href="' . esc_url( get_category_link( $category->term_id ) ) . '" data-category-slug="' . $category->slug . '" data-category-id="' . $category->term_id . '">
+                    <span class="' . $btn_inner_class . '">' . esc_html( $category->name ) . '</span>
+                </a>
+            </li>';
+	endforeach;
+
+	echo '</ul>';
+	echo '</nav>';
+}
+
 function pavel_register_post_list_options() {
 	$options_label = 'pavel_options';
 	register_setting(
