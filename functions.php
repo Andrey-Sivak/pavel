@@ -280,7 +280,7 @@ function pavel_ajax_load_more_posts(): void {
 			);
 		}
 	} else {
-		$archive_not_found_text = '<p class="text-center text-xl font-medium col-span-full">' . esc_html__( 'No posts found matching your query', 'pm' ) . '<br>' . esc_html__( 'Please try different filters or return to the ', 'pm' ) . '<a href="' . get_home_url() . '/blog" class="text-primary hover:underline">Blog</a></p>';
+		$archive_not_found_text = '<p class="text-center text-xl font-medium col-span-full">' . esc_html__( 'No posts found matching your query', 'pm' ) . '<br>' . esc_html__( 'Please try different filters or return to the ', 'pm' ) . '<a href="' . get_home_url() . '/blog" class="text-primary hover:underline">' . esc_html__( 'Blog', 'pm' ) . '</a></p>';
 
 		echo $archive_not_found_text;
 	}

@@ -1,0 +1,11 @@
+.pm-archive-heading {
+	margin: 0 auto;
+	width: fit-content;
+	background: linear-gradient(to left, var(--color-medium-blue) 0%, var(--color-deep-blue) 100%);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	background-clip: text;
+	text-fill-color: transparent;
+	color: var(--color-deep-blue);
+	letter-spacing: 1px;
+}

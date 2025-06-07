@@ -70,13 +70,13 @@ $base_class = 'wp-block-pavel-post-list';
 			<?php endif; ?>
 
 
-			<div class="<?php echo esc_attr( $base_class ); ?>__posts-grid_wrap columns--<?php echo esc_attr( $columns ); ?>">
+			<div class="pm__posts-grid_wrap columns--<?php echo esc_attr( $columns ); ?>">
 				<?php
 				$current_category = get_queried_object() ? get_queried_object()->term_id : null;
 				pavel_category_list();
 				?>
 
-				<div class="<?php echo esc_attr( $base_class ); ?>__posts-grid pm-post-list">
+				<div class="pm__posts-grid pm-post-list">
 					<?php
 					if ( $posts_query->have_posts() ) :
 						while ( $posts_query->have_posts() ) {
@@ -96,7 +96,7 @@ $base_class = 'wp-block-pavel-post-list';
 						wp_reset_postdata();
 					else :
 						?>
-						<div class="<?php echo esc_attr( $base_class ); ?>__no-posts">
+						<div class="pm__no-posts">
 							<?php esc_html_e( 'No posts found.', 'pm' ); ?>
 						</div>
 					<?php endif; ?>
@@ -115,11 +115,9 @@ $base_class = 'wp-block-pavel-post-list';
 					<?php get_template_part( '/vector-images/post-loader' ); ?>
 				</div>
 
-				<?php if ( $total_pages > 1 ) : ?>
-					<div class="<?php echo esc_attr( $base_class ); ?>__pagination pm-pagination">
-						<?php echo pavel_generate_pagination_html( $current_page, $total_pages, $base_class ); ?>
-					</div>
-				<?php endif; ?>
+				<div class="<?php echo esc_attr( $base_class ); ?>__pagination pm-pagination">
+					<?php echo pavel_generate_pagination_html( $current_page, $total_pages, $base_class ); ?>
+				</div>
 			</div>
 		</div>
 	</div>

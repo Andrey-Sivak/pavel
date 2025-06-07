@@ -5,7 +5,6 @@
  * @package Pavel
  */
 
-$base_class      = $args['base_class'];
 $show_excerpt    = $args['showExcerpt'] ?? true;
 $show_thumbnail  = $args['showThumb'] ?? true;
 $show_date       = $args['showDate'] ?? true;
@@ -13,53 +12,53 @@ $show_categories = $args['showCategories'] ?? true;
 
 ?>
 
-<article class="<?php echo esc_attr( $base_class ); ?>__post-item">
+<article class="pm__post-item">
 
-	<div class="<?php echo esc_attr( $base_class . '__post-item-decor-bg' ); ?>">
+	<div class="pm__post-item-decor-bg">
 		<?php get_template_part( '/vector-images/card-decor-border' ); ?>
 	</div>
 
-	<div class="<?php echo esc_attr( $base_class . '__post-item-content' ); ?>">
+	<div class="pm__post-item-content">
 
 		<?php if ( has_post_thumbnail() && $show_thumbnail ) : ?>
 		<a href="<?php the_permalink(); ?>">
-			<figure class="<?php echo esc_attr( $base_class ); ?>__post-image">
+			<figure class="pm__post-image">
 					<?php the_post_thumbnail( 'large' ); ?>
 			</figure>
 		</a>
 		<?php endif; ?>
 
-		<div class="<?php echo esc_attr( $base_class ); ?>__post-content">
+		<div class="pm__post-content">
 
 			<?php if ( $show_date ) : ?>
-				<div class="<?php echo esc_attr( $base_class ); ?>__post-date">
+				<div class="pm__post-date">
 					<?php echo get_the_date(); ?>
 				</div>
 			<?php endif; ?>
 
-			<h3 class="<?php echo esc_attr( $base_class ); ?>__post-title line-clamp-3">
+			<h3 class="pm__post-title line-clamp-3">
 				<a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
 			</h3>
 
 			<?php if ( $show_categories ) : ?>
 				<?php $categories = get_the_category(); ?>
 				<?php if ( ! empty( $categories ) ) : ?>
-					<div class="<?php echo esc_attr( $base_class ); ?>__post-categories">
+					<div class="pm__post-categories">
 						<?php foreach ( $categories as $category ) : ?>
-							<span class="<?php echo esc_attr( $base_class ); ?>__post-category"><?php echo esc_html( $category->name ); ?></span>
+							<span class="pm__post-category"><?php echo esc_html( $category->name ); ?></span>
 						<?php endforeach; ?>
 					</div>
 				<?php endif; ?>
 			<?php endif; ?>
 
 			<?php if ( $show_excerpt ) : ?>
-				<div class="<?php echo esc_attr( $base_class ); ?>__post-excerpt line-clamp-3">
+				<div class="pm__post-excerpt line-clamp-3">
 					<?php the_excerpt(); ?>
 				</div>
 			<?php endif; ?>
 
 			<a href="<?php the_permalink(); ?>"
-			   class="<?php echo esc_attr( $base_class ); ?>__post-link">
+			   class="pm__post-link">
 				<span><?php echo esc_html__( 'Read more', 'pm' ); ?></span>
 				<svg width="25" height="24" viewBox="0 0 25 24" fill="none">
 					<path d="M7.5 9.5L12.5 14.5L17.5 9.5" stroke="url(#paint0_linear_156_613)" stroke-width="1.5"
