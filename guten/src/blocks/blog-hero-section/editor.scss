@@ -1,0 +1,32 @@
+@use '../../../../assets/scss/base/breakpoints' as *;
+
+$wrap-container-name: hero-section;
+
+.wp-block-pavel-blog-hero-section {
+	padding-bottom: 40px;
+	max-width: unset !important;
+
+	&__button {
+
+		.admin_link-controls {
+			left: 0;
+			transform: unset;
+			top: 120%;
+		}
+	}
+
+	&__image,
+	&__button,
+	&__subtitle,
+	&__title {
+		animation: none !important;
+		opacity: 1 !important;
+		transform: none !important;
+	}
+
+	&__content {
+		@container #{$wrap-container-name} (min-width: #{$bp-lg}) {
+			padding-top: 110px!important;
+		}
+	}
+}

@@ -1,0 +1,236 @@
+@use '../../../../assets/scss/base/breakpoints' as *;
+
+$clip-path-polygon: polygon(100% 75.627%,100% 75.627%,99.932% 77.515%,99.734% 79.305%,99.419% 80.974%,98.995% 82.499%,98.475% 83.855%,97.868% 85.017%,97.185% 85.964%,96.438% 86.669%,95.637% 87.11%,94.792% 87.262%,59.661% 87.262%,59.661% 87.262%,59.229% 87.336%,58.83% 87.546%,58.46% 87.879%,58.114% 88.321%,57.787% 88.858%,57.475% 89.475%,57.173% 90.158%,56.876% 90.893%,56.58% 91.666%,56.28% 92.462%,56.28% 92.462%,56.05% 93.128%,55.792% 93.802%,55.508% 94.476%,55.2% 95.143%,54.869% 95.795%,54.518% 96.424%,54.147% 97.022%,53.76% 97.582%,53.358% 98.096%,52.943% 98.556%,52.943% 98.556%,52.637% 98.845%,52.322% 99.099%,52.002% 99.319%,51.678% 99.507%,51.355% 99.662%,51.035% 99.787%,50.72% 99.882%,50.415% 99.948%,50.122% 99.987%,49.844% 100%,49.844% 100%,49.19% 99.909%,48.528% 99.641%,47.865% 99.209%,47.207% 98.622%,46.56% 97.892%,45.93% 97.029%,45.326% 96.043%,44.751% 94.947%,44.214% 93.749%,43.72% 92.462%,43.72% 92.462%,43.411% 91.595%,43.11% 90.782%,42.811% 90.03%,42.509% 89.35%,42.199% 88.749%,41.875% 88.238%,41.533% 87.825%,41.166% 87.518%,40.77% 87.328%,40.339% 87.262%,5.208% 87.262%,5.208% 87.262%,4.364% 87.11%,3.562% 86.669%,2.815% 85.964%,2.132% 85.017%,1.525% 83.855%,1.005% 82.499%,0.581% 80.974%,0.266% 79.305%,0.068% 77.515%,0% 75.627%,0% 0%,100% 0%,100% 75.627%);
+
+$clip-path-polygon-1440: polygon( 100% 75.627%,100% 75.627%,99.909% 77.515%,99.646% 79.305%,99.225% 80.974%,98.66% 82.499%,97.966% 83.855%,97.157% 85.017%,96.247% 85.964%,95.251% 86.669%,94.182% 87.11%,93.056% 87.262%,62.881% 87.262%,62.881% 87.262%,62.305% 87.336%,61.773% 87.546%,61.28% 87.879%,60.819% 88.321%,60.383% 88.858%,59.966% 89.475%,59.564% 90.158%,59.168% 90.893%,58.773% 91.666%,58.373% 92.462%,58.373% 92.462%,58.067% 93.128%,57.723% 93.802%,57.344% 94.476%,56.933% 95.143%,56.492% 95.795%,56.023% 96.424%,55.53% 97.022%,55.014% 97.582%,54.477% 98.096%,53.924% 98.556%,53.924% 98.556%,53.516% 98.845%,53.097% 99.099%,52.669% 99.319%,52.238% 99.507%,51.807% 99.662%,51.379% 99.787%,50.96% 99.882%,50.553% 99.948%,50.162% 99.987%,49.792% 100%,49.792% 100%,48.92% 99.909%,48.037% 99.641%,47.153% 99.209%,46.275% 98.622%,45.413% 97.892%,44.574% 97.029%,43.767% 96.043%,43.002% 94.947%,42.285% 93.749%,41.627% 92.462%,41.627% 92.462%,41.215% 91.595%,40.813% 90.782%,40.414% 90.03%,40.012% 89.35%,39.598% 88.749%,39.167% 88.238%,38.71% 87.825%,38.222% 87.518%,37.694% 87.328%,37.119% 87.262%,6.944% 87.262%,6.944% 87.262%,5.818% 87.11%,4.749% 86.669%,3.753% 85.964%,2.843% 85.017%,2.034% 83.855%,1.34% 82.499%,0.775% 80.974%,0.354% 79.305%,0.091% 77.515%,0% 75.627%,0% 0%,100% 0%,100% 75.627% );
+
+$wrap-container-name: hero-section;
+
+.wp-block-pavel-blog-hero-section {
+	position: relative;
+	overflow: hidden;
+	z-index: 30;
+	padding-bottom: 40px;
+	container-type: inline-size;
+	container-name: $wrap-container-name;
+
+	@media (min-width: #{$bp-xl}) {
+		padding-bottom: 70px;
+	}
+
+	&__wrapper {
+		position: relative;
+		overflow: hidden;
+		z-index: 60;
+		background-image: linear-gradient(45deg, #003459 0%, var(--color-medium-blue) 100%);
+		border-radius: 0 0 11.45vw 11.45vw;
+
+		@container #{$wrap-container-name} (min-width: #{$bp-md}) {
+			border-radius: 0;
+			padding-bottom: 80px;
+			clip-path: $clip-path-polygon-1440;
+		}
+
+		@container #{$wrap-container-name} (min-width: #{$bp-lg}) {
+			padding-bottom: 105px;
+		}
+
+		@container #{$wrap-container-name} (min-width: #{$bp-xl}) {
+			padding-bottom: 116px;
+		}
+
+		@container #{$wrap-container-name} (min-width: #{$bp-xxl}) {
+			clip-path: $clip-path-polygon;
+		}
+	}
+
+	&__bg {
+		position: absolute;
+		overflow: hidden;
+		background-color: #00A8E8;
+		width: 100%;
+		height: calc(100% - 105px);
+		left: 0;
+		top: auto;
+		border-radius: 0 0 11.45vw 11.45vw;
+
+		@container #{$wrap-container-name} (min-width: #{$bp-md}) {
+			border-radius: 0;
+			clip-path: $clip-path-polygon-1440;
+		}
+
+		@container #{$wrap-container-name} (min-width: #{$bp-xl}) {
+			height: calc(100% - 116px);
+		}
+
+		@container #{$wrap-container-name} (min-width: #{$bp-xxl}) {
+			clip-path: $clip-path-polygon;
+		}
+
+		&-overlay-1 {
+			z-index: 20;
+			opacity: .2;
+			bottom: 20px;
+
+			@container #{$wrap-container-name} (min-width: #{$bp-xl}) {
+				bottom: 35px;
+			}
+		}
+
+		&-overlay-2 {
+			z-index: 10;
+			opacity: .1;
+			bottom: 0;
+		}
+	}
+
+	&__decor-top-left {
+		position: absolute;
+		z-index: 50;
+		left: -5%;
+		top: 0;
+		width: 28.3%;
+
+		@container #{$wrap-container-name} (min-width: #{$bp-xxl}) {
+			left: 0;
+		}
+
+		svg {
+			max-width: 100%;
+			height: auto;
+		}
+	}
+
+	&__arrow-to-bottom {
+		display: none;
+
+		@container #{$wrap-container-name} (min-width: #{$bp-md}) {
+			z-index: 100;
+			position: absolute;
+			left: 50%;
+			transform: translateX(-50%);
+			bottom: 25px;
+			animation: infinitePulse 2s ease-in-out infinite;
+			display: block;
+		}
+	}
+
+	&__content {
+		text-align: center;
+		//padding-top: 85px;
+
+		@container #{$wrap-container-name} (min-width: #{$bp-md}) {
+			//padding-top: 80px;
+			//transform: translateY(18px);
+		}
+
+		@container #{$wrap-container-name} (min-width: #{$bp-lg}) {
+			padding-top: 226px;
+			padding-bottom: 76px;
+		}
+
+		&_text {
+			position: relative;
+			z-index: 20;
+			display: grid;
+			gap: 20px;
+
+			@container #{$wrap-container-name} (min-width: #{$bp-lg}) {
+				gap: 30px;
+			}
+		}
+	}
+
+	&__title {
+		background: linear-gradient(85deg, #CBF1FF 0%, #fff 100%);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-clip: text;
+		text-fill-color: transparent;
+		color: currentColor;
+		margin: 0;
+		letter-spacing: 1px;
+		transform: translateY(200px);
+		opacity: 0;
+		animation: floatUp 1s forwards;
+		font-weight: 600;
+		line-height: 1.13;
+		font-size: 32px;
+
+		@container #{$wrap-container-name} (min-width: #{$bp-md}) {
+			animation: floatUp 1.2s forwards;
+			font-size: 5vw;
+		}
+
+		@container #{$wrap-container-name} (min-width: #{$bp-lg}) {
+			font-size: 4.6vw;
+		}
+
+		@container #{$wrap-container-name} (min-width: #{$bp-xl}) {
+			font-size: 60px;
+		}
+	}
+
+	&__subtitle {
+		margin: 0;
+		transform: translateY(150px);
+		opacity: 0;
+		animation: floatUp 1s forwards .2s;
+		line-height: 1.26;
+		font-size: 20px;
+
+		@container #{$wrap-container-name} (min-width: #{$bp-md}) {
+			animation: floatUp 1.2s forwards .2s;
+			font-size: 2.5vw;
+		}
+
+		@container #{$wrap-container-name} (min-width: #{$bp-lg}) {
+			font-size: 2.3vw;
+		}
+
+		@container #{$wrap-container-name} (min-width: #{$bp-xl}) {
+			font-size: 30px;
+		}
+	}
+
+	&__button {
+		margin: 0 auto;
+		transform: translateY(100px);
+		opacity: 0;
+		animation: floatUp 1s forwards .3s;
+
+		@container #{$wrap-container-name} (min-width: #{$bp-md}) {
+			animation: floatUp 1.2s forwards .4s;
+		}
+	}
+}
+
+
+@keyframes floatUp {
+	0% {
+		transform: translateY(200px);
+		opacity: 0;
+	}
+	70% {
+		transform: translateY(-10px);
+	}
+	100% {
+		transform: translateY(0);
+		opacity: 1;
+	}
+}
+
+@keyframes infinitePulse {
+	0% {
+		transform: translateY(0) translateX(-50%) scale(1);
+		opacity: 1;
+	}
+	50% {
+		transform: translateY(10px) translateX(-50%) scale(1.1);
+		opacity: 0.7;
+	}
+	100% {
+		transform: translateY(0) translateX(-50%) scale(1);
+		opacity: 1;
+	}
+}
