@@ -38,6 +38,7 @@
         "eslint": "^9.26.0",
         "eslint-plugin-prettier": "^5.4.0",
         "eslint-webpack-plugin": "^5.0.1",
+        "fslightbox": "^3.6.1",
         "gulp": "^5.0.0",
         "gulp-babel": "^8.0.0",
         "gulp-clone": "^2.0.1",

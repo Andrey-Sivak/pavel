@@ -15,6 +15,7 @@
 			'.wp-block-pavel-blog-hero-section',
 		),
 		postList: document.querySelector('.pm-post-list'),
+		singlePostContent: document.querySelector('.pm-post-content'),
 	};
 
 	if (elements.header) {
@@ -65,5 +66,11 @@
 
 	if (elements.footer) {
 		import('./Footer.js').then(({ default: Footer }) => new Footer());
+	}
+
+	if (elements.singlePostContent) {
+		import('./SinglePost.js').then(
+			({ default: SinglePost }) => new SinglePost(),
+		);
 	}
 })();

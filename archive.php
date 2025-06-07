@@ -58,7 +58,7 @@ $base_class = 'pm-archive';
 get_header();
 ?>
 
-	<main class="relative z-20 overflow-x-hidden pb-30">
+	<main class="relative z-20 overflow-x-hidden">
 		<header class="pt-45 pm-wrap mb-20">
 			<div class="max-w-[1220px] mx-auto text-center">
 				<h1 class="pm-section-heading pm-archive-heading">
@@ -126,6 +126,8 @@ get_header();
 				<?php echo pavel_generate_pagination_html( $current_page, $total_pages, $base_class ); ?>
 			</div>
 		</div>
+
+		<?php pavel_render_contact_block(); ?>
 	</main>
 
 <?php

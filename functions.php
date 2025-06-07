@@ -590,3 +590,24 @@ function pavel_generate_pagination_html( $current_page, $max_pages, $base_class 
 
 	return $html;
 }
+
+function pavel_get_reusable_block_content( $title ) {
+	$block_post = get_page_by_title( $title, OBJECT, 'wp_block' );
+
+	if ( $block_post ) {
+		return $block_post->post_content;
+	}
+
+	return '';
+}
+
+function pavel_render_contact_block() {
+	$block_content = pavel_get_reusable_block_content( 'Contact Block (En)' );
+
+	if ( $block_content ) {
+		echo do_blocks( $block_content );
+	} else {
+		echo '<!-- Contact block not found -->';
+	}
+}
+
