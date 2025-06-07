@@ -1,0 +1,33 @@
+.pm-pagination-list {
+	margin-top: 40px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 12px;
+}
+
+.pm-pagination-item {
+	display: flex;
+	align-items: center;
+	font-size: 22px;
+}
+
+.pm-pagination-btn {
+	border-radius: 6px;
+	width: 40px;
+	height: 40px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border: 1px solid #003459;
+	transition: all ease .3s;
+
+	&.pm-pagination-btn--active,
+	&:hover {
+		border: 1px solid #fff;
+	}
+
+	&:not(.pm-pagination-btn--active) {
+		cursor: pointer;
+	}
+}

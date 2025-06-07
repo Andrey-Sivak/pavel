@@ -380,3 +380,95 @@ function pavel_update_post_settings( $request ) {
 		'settings' => $settings,
 	);
 }
+
+function pavel_generate_pagination_html( $current_page, $max_pages, $base_class = 'wp-block-pavel-post-list' ) {
+	if ( $max_pages < 1 ) {
+		$max_pages = 1;
+	}
+
+	$delta = 2; // Number of pages to show on each side of current page
+	$pages = array();
+
+	// Generate page numbers
+	if ( $max_pages <= 7 ) {
+		// Show all pages if total is 7 or less
+		for ( $i = 1; $i <= $max_pages; $i++ ) {
+			$pages[] = $i;
+		}
+	} else {
+		// Show first page
+		$pages[] = 1;
+
+		// Add ellipsis if needed
+		if ( $current_page - $delta > 2 ) {
+			$pages[] = '...';
+		}
+
+		// Add pages around current page
+		$start = max( 2, $current_page - $delta );
+		$end   = min( $max_pages - 1, $current_page + $delta );
+
+		for ( $i = $start; $i <= $end; $i++ ) {
+			$pages[] = $i;
+		}
+
+		// Add ellipsis if needed
+		if ( $current_page + $delta < $max_pages - 1 ) {
+			$pages[] = '...';
+		}
+
+		// Show last page
+		if ( $max_pages > 1 ) {
+			$pages[] = $max_pages;
+		}
+	}
+
+	// Generate HTML
+	$html = '<nav class="pagination-nav" aria-label="' . esc_attr__( 'Posts pagination', 'pm' ) . '">';
+	$html .= '<ul class="pm-pagination-list">';
+
+	// Previous button
+	if ( $current_page > 1 && $max_pages > 1 ) {
+		$html .= '<li class="pm-pagination-item">';
+		$html .= '<button class="pm-pagination-btn pm-pagination-btn--prev" data-page="' . ( $current_page - 1 ) . '" aria-label="' . esc_attr__( 'Previous page', 'pm' ) . '">';
+		$html .= '<svg width="10" viewBox="0 0 19 34" fill="none">
+<path d="M16.8765 2.70847L2.29313 17.2918L16.8765 31.8751" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>';
+		$html .= '</button>';
+		$html .= '</li>';
+	}
+
+	// Page numbers
+	foreach ( $pages as $page ) {
+		if ( $page === '...' ) {
+			$html .= '<li class="pm-pagination-item pm-pagination-item--ellipsis"><span>...</span></li>';
+		} else {
+			$is_active    = ( $page === $current_page );
+			$active_class = $is_active ? ' pm-pagination-btn--active' : '';
+			$aria_label   = $is_active ? sprintf( esc_attr__( 'Current page, page %d', 'pm' ), $page ) : sprintf( esc_attr__( 'Go to page %d', 'pm' ), $page );
+			$aria_current = $is_active ? ' aria-current="page"' : '';
+			$disabled     = ( $is_active || $max_pages === 1 ) ? ' disabled' : '';
+
+			$html .= '<li class="pm-pagination-item">';
+			$html .= '<button class="pm-pagination-btn' . $active_class . '" data-page="' . $page . '" aria-label="' . $aria_label . '"' . $aria_current . $disabled . '>';
+			$html .= $page;
+			$html .= '</button>';
+			$html .= '</li>';
+		}
+	}
+
+	if ( $current_page < $max_pages && $max_pages > 1 ) {
+		$html .= '<li class="pm-pagination-item">';
+		$html .= '<button class="pm-pagination-btn pm-pagination-btn--next" data-page="' . ( $current_page + 1 ) . '" aria-label="' . esc_attr__( 'Next page', 'pm' ) . '">';
+		$html .= '<svg width="10" viewBox="0 0 19 34" fill="none">
+<path d="M2.2915 31.875L16.8748 17.2917L2.2915 2.70833" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>';
+		$html .= '</button>';
+		$html .= '</li>';
+	}
+
+	$html .= '</ul>';
+	$html .= '</nav>';
+
+	return $html;
+}
