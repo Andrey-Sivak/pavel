@@ -185,3 +185,198 @@ function pavel_get_form_shortcode( $form_type, $language, $form_shortcodes ) {
 
 	return $form_shortcodes[ $form_type ]['en'];
 }
+
+function pavel_register_post_list_options() {
+	$options_label = 'pavel_options';
+	register_setting(
+		$options_label,
+		'pm_post_layout',
+		array(
+			'type'              => 'integer',
+			'default'           => 2,
+			'description'       => 'Post list layout columns for the entire site',
+			'show_in_rest'      => array(
+				'name'   => 'pm_post_layout',
+				'schema' => array(
+					'type'        => 'integer',
+					'enum'        => array( 2, 3 ),
+					'description' => 'Number of columns for post list blocks (2 or 3)',
+				),
+			),
+			'sanitize_callback' => function( $value ) {
+				return in_array( (int) $value, array( 2, 3 ) ) ? (int) $value : 2;
+			},
+		)
+	);
+
+	register_setting(
+		$options_label,
+		'pm_post_show_excerpt',
+		array(
+			'type'              => 'boolean',
+			'default'           => true,
+			'description'       => 'Show excerpt in post list blocks',
+			'show_in_rest'      => array(
+				'name'   => 'pm_post_show_excerpt',
+				'schema' => array(
+					'type'        => 'boolean',
+					'description' => 'Whether to show post excerpts',
+				),
+			),
+			'sanitize_callback' => 'rest_sanitize_boolean',
+		)
+	);
+
+	// Show thumbnail
+	register_setting(
+		$options_label,
+		'pm_post_show_thumb',
+		array(
+			'type'              => 'boolean',
+			'default'           => true,
+			'description'       => 'Show thumbnail in post list blocks',
+			'show_in_rest'      => array(
+				'name'   => 'pm_post_show_thumb',
+				'schema' => array(
+					'type'        => 'boolean',
+					'description' => 'Whether to show post thumbnails',
+				),
+			),
+			'sanitize_callback' => 'rest_sanitize_boolean',
+		)
+	);
+
+	// Show date
+	register_setting(
+		$options_label,
+		'pm_post_show_date',
+		array(
+			'type'              => 'boolean',
+			'default'           => true,
+			'description'       => 'Show date in post list blocks',
+			'show_in_rest'      => array(
+				'name'   => 'pm_post_show_date',
+				'schema' => array(
+					'type'        => 'boolean',
+					'description' => 'Whether to show post dates',
+				),
+			),
+			'sanitize_callback' => 'rest_sanitize_boolean',
+		)
+	);
+
+	// Show categories
+	register_setting(
+		$options_label,
+		'pm_post_show_categories',
+		array(
+			'type'              => 'boolean',
+			'default'           => true,
+			'description'       => 'Show categories in post list blocks',
+			'show_in_rest'      => array(
+				'name'   => 'pm_post_show_categories',
+				'schema' => array(
+					'type'        => 'boolean',
+					'description' => 'Whether to show post categories',
+				),
+			),
+			'sanitize_callback' => 'rest_sanitize_boolean',
+		)
+	);
+}
+add_action( 'init', 'pavel_register_post_list_options' );
+
+function pavel_register_rest_routes() {
+	register_rest_route(
+		'pavel/v1',
+		'/post-settings',
+		array(
+			'methods'             => 'GET',
+			'callback'            => 'pavel_get_post_settings',
+			'permission_callback' => '__return_true',
+		)
+	);
+
+	register_rest_route(
+		'pavel/v1',
+		'/post-settings',
+		array(
+			'methods'             => 'POST',
+			'callback'            => 'pavel_update_post_settings',
+			'permission_callback' => function() {
+				return current_user_can( 'edit_posts' );
+			},
+			'args'                => array(
+				'pm_post_layout'          => array(
+					'type'              => 'integer',
+					'validate_callback' => function( $value ) {
+						return in_array( (int) $value, array( 2, 3 ) );
+					},
+				),
+				'pm_post_show_excerpt'    => array(
+					'type' => 'boolean',
+				),
+				'pm_post_show_thumb'      => array(
+					'type' => 'boolean',
+				),
+				'pm_post_show_date'       => array(
+					'type' => 'boolean',
+				),
+				'pm_post_show_categories' => array(
+					'type' => 'boolean',
+				),
+			),
+		)
+	);
+}
+add_action( 'rest_api_init', 'pavel_register_rest_routes' );
+
+function pavel_get_post_settings() {
+	return array(
+		'pm_post_layout'          => (int) get_option( 'pm_post_layout', 2 ),
+		'pm_post_show_excerpt'    => (bool) get_option( 'pm_post_show_excerpt', true ),
+		'pm_post_show_thumb'      => (bool) get_option( 'pm_post_show_thumb', true ),
+		'pm_post_show_date'       => (bool) get_option( 'pm_post_show_date', true ),
+		'pm_post_show_categories' => (bool) get_option( 'pm_post_show_categories', true ),
+	);
+}
+
+function pavel_update_post_settings( $request ) {
+	$settings = array();
+	$success  = true;
+
+	if ( $request->has_param( 'pm_post_layout' ) ) {
+		$layout                     = (int) $request->get_param( 'pm_post_layout' );
+		$settings['pm_post_layout'] = $layout;
+		$success                    = $success && update_option( 'pm_post_layout', $layout );
+	}
+
+	if ( $request->has_param( 'pm_post_show_excerpt' ) ) {
+		$show_excerpt                     = $request->get_param( 'pm_post_show_excerpt' );
+		$settings['pm_post_show_excerpt'] = $show_excerpt;
+		$success                          = $success && update_option( 'pm_post_show_excerpt', $show_excerpt );
+	}
+
+	if ( $request->has_param( 'pm_post_show_thumb' ) ) {
+		$show_thumb                     = $request->get_param( 'pm_post_show_thumb' );
+		$settings['pm_post_show_thumb'] = $show_thumb;
+		$success                        = $success && update_option( 'pm_post_show_thumb', $show_thumb );
+	}
+
+	if ( $request->has_param( 'pm_post_show_date' ) ) {
+		$show_date                     = $request->get_param( 'pm_post_show_date' );
+		$settings['pm_post_show_date'] = $show_date;
+		$success                       = $success && update_option( 'pm_post_show_date', $show_date );
+	}
+
+	if ( $request->has_param( 'pm_post_show_categories' ) ) {
+		$show_categories                     = $request->get_param( 'pm_post_show_categories' );
+		$settings['pm_post_show_categories'] = $show_categories;
+		$success                             = $success && update_option( 'pm_post_show_categories', $show_categories );
+	}
+
+	return array(
+		'success'  => $success,
+		'settings' => $settings,
+	);
+}
