@@ -40,8 +40,8 @@ $args = array(
 	'post_type'        => 'post',
 	'posts_per_page'   => 6,
 	'post_status'      => 'publish',
-    'paged'            => $current_page,
-    'suppress_filters' => false,
+	'paged'            => $current_page,
+	'suppress_filters' => false,
 );
 
 if ( ! empty( $cat_ids ) ) {
@@ -115,12 +115,12 @@ $base_class = 'wp-block-pavel-post-list';
 					<?php get_template_part( '/vector-images/post-loader' ); ?>
 				</div>
 
-                <?php if ( $total_pages > 1 ) : ?>
-                    <div class="<?php echo esc_attr( $base_class ); ?>__pagination pm-pagination">
-                        <?php echo pavel_generate_pagination_html( $current_page, $total_pages, $base_class ); ?>
-                    </div>
-                <?php endif; ?>
-            </div>
+				<?php if ( $total_pages > 1 ) : ?>
+					<div class="<?php echo esc_attr( $base_class ); ?>__pagination pm-pagination">
+						<?php echo pavel_generate_pagination_html( $current_page, $total_pages, $base_class ); ?>
+					</div>
+				<?php endif; ?>
+			</div>
 		</div>
 	</div>
 </section>

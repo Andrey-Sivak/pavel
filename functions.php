@@ -267,13 +267,17 @@ function pavel_ajax_load_more_posts(): void {
 	if ( $query->have_posts() ) {
 		while ( $query->have_posts() ) {
 			$query->the_post();
-			get_template_part( '/template-parts/post-card', null, array(
-				'base_class'     => 'wp-block-pavel-post-list',
-				'showExcerpt'    => $show_excerpt,
-				'showThumb'      => $show_thumbnail,
-				'showDate'       => $show_date,
-				'showCategories' => $show_categories,
-			) );
+			get_template_part(
+				'/template-parts/post-card',
+				null,
+				array(
+					'base_class'     => 'wp-block-pavel-post-list',
+					'showExcerpt'    => $show_excerpt,
+					'showThumb'      => $show_thumbnail,
+					'showDate'       => $show_date,
+					'showCategories' => $show_categories,
+				)
+			);
 		}
 	} else {
 		$archive_not_found_text = '<p class="text-center text-xl font-medium col-span-full">' . esc_html__( 'No posts found matching your query', 'pm' ) . '<br>' . esc_html__( 'Please try different filters or return to the ', 'pm' ) . '<a href="' . get_home_url() . '/blog" class="text-primary hover:underline">Blog</a></p>';
@@ -283,14 +287,14 @@ function pavel_ajax_load_more_posts(): void {
 
 	wp_reset_postdata();
 
-	$html     = ob_get_clean();
+	$html = ob_get_clean();
 
 	$pagination_html = pavel_generate_pagination_html( $paged, $query->max_num_pages );
 
 	$response = array(
-		'html'       => $html,
-		'pagination' => $pagination_html,
-		'max_pages'  => $query->max_num_pages,
+		'html'         => $html,
+		'pagination'   => $pagination_html,
+		'max_pages'    => $query->max_num_pages,
 		'current_page' => $paged,
 	);
 
@@ -538,7 +542,7 @@ function pavel_generate_pagination_html( $current_page, $max_pages, $base_class 
 	}
 
 	// Generate HTML
-	$html = '<nav class="pagination-nav" aria-label="' . esc_attr__( 'Posts pagination', 'pm' ) . '">';
+	$html  = '<nav class="pagination-nav" aria-label="' . esc_attr__( 'Posts pagination', 'pm' ) . '">';
 	$html .= '<ul class="pm-pagination-list">';
 
 	// Previous button
