@@ -240,6 +240,66 @@ function pavel_category_list(): void {
 	echo '</nav>';
 }
 
+function pavel_ajax_load_more_posts(): void {
+	$paged    = isset( $_POST['paged'] ) ? absint( $_POST['paged'] ) : 1;
+	$category = isset( $_POST['category'] ) ? json_decode( wp_unslash( $_POST['category'] ), true ) : array();
+
+	$show_excerpt    = get_option( 'pm_post_show_excerpt', true );
+	$show_thumbnail  = get_option( 'pm_post_show_thumb', true );
+	$show_date       = get_option( 'pm_post_show_date', true );
+	$show_categories = get_option( 'pm_post_show_categories', true );
+
+	$args = array(
+		'post_type'      => 'post',
+		'post_status'    => 'publish',
+		'paged'          => $paged,
+		'posts_per_page' => 6,
+	);
+
+	if ( ! empty( $category ) ) {
+		$args['category__in'] = array_map( 'absint', $category );
+	}
+
+	$query = new WP_Query( $args );
+
+	ob_start();
+
+	if ( $query->have_posts() ) {
+		while ( $query->have_posts() ) {
+			$query->the_post();
+			get_template_part( '/template-parts/post-card', null, array(
+				'base_class'     => 'wp-block-pavel-post-list',
+				'showExcerpt'    => $show_excerpt,
+				'showThumb'      => $show_thumbnail,
+				'showDate'       => $show_date,
+				'showCategories' => $show_categories,
+			) );
+		}
+	} else {
+		$archive_not_found_text = '<p class="text-center text-xl font-medium col-span-full">' . esc_html__( 'No posts found matching your query', 'pm' ) . '<br>' . esc_html__( 'Please try different filters or return to the ', 'pm' ) . '<a href="' . get_home_url() . '/blog" class="text-primary hover:underline">Blog</a></p>';
+
+		echo $archive_not_found_text;
+	}
+
+	wp_reset_postdata();
+
+	$html     = ob_get_clean();
+
+	$pagination_html = pavel_generate_pagination_html( $paged, $query->max_num_pages );
+
+	$response = array(
+		'html'       => $html,
+		'pagination' => $pagination_html,
+		'max_pages'  => $query->max_num_pages,
+		'current_page' => $paged,
+	);
+
+	wp_send_json_success( $response );
+}
+
+add_action( 'wp_ajax_pavel_ajax_load_more_posts', 'pavel_ajax_load_more_posts' );
+add_action( 'wp_ajax_nopriv_pavel_ajax_load_more_posts', 'pavel_ajax_load_more_posts' );
+
 function pavel_register_post_list_options() {
 	$options_label = 'pavel_options';
 	register_setting(

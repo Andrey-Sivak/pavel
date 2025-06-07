@@ -26,6 +26,8 @@ function pavel_custom_gutenberg_block_init(): void {
 	register_block_type( __DIR__ . '/build/home-testimonials-showcase' );
 	register_block_type( __DIR__ . '/build/home-experience-timeline' );
 	register_block_type( __DIR__ . '/build/contact-section' );
+	register_block_type( __DIR__ . '/build/blog-hero-section' );
+	register_block_type( __DIR__ . '/build/post-list' );
 }
 
 add_action( 'init', 'pavel_custom_gutenberg_block_init' );

@@ -14,6 +14,7 @@
 		blogHeroSection: document.querySelector(
 			'.wp-block-pavel-blog-hero-section',
 		),
+		postList: document.querySelector('.pm-post-list'),
 	};
 
 	if (elements.header) {
@@ -41,6 +42,12 @@
 			import('./Form.js').then(
 				({ default: Form }) => new Form(formContainer),
 			);
+		});
+	}
+
+	if (elements.postList) {
+		import('./PostList.js').then(({ default: PostList }) => {
+			new PostList();
 		});
 	}
 

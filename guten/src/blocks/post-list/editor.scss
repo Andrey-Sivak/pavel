@@ -1,0 +1,8 @@
+.wp-block-pavel-post-list {
+  max-width: unset !important;
+
+  &__post-item {
+    opacity: 1 !important;
+    animation: none !important;
+  }
+}
