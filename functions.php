@@ -14,7 +14,7 @@ declare(strict_types=1);
  * The Pavel functions and definitions
  */
 
-define( 'PAVEL_VERSION', '1.0.17' );
+define( 'PAVEL_VERSION', '1.0.18' );
 
 /**
  * Sets up theme defaults and registers support for various WordPress features.
