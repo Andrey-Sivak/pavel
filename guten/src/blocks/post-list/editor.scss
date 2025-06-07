@@ -1,8 +1,12 @@
-.wp-block-pavel-post-list {
-  max-width: unset !important;
+@use '../../../../assets/scss/components/post-card';
 
-  &__post-item {
-    opacity: 1 !important;
-    animation: none !important;
-  }
+.wp-block-pavel-post-list {
+	max-width: unset !important;
+
+	.line-clamp-3 {
+		display: -webkit-box;
+		overflow: hidden;
+		-webkit-box-orient: vertical;
+		-webkit-line-clamp: 3;
+	}
 }

@@ -5,37 +5,13 @@ import {
 	SelectControl,
 	Notice,
 } from '@wordpress/components';
-import { useState, useEffect } from '@wordpress/element';
 import apiFetch from '@wordpress/api-fetch';
 
-const PostListInspectorPanel = () => {
-	const [isLoading, setIsLoading] = useState(true);
-	const [siteSettings, setSiteSettings] = useState({
-		columns: 2,
-		showExcerpt: true,
-		showThumb: true,
-		showDate: true,
-		showCategories: true,
-	});
-
-	useEffect(() => {
-		apiFetch({ path: '/pavel/v1/post-settings' })
-			.then((response) => {
-				setSiteSettings({
-					columns: response.pm_post_layout,
-					showExcerpt: response.pm_post_show_excerpt,
-					showThumb: response.pm_post_show_thumb,
-					showDate: response.pm_post_show_date,
-					showCategories: response.pm_post_show_categories,
-				});
-				setIsLoading(false);
-			})
-			.catch((error) => {
-				console.error('Failed to fetch post settings:', error);
-				setIsLoading(false);
-			});
-	}, []);
-
+const PostListInspectorPanel = ({
+	siteSettings,
+	setSiteSettings,
+	isLoading,
+}) => {
 	const updateSetting = async (settingKey, value) => {
 		const newSettings = { ...siteSettings, [settingKey]: value };
 		setSiteSettings(newSettings);
@@ -73,7 +49,7 @@ const PostListInspectorPanel = () => {
 
 				<SelectControl
 					label="Layout"
-					value={columns}
+					value={siteSettings.columns}
 					options={[
 						{ label: '2 Columns', value: 2 },
 						{ label: '3 Columns', value: 3 },
